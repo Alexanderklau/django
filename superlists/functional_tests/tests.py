@@ -1,10 +1,9 @@
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 import unittest
-import time
 from django.test import LiveServerTestCase
 
-class NewVistitorTest(unittest.TestCase):
+class NewVistitorTest(LiveServerTestCase):
     def setUp(self):
         self.browser = webdriver.Firefox()
         self.browser.implicitly_wait(3)
