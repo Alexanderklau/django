@@ -1,7 +1,7 @@
-"""superlists URL Configuration
+"""mysite URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/1.10/topics/http/urls/
+    https://docs.djangoproject.com/en/1.9/topics/http/urls/
 Examples:
 Function views
     1. Add an import:  from my_app import views
@@ -13,11 +13,10 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import include,url
+from django.conf.urls import include, url
 from django.contrib import admin
-from rango.views import home_page
+
 urlpatterns = [
-    url(r'^admin/', include(admin.site.urls)),
-    url(r'^$', home_page),
-    url(r'rango/the-only-list-in-the-world/$','rango.views.view_list',name = 'view_list'),
+    url(r'^polls/', include('polls.urls')),
+    url(r'^admin/', admin.site.urls),
 ]
