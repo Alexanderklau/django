@@ -21,4 +21,5 @@ urlpatterns = [
     url(r'^add/$','learn.views.add',name='add'),
     url(r'^add/(\d+)/(\d+)/$','learn.views.add2',name='add2'),
     url(r'^$','learn.views.home',name='home'),
+
 ]
