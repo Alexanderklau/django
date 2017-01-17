@@ -15,13 +15,13 @@ Including another URLconf
 """
 from django.conf.urls import url,include,patterns
 from django.contrib import admin
-# from text import views
+from text import views
 
 # urlpatterns = patterns('',
 #     url(r'^admin/', admin.site.urls),
 #     url(r'hello/$','text.views.hello',name='text')
 # )
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    url(r'^',include('text.urls'))
-]
+    url(r'^hello/$',views.hello,{'a':'123'})
+
+] 
