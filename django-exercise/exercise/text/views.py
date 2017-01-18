@@ -1,8 +1,10 @@
 from django.shortcuts import render
 from django.contrib.auth.models import User
-def hello(requests,a):
-    print(a)
+from django.http import request
+def hello(request,a):
+    # print(request.GET.get('key'))
     user_list = User.objects.all()
-    return render(requests,'table.html',{'user_list':user_list})
+    print(user_list.query)
+    return render(request,'table.html',{'user_list':user_list})
 # Create your views here.
 
