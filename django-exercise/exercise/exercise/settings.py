@@ -27,7 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
+DEFAULT_CHARSET = 'UTF-8'
 # Application definition
 
 INSTALLED_APPS = [
@@ -81,6 +81,7 @@ DATABASES = {
         'NAME': 'test_db',
         'USER': 'lau',
         'PASSWORD':'',
+        'charset':'utf8'
         # 'HOST':'',
         # 'PORT':'',
 

@@ -1,3 +1,4 @@
+# coding=utf-8
 from django.db import models
 
 class Publiser(models.Model):
@@ -17,6 +18,9 @@ class Human(models.Model):
         verbose_name = '姓名'
         verbose_name_plural = verbose_name
 
+    def __str__(self):
+        return self.name
+
 class HumanDetail(models.Model):
     sex = models.BooleanField(max_length=1,choices=((0,'男'),(1,'女'),))
     email = models.EmailField()
@@ -27,6 +31,7 @@ class HumanDetail(models.Model):
     class Meta:
         verbose_name = '人员信息'
         verbose_name_plural = verbose_name
+
 
 class Work(models.Model):
     Work_name = models.CharField(max_length=100)
