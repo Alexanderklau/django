@@ -81,7 +81,7 @@ DATABASES = {
         'NAME': 'test_db',
         'USER': 'lau',
         'PASSWORD':'',
-        'charset':'utf8'
+        'CHARSET':'utf8'
         # 'HOST':'',
         # 'PORT':'',
 
