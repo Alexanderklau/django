@@ -10,6 +10,9 @@ class Publiser(models.Model):
         verbose_name = '公司信息'
         verbose_name_plural = verbose_name
 
+    def __str__(self):
+        return self.company_name
+
 
 class Human(models.Model):
     name = models.CharField(max_length=30)
