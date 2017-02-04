@@ -22,6 +22,6 @@ from text import views
 #     url(r'hello/$','text.views.hello',name='text')
 # )
 urlpatterns = [
-    url(r'^hello/$',views.hello,{'a':'123'})
-
+    url(r'^hello/$',views.hello,{'a':'123'}),
+    url(r'^add/$',views.add_Publisher)
 ] 

@@ -1,0 +1,277 @@
+2017-02-04 07:49:31,988 [Thread-3:140216624531200] [django.request:182] [base:get_response] [WARNING]- Not Found: /js/nav.js
+2017-02-04 07:49:31,994 [Thread-4:140216613951232] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a1.jpg
+2017-02-04 07:49:31,999 [Thread-5:140216605558528] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a2.jpg
+2017-02-04 07:49:32,004 [Thread-6:140216388024064] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a3.jpg
+2017-02-04 07:49:32,009 [Thread-7:140216379631360] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a4.jpg
+2017-02-04 07:49:32,171 [Thread-8:140216379631360] [django.request:182] [base:get_response] [WARNING]- Not Found: /js/nav.js
+2017-02-04 07:49:32,187 [Thread-9:140216379631360] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a1.jpg
+2017-02-04 07:49:32,192 [Thread-10:140216388024064] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a2.jpg
+2017-02-04 07:49:32,197 [Thread-11:140216605558528] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a3.jpg
+2017-02-04 07:49:32,204 [Thread-12:140216613951232] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a4.jpg
+2017-02-04 07:49:37,178 [Thread-14:140216613951232] [django.request:182] [base:get_response] [WARNING]- Not Found: /js/nav.js
+2017-02-04 07:49:37,184 [Thread-15:140216388024064] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a1.jpg
+2017-02-04 07:49:37,189 [Thread-16:140216605558528] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a2.jpg
+2017-02-04 07:49:37,193 [Thread-17:140216379631360] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a3.jpg
+2017-02-04 07:49:37,198 [Thread-18:140216624531200] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a4.jpg
+2017-02-04 07:49:37,290 [Thread-19:140216624531200] [django.request:182] [base:get_response] [WARNING]- Not Found: /js/nav.js
+2017-02-04 07:49:37,314 [Thread-20:140216624531200] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a1.jpg
+2017-02-04 07:49:37,319 [Thread-21:140216379631360] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a2.jpg
+2017-02-04 07:49:37,320 [Thread-22:140216605558528] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a3.jpg
+2017-02-04 07:49:37,328 [Thread-23:140216388024064] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a4.jpg
+2017-02-04 07:49:39,822 [Thread-26:140216388024064] [django.request:182] [base:get_response] [WARNING]- Not Found: /js/nav.js
+2017-02-04 07:49:39,828 [Thread-27:140216605558528] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a1.jpg
+2017-02-04 07:49:39,834 [Thread-28:140216379631360] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a2.jpg
+2017-02-04 07:49:39,840 [Thread-29:140216624531200] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a3.jpg
+2017-02-04 07:49:39,845 [Thread-30:140216613951232] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a4.jpg
+2017-02-04 07:49:39,930 [Thread-31:140216613951232] [django.request:182] [base:get_response] [WARNING]- Not Found: /js/nav.js
+2017-02-04 07:49:39,949 [Thread-32:140216613951232] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a1.jpg
+2017-02-04 07:49:39,954 [Thread-33:140216624531200] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a2.jpg
+2017-02-04 07:49:39,961 [Thread-34:140216605558528] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a3.jpg
+2017-02-04 07:49:39,965 [Thread-35:140216379631360] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a4.jpg
+2017-02-04 07:49:41,112 [Thread-37:140216379631360] [django.request:182] [base:get_response] [WARNING]- Not Found: /js/nav.js
+2017-02-04 07:49:41,116 [Thread-38:140216605558528] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a1.jpg
+2017-02-04 07:49:41,122 [Thread-39:140216624531200] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a2.jpg
+2017-02-04 07:49:41,128 [Thread-40:140216613951232] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a3.jpg
+2017-02-04 07:49:41,133 [Thread-41:140216388024064] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a4.jpg
+2017-02-04 07:49:41,233 [Thread-42:140216388024064] [django.request:182] [base:get_response] [WARNING]- Not Found: /js/nav.js
+2017-02-04 07:49:41,251 [Thread-43:140216388024064] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a1.jpg
+2017-02-04 07:49:41,255 [Thread-44:140216613951232] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a2.jpg
+2017-02-04 07:49:41,260 [Thread-45:140216605558528] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a3.jpg
+2017-02-04 07:49:41,261 [Thread-46:140216624531200] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a4.jpg
+2017-02-04 09:45:49,906 [Thread-2:140484176144128] [django.request:284] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/utils/module_loading.py", line 15, in import_string
+    module_path, class_name = dotted_path.rsplit('.', 1)
+ValueError: not enough values to unpack (expected 2, got 1)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/core/handlers/base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/core/handlers/base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/lau/PycharmProjects/django/Blog_DEMO/Blog/views.py", line 16, in index
+    return render(request,'index.html',locals())
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/shortcuts.py", line 67, in render
+    template_name, context, request=request, using=using)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/loader.py", line 97, in render_to_string
+    return template.render(context, request)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/backends/django.py", line 95, in render
+    return self.template.render(context)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/base.py", line 204, in render
+    with context.bind_template(self):
+  File "/home/lau/anaconda3/lib/python3.5/contextlib.py", line 59, in __enter__
+    return next(self.gen)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/context.py", line 256, in bind_template
+    processors = (template.engine.template_context_processors +
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/utils/functional.py", line 33, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/engine.py", line 105, in template_context_processors
+    return tuple(import_string(path) for path in context_processors)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/engine.py", line 105, in <genexpr>
+    return tuple(import_string(path) for path in context_processors)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/utils/module_loading.py", line 18, in import_string
+    six.reraise(ImportError, ImportError(msg), sys.exc_info()[2])
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/utils/six.py", line 685, in reraise
+    raise value.with_traceback(tb)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/utils/module_loading.py", line 15, in import_string
+    module_path, class_name = dotted_path.rsplit('.', 1)
+ImportError: global_setting doesn't look like a module path
+2017-02-04 09:46:54,879 [Thread-5:140484176144128] [django.request:284] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/utils/module_loading.py", line 15, in import_string
+    module_path, class_name = dotted_path.rsplit('.', 1)
+ValueError: not enough values to unpack (expected 2, got 1)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/core/handlers/base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/core/handlers/base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/lau/PycharmProjects/django/Blog_DEMO/Blog/views.py", line 16, in index
+    return render(request,'index.html',locals())
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/shortcuts.py", line 67, in render
+    template_name, context, request=request, using=using)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/loader.py", line 97, in render_to_string
+    return template.render(context, request)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/backends/django.py", line 95, in render
+    return self.template.render(context)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/base.py", line 204, in render
+    with context.bind_template(self):
+  File "/home/lau/anaconda3/lib/python3.5/contextlib.py", line 59, in __enter__
+    return next(self.gen)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/context.py", line 256, in bind_template
+    processors = (template.engine.template_context_processors +
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/utils/functional.py", line 33, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/engine.py", line 105, in template_context_processors
+    return tuple(import_string(path) for path in context_processors)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/engine.py", line 105, in <genexpr>
+    return tuple(import_string(path) for path in context_processors)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/utils/module_loading.py", line 18, in import_string
+    six.reraise(ImportError, ImportError(msg), sys.exc_info()[2])
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/utils/six.py", line 685, in reraise
+    raise value.with_traceback(tb)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/utils/module_loading.py", line 15, in import_string
+    module_path, class_name = dotted_path.rsplit('.', 1)
+ImportError: global_setting doesn't look like a module path
+2017-02-04 09:48:30,030 [Thread-2:140233380529920] [django.request:284] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/core/handlers/base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/core/handlers/base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/lau/PycharmProjects/django/Blog_DEMO/Blog/views.py", line 16, in index
+    return render(request,'index.html',locals())
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/shortcuts.py", line 67, in render
+    template_name, context, request=request, using=using)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/loader.py", line 97, in render_to_string
+    return template.render(context, request)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/backends/django.py", line 95, in render
+    return self.template.render(context)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/base.py", line 204, in render
+    with context.bind_template(self):
+  File "/home/lau/anaconda3/lib/python3.5/contextlib.py", line 59, in __enter__
+    return next(self.gen)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/context.py", line 260, in bind_template
+    updates.update(processor(self.request))
+TypeError: global_setting() takes 0 positional arguments but 1 was given
+2017-02-04 09:48:31,407 [Thread-3:140233380529920] [django.request:284] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/core/handlers/base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/core/handlers/base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/lau/PycharmProjects/django/Blog_DEMO/Blog/views.py", line 16, in index
+    return render(request,'index.html',locals())
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/shortcuts.py", line 67, in render
+    template_name, context, request=request, using=using)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/loader.py", line 97, in render_to_string
+    return template.render(context, request)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/backends/django.py", line 95, in render
+    return self.template.render(context)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/base.py", line 204, in render
+    with context.bind_template(self):
+  File "/home/lau/anaconda3/lib/python3.5/contextlib.py", line 59, in __enter__
+    return next(self.gen)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/context.py", line 260, in bind_template
+    updates.update(processor(self.request))
+TypeError: global_setting() takes 0 positional arguments but 1 was given
+2017-02-04 09:48:32,297 [Thread-4:140233380529920] [django.request:284] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/core/handlers/base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/core/handlers/base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/lau/PycharmProjects/django/Blog_DEMO/Blog/views.py", line 16, in index
+    return render(request,'index.html',locals())
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/shortcuts.py", line 67, in render
+    template_name, context, request=request, using=using)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/loader.py", line 97, in render_to_string
+    return template.render(context, request)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/backends/django.py", line 95, in render
+    return self.template.render(context)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/base.py", line 204, in render
+    with context.bind_template(self):
+  File "/home/lau/anaconda3/lib/python3.5/contextlib.py", line 59, in __enter__
+    return next(self.gen)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/context.py", line 260, in bind_template
+    updates.update(processor(self.request))
+TypeError: global_setting() takes 0 positional arguments but 1 was given
+2017-02-04 09:49:32,335 [Thread-5:140233380529920] [django.request:284] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/core/handlers/base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/core/handlers/base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/lau/PycharmProjects/django/Blog_DEMO/Blog/views.py", line 16, in index
+    return render(request,'index.html',locals())
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/shortcuts.py", line 67, in render
+    template_name, context, request=request, using=using)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/loader.py", line 97, in render_to_string
+    return template.render(context, request)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/backends/django.py", line 95, in render
+    return self.template.render(context)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/base.py", line 204, in render
+    with context.bind_template(self):
+  File "/home/lau/anaconda3/lib/python3.5/contextlib.py", line 59, in __enter__
+    return next(self.gen)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/context.py", line 260, in bind_template
+    updates.update(processor(self.request))
+TypeError: global_setting() takes 0 positional arguments but 1 was given
+2017-02-04 09:49:33,547 [Thread-6:140233380529920] [django.request:284] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/core/handlers/base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/core/handlers/base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/lau/PycharmProjects/django/Blog_DEMO/Blog/views.py", line 16, in index
+    return render(request,'index.html',locals())
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/shortcuts.py", line 67, in render
+    template_name, context, request=request, using=using)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/loader.py", line 97, in render_to_string
+    return template.render(context, request)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/backends/django.py", line 95, in render
+    return self.template.render(context)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/base.py", line 204, in render
+    with context.bind_template(self):
+  File "/home/lau/anaconda3/lib/python3.5/contextlib.py", line 59, in __enter__
+    return next(self.gen)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/context.py", line 260, in bind_template
+    updates.update(processor(self.request))
+TypeError: global_setting() takes 0 positional arguments but 1 was given
+2017-02-04 09:49:34,004 [Thread-7:140233380529920] [django.request:284] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/core/handlers/base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/core/handlers/base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/lau/PycharmProjects/django/Blog_DEMO/Blog/views.py", line 16, in index
+    return render(request,'index.html',locals())
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/shortcuts.py", line 67, in render
+    template_name, context, request=request, using=using)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/loader.py", line 97, in render_to_string
+    return template.render(context, request)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/backends/django.py", line 95, in render
+    return self.template.render(context)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/base.py", line 204, in render
+    with context.bind_template(self):
+  File "/home/lau/anaconda3/lib/python3.5/contextlib.py", line 59, in __enter__
+    return next(self.gen)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/context.py", line 260, in bind_template
+    updates.update(processor(self.request))
+TypeError: global_setting() takes 0 positional arguments but 1 was given
+2017-02-04 09:49:34,398 [Thread-8:140233380529920] [django.request:284] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/core/handlers/base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/core/handlers/base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/lau/PycharmProjects/django/Blog_DEMO/Blog/views.py", line 16, in index
+    return render(request,'index.html',locals())
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/shortcuts.py", line 67, in render
+    template_name, context, request=request, using=using)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/loader.py", line 97, in render_to_string
+    return template.render(context, request)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/backends/django.py", line 95, in render
+    return self.template.render(context)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/base.py", line 204, in render
+    with context.bind_template(self):
+  File "/home/lau/anaconda3/lib/python3.5/contextlib.py", line 59, in __enter__
+    return next(self.gen)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/context.py", line 260, in bind_template
+    updates.update(processor(self.request))
+TypeError: global_setting() takes 0 positional arguments but 1 was given
+2017-02-04 09:51:15,923 [Thread-7:140226555414272] [django.request:182] [base:get_response] [WARNING]- Not Found: /js/nav.js
+2017-02-04 09:51:15,929 [Thread-8:140226544834304] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a1.jpg
+2017-02-04 09:51:15,934 [Thread-9:140226536441600] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a2.jpg
+2017-02-04 09:51:15,938 [Thread-10:140226320135936] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a3.jpg
+2017-02-04 09:51:15,943 [Thread-11:140226311743232] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a4.jpg
+2017-02-04 09:51:16,113 [Thread-12:140226311743232] [django.request:182] [base:get_response] [WARNING]- Not Found: /js/nav.js
+2017-02-04 09:51:16,137 [Thread-13:140226311743232] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a1.jpg
+2017-02-04 09:51:16,141 [Thread-14:140226320135936] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a2.jpg
+2017-02-04 09:51:16,147 [Thread-15:140226536441600] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a3.jpg
+2017-02-04 09:51:16,152 [Thread-16:140226544834304] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a4.jpg

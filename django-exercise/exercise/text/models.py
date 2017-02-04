@@ -4,7 +4,7 @@ from django.db import models
 class Publiser(models.Model):
     company_name = models.CharField("公司名",max_length=30)
     company_address = models.CharField(max_length=60)
-    company_city = models.CharField(max_length=50)
+    company_city = models.CharField('城市',max_length=50)
     company_web = models.URLField()
     class Meta:
         verbose_name = '公司信息'
