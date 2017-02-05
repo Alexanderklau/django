@@ -3,8 +3,8 @@ from .models import *
 
 
 class Articleadmin(admin.ModelAdmin):
-    fields = ('title','desc','content')#显示title,desc,content三项
-    #exclude = ('title','desc','content') 除三项外都显示
+    # fields = ('title','desc','content')#显示title,desc,content三项
+    # exclude = ('title','desc','content') 除三项外都显示
     class Media:
         js = (
             '/static/js/kindeditor/kindeditor-min.js',

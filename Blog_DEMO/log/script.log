@@ -307,3 +307,532 @@ TypeError: global_setting() takes 0 positional arguments but 1 was given
 2017-02-05 10:18:45,598 [Thread-39:139860725475072] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a2.jpg
 2017-02-05 10:18:45,603 [Thread-41:139860762281728] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a4.jpg
 2017-02-05 10:18:45,607 [Thread-40:139860750653184] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a3.jpg
+2017-02-05 12:39:29,956 [Thread-2:140070060566272] [django.request:284] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/core/handlers/base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/core/handlers/base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/lau/PycharmProjects/django/Blog_DEMO/Blog/views.py", line 16, in index
+    return render(request,'base.html',locals())
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/shortcuts.py", line 67, in render
+    template_name, context, request=request, using=using)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/loader.py", line 96, in render_to_string
+    template = get_template(template_name, using=using)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/loader.py", line 32, in get_template
+    return engine.get_template(template_name, dirs)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/backends/django.py", line 40, in get_template
+    return Template(self.engine.get_template(template_name, dirs), self)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/engine.py", line 190, in get_template
+    template, origin = self.find_template(template_name, dirs)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/engine.py", line 157, in find_template
+    name, template_dirs=dirs, skip=skip,
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/loaders/base.py", line 46, in get_template
+    contents, origin, origin.template_name, self.engine,
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/base.py", line 189, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/base.py", line 231, in compile_nodelist
+    return parser.parse()
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/base.py", line 516, in parse
+    raise self.error(token, e)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/base.py", line 514, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/loader_tags.py", line 237, in do_block
+    raise TemplateSyntaxError("'%s' tag with name '%s' appears more than once" % (bits[0], block_name))
+django.template.exceptions.TemplateSyntaxError: 'block' tag with name 'custom_css' appears more than once
+2017-02-05 12:39:31,974 [Thread-3:140070060566272] [django.request:182] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2017-02-05 12:39:31,994 [Thread-4:140070060566272] [django.request:182] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2017-02-05 12:41:57,064 [Thread-2:139682431792896] [django.request:284] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/base.py", line 508, in parse
+    compile_func = self.tags[command]
+KeyError: 'extend'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/core/handlers/base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/core/handlers/base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/lau/PycharmProjects/django/Blog_DEMO/Blog/views.py", line 16, in index
+    return render(request,'index.html',locals())
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/shortcuts.py", line 67, in render
+    template_name, context, request=request, using=using)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/loader.py", line 96, in render_to_string
+    template = get_template(template_name, using=using)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/loader.py", line 32, in get_template
+    return engine.get_template(template_name, dirs)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/backends/django.py", line 40, in get_template
+    return Template(self.engine.get_template(template_name, dirs), self)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/engine.py", line 190, in get_template
+    template, origin = self.find_template(template_name, dirs)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/engine.py", line 157, in find_template
+    name, template_dirs=dirs, skip=skip,
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/loaders/base.py", line 46, in get_template
+    contents, origin, origin.template_name, self.engine,
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/base.py", line 189, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/base.py", line 231, in compile_nodelist
+    return parser.parse()
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/base.py", line 510, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/base.py", line 572, in invalid_block_tag
+    "or load this tag?" % (token.lineno, command)
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 1: 'extend'. Did you forget to register or load this tag?
+2017-02-05 12:43:46,671 [Thread-8:139682193073920] [django.request:182] [base:get_response] [WARNING]- Not Found: /js/nav.js
+2017-02-05 12:43:46,719 [Thread-9:139682431792896] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a1.jpg
+2017-02-05 12:43:46,724 [Thread-10:139682201466624] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a2.jpg
+2017-02-05 12:43:46,730 [Thread-11:139682411771648] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a3.jpg
+2017-02-05 12:43:46,735 [Thread-12:139682420164352] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a4.jpg
+2017-02-05 12:43:46,838 [Thread-13:139682420164352] [django.request:182] [base:get_response] [WARNING]- Not Found: /js/nav.js
+2017-02-05 12:43:46,862 [Thread-14:139682420164352] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a1.jpg
+2017-02-05 12:43:46,866 [Thread-15:139682411771648] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a2.jpg
+2017-02-05 12:43:46,872 [Thread-17:139682431792896] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a4.jpg
+2017-02-05 12:43:46,879 [Thread-16:139682201466624] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a3.jpg
+2017-02-05 12:53:42,936 [Thread-7:140301091038976] [django.request:182] [base:get_response] [WARNING]- Not Found: /js/nav.js
+2017-02-05 12:53:43,066 [Thread-8:140301091038976] [django.request:182] [base:get_response] [WARNING]- Not Found: /js/nav.js
+2017-02-05 12:57:43,331 [Thread-2:140335297541888] [django.request:284] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/base.py", line 508, in parse
+    compile_func = self.tags[command]
+KeyError: 'entends'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/core/handlers/base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/core/handlers/base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/lau/PycharmProjects/django/Blog_DEMO/Blog/views.py", line 16, in index
+    return render(request,'index.html',locals())
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/shortcuts.py", line 67, in render
+    template_name, context, request=request, using=using)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/loader.py", line 96, in render_to_string
+    template = get_template(template_name, using=using)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/loader.py", line 32, in get_template
+    return engine.get_template(template_name, dirs)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/backends/django.py", line 40, in get_template
+    return Template(self.engine.get_template(template_name, dirs), self)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/engine.py", line 190, in get_template
+    template, origin = self.find_template(template_name, dirs)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/engine.py", line 157, in find_template
+    name, template_dirs=dirs, skip=skip,
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/loaders/base.py", line 46, in get_template
+    contents, origin, origin.template_name, self.engine,
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/base.py", line 189, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/base.py", line 231, in compile_nodelist
+    return parser.parse()
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/base.py", line 510, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/base.py", line 572, in invalid_block_tag
+    "or load this tag?" % (token.lineno, command)
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 1: 'entends'. Did you forget to register or load this tag?
+2017-02-05 12:59:58,713 [Thread-2:139738233968384] [django.request:284] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/base.py", line 508, in parse
+    compile_func = self.tags[command]
+KeyError: 'endbolck'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/core/handlers/base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/core/handlers/base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/lau/PycharmProjects/django/Blog_DEMO/Blog/views.py", line 16, in index
+    return render(request,'index.html',locals())
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/shortcuts.py", line 67, in render
+    template_name, context, request=request, using=using)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/loader.py", line 96, in render_to_string
+    template = get_template(template_name, using=using)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/loader.py", line 32, in get_template
+    return engine.get_template(template_name, dirs)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/backends/django.py", line 40, in get_template
+    return Template(self.engine.get_template(template_name, dirs), self)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/engine.py", line 190, in get_template
+    template, origin = self.find_template(template_name, dirs)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/engine.py", line 157, in find_template
+    name, template_dirs=dirs, skip=skip,
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/loaders/base.py", line 46, in get_template
+    contents, origin, origin.template_name, self.engine,
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/base.py", line 189, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/base.py", line 231, in compile_nodelist
+    return parser.parse()
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/base.py", line 516, in parse
+    raise self.error(token, e)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/base.py", line 514, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/loader_tags.py", line 267, in do_extends
+    nodelist = parser.parse()
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/base.py", line 516, in parse
+    raise self.error(token, e)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/base.py", line 514, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/loader_tags.py", line 241, in do_block
+    nodelist = parser.parse(('endblock',))
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/base.py", line 510, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/base.py", line 566, in invalid_block_tag
+    get_text_list(["'%s'" % p for p in parse_until]),
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 126: 'endbolck', expected 'endblock'. Did you forget to register or load this tag?
+2017-02-05 13:00:15,861 [Thread-8:139738233968384] [django.request:182] [base:get_response] [WARNING]- Not Found: /js/nav.js
+2017-02-05 13:00:15,867 [Thread-9:139738222339840] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a1.jpg
+2017-02-05 13:00:15,868 [Thread-10:139738213947136] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a2.jpg
+2017-02-05 13:00:15,876 [Thread-11:139738205554432] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a3.jpg
+2017-02-05 13:00:15,880 [Thread-12:139738197161728] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a4.jpg
+2017-02-05 13:00:16,020 [Thread-13:139738197161728] [django.request:182] [base:get_response] [WARNING]- Not Found: /js/nav.js
+2017-02-05 13:00:16,044 [Thread-14:139738197161728] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a1.jpg
+2017-02-05 13:00:16,049 [Thread-15:139738205554432] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a2.jpg
+2017-02-05 13:00:16,053 [Thread-16:139738213947136] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a3.jpg
+2017-02-05 13:00:16,059 [Thread-17:139738222339840] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a4.jpg
+2017-02-05 13:10:56,789 [Thread-38:139738180376320] [django.request:182] [base:get_response] [WARNING]- Not Found: /js/nav.js
+2017-02-05 13:10:56,795 [Thread-39:139738205554432] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a1.jpg
+2017-02-05 13:10:56,800 [Thread-40:139738222339840] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a2.jpg
+2017-02-05 13:10:56,805 [Thread-41:139738213947136] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a3.jpg
+2017-02-05 13:10:56,810 [Thread-42:139738233968384] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a4.jpg
+2017-02-05 13:10:56,936 [Thread-43:139738233968384] [django.request:182] [base:get_response] [WARNING]- Not Found: /js/nav.js
+2017-02-05 13:10:56,953 [Thread-44:139738233968384] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a1.jpg
+2017-02-05 13:10:56,959 [Thread-45:139738213947136] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a2.jpg
+2017-02-05 13:10:56,965 [Thread-46:139738222339840] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a3.jpg
+2017-02-05 13:10:56,972 [Thread-47:139738205554432] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a4.jpg
+2017-02-05 13:13:47,779 [Thread-66:139738222339840] [django.request:182] [base:get_response] [WARNING]- Not Found: /js/nav.js
+2017-02-05 13:13:47,784 [Thread-67:139738205554432] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a1.jpg
+2017-02-05 13:13:47,789 [Thread-68:139738213947136] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a2.jpg
+2017-02-05 13:13:47,794 [Thread-69:139738233968384] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a3.jpg
+2017-02-05 13:13:47,795 [Thread-70:139738197161728] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a4.jpg
+2017-02-05 13:13:47,923 [Thread-71:139738197161728] [django.request:182] [base:get_response] [WARNING]- Not Found: /js/nav.js
+2017-02-05 13:13:47,938 [Thread-72:139738197161728] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a1.jpg
+2017-02-05 13:13:47,944 [Thread-73:139738233968384] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a2.jpg
+2017-02-05 13:13:47,949 [Thread-74:139738213947136] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a3.jpg
+2017-02-05 13:13:47,954 [Thread-75:139738205554432] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a4.jpg
+2017-02-05 13:34:20,274 [Thread-7:140358945122048] [django.request:182] [base:get_response] [WARNING]- Not Found: /js/nav.js
+2017-02-05 13:34:20,280 [Thread-8:140358860142336] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a1.jpg
+2017-02-05 13:34:20,286 [Thread-9:140358851749632] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a2.jpg
+2017-02-05 13:34:20,291 [Thread-10:140358843356928] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a3.jpg
+2017-02-05 13:34:20,297 [Thread-11:140358834964224] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a4.jpg
+2017-02-05 13:34:20,417 [Thread-12:140358834964224] [django.request:182] [base:get_response] [WARNING]- Not Found: /js/nav.js
+2017-02-05 13:34:20,432 [Thread-13:140358834964224] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a1.jpg
+2017-02-05 13:34:20,437 [Thread-14:140358843356928] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a2.jpg
+2017-02-05 13:34:20,439 [Thread-15:140358851749632] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a3.jpg
+2017-02-05 13:34:20,444 [Thread-16:140358860142336] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a4.jpg
+2017-02-05 13:34:21,656 [Thread-35:140358818178816] [django.request:182] [base:get_response] [WARNING]- Not Found: /js/nav.js
+2017-02-05 13:34:21,663 [Thread-36:140358860142336] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a1.jpg
+2017-02-05 13:34:21,668 [Thread-37:140358851749632] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a2.jpg
+2017-02-05 13:34:21,673 [Thread-38:140358826571520] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a3.jpg
+2017-02-05 13:34:21,679 [Thread-39:140358818178816] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a4.jpg
+2017-02-05 13:34:21,763 [Thread-40:140358818178816] [django.request:182] [base:get_response] [WARNING]- Not Found: /js/nav.js
+2017-02-05 13:34:21,776 [Thread-41:140358818178816] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a1.jpg
+2017-02-05 13:34:21,782 [Thread-42:140358826571520] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a2.jpg
+2017-02-05 13:34:21,783 [Thread-43:140358851749632] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a3.jpg
+2017-02-05 13:34:21,788 [Thread-44:140358860142336] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a4.jpg
+2017-02-05 13:35:28,784 [Thread-3:139724830557952] [django.request:182] [base:get_response] [WARNING]- Not Found: /js/nav.js
+2017-02-05 13:35:28,789 [Thread-4:139724748486400] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a1.jpg
+2017-02-05 13:35:28,790 [Thread-5:139724740093696] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a2.jpg
+2017-02-05 13:35:28,798 [Thread-6:139724731700992] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a3.jpg
+2017-02-05 13:35:28,803 [Thread-7:139724723308288] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a4.jpg
+2017-02-05 13:35:28,912 [Thread-8:139724723308288] [django.request:182] [base:get_response] [WARNING]- Not Found: /js/nav.js
+2017-02-05 13:35:28,935 [Thread-9:139724723308288] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a1.jpg
+2017-02-05 13:35:28,941 [Thread-10:139724731700992] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a2.jpg
+2017-02-05 13:35:28,946 [Thread-11:139724740093696] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a3.jpg
+2017-02-05 13:35:28,950 [Thread-12:139724748486400] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a4.jpg
+2017-02-05 13:37:51,461 [Thread-14:139724830557952] [django.request:284] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/base.py", line 508, in parse
+    compile_func = self.tags[command]
+KeyError: 'end'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/core/handlers/base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/core/handlers/base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/lau/PycharmProjects/django/Blog_DEMO/Blog/views.py", line 17, in index
+    return render(request,'index.html',{'category_list':category_list})
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/shortcuts.py", line 67, in render
+    template_name, context, request=request, using=using)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/loader.py", line 97, in render_to_string
+    return template.render(context, request)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/backends/django.py", line 95, in render
+    return self.template.render(context)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/base.py", line 206, in render
+    return self._render(context)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/base.py", line 197, in _render
+    return self.nodelist.render(context)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/base.py", line 992, in render
+    bit = node.render_annotated(context)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/base.py", line 959, in render_annotated
+    return self.render(context)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/loader_tags.py", line 151, in render
+    compiled_parent = self.get_parent(context)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/loader_tags.py", line 148, in get_parent
+    return self.find_template(parent, context)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/loader_tags.py", line 128, in find_template
+    template_name, skip=history,
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/engine.py", line 157, in find_template
+    name, template_dirs=dirs, skip=skip,
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/loaders/base.py", line 46, in get_template
+    contents, origin, origin.template_name, self.engine,
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/base.py", line 189, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/base.py", line 231, in compile_nodelist
+    return parser.parse()
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/base.py", line 516, in parse
+    raise self.error(token, e)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/base.py", line 514, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/defaulttags.py", line 886, in do_for
+    nodelist_loop = parser.parse(('empty', 'endfor',))
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/base.py", line 510, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/base.py", line 566, in invalid_block_tag
+    get_text_list(["'%s'" % p for p in parse_until]),
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 29: 'end', expected 'empty' or 'endfor'. Did you forget to register or load this tag?
+2017-02-05 13:38:00,736 [Thread-20:139724830557952] [django.request:182] [base:get_response] [WARNING]- Not Found: /js/nav.js
+2017-02-05 13:38:00,757 [Thread-21:139724748486400] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a1.jpg
+2017-02-05 13:38:00,761 [Thread-22:139724830557952] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a2.jpg
+2017-02-05 13:38:00,769 [Thread-25:139724723308288] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a4.jpg
+2017-02-05 13:38:00,774 [Thread-26:139724714915584] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a3.jpg
+2017-02-05 13:38:00,881 [Thread-24:139724731700992] [django.request:182] [base:get_response] [WARNING]- Not Found: /js/nav.js
+2017-02-05 13:38:00,898 [Thread-23:139724740093696] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a1.jpg
+2017-02-05 13:38:00,903 [Thread-27:139724731700992] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a2.jpg
+2017-02-05 13:38:00,907 [Thread-28:139724714915584] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a3.jpg
+2017-02-05 13:38:00,913 [Thread-29:139724723308288] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a4.jpg
+2017-02-05 15:33:42,413 [Thread-7:140253730514688] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a1.jpg
+2017-02-05 15:33:42,419 [Thread-8:140253719410432] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a2.jpg
+2017-02-05 15:33:42,424 [Thread-9:140253711017728] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a3.jpg
+2017-02-05 15:33:42,431 [Thread-10:140253499225856] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a4.jpg
+2017-02-05 15:33:42,448 [Thread-11:140253499225856] [django.request:182] [base:get_response] [WARNING]- Not Found: /js/nav.js
+2017-02-05 15:33:42,571 [Thread-12:140253499225856] [django.request:182] [base:get_response] [WARNING]- Not Found: /js/nav.js
+2017-02-05 15:33:42,588 [Thread-13:140253499225856] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a1.jpg
+2017-02-05 15:33:42,593 [Thread-14:140253711017728] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a2.jpg
+2017-02-05 15:33:42,598 [Thread-15:140253719410432] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a3.jpg
+2017-02-05 15:33:42,603 [Thread-16:140253730514688] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a4.jpg
+2017-02-05 15:33:45,220 [Thread-27:140253730514688] [django.request:182] [base:get_response] [WARNING]- Not Found: /js/nav.js
+2017-02-05 15:33:45,225 [Thread-28:140253719410432] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a1.jpg
+2017-02-05 15:33:45,231 [Thread-29:140253711017728] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a2.jpg
+2017-02-05 15:33:45,237 [Thread-30:140253499225856] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a3.jpg
+2017-02-05 15:33:45,244 [Thread-31:140253490833152] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a4.jpg
+2017-02-05 15:33:45,351 [Thread-32:140253490833152] [django.request:182] [base:get_response] [WARNING]- Not Found: /js/nav.js
+2017-02-05 15:33:45,381 [Thread-33:140253490833152] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a1.jpg
+2017-02-05 15:33:45,387 [Thread-35:140253711017728] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a3.jpg
+2017-02-05 15:33:45,388 [Thread-34:140253499225856] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a2.jpg
+2017-02-05 15:33:45,397 [Thread-36:140253719410432] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a4.jpg
+2017-02-05 15:39:22,758 [Thread-7:139752380552960] [django.request:182] [base:get_response] [WARNING]- Not Found: /js/nav.js
+2017-02-05 15:39:22,762 [Thread-8:139752372160256] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a1.jpg
+2017-02-05 15:39:22,767 [Thread-9:139752363767552] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a2.jpg
+2017-02-05 15:39:22,772 [Thread-10:139752612448000] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a3.jpg
+2017-02-05 15:39:22,777 [Thread-11:139752397338368] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a4.jpg
+2017-02-05 15:39:22,913 [Thread-12:139752397338368] [django.request:182] [base:get_response] [WARNING]- Not Found: /js/nav.js
+2017-02-05 15:39:22,926 [Thread-13:139752397338368] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a1.jpg
+2017-02-05 15:39:22,931 [Thread-14:139752612448000] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a2.jpg
+2017-02-05 15:39:22,936 [Thread-15:139752363767552] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a3.jpg
+2017-02-05 15:39:22,941 [Thread-16:139752372160256] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a4.jpg
+2017-02-05 15:39:37,731 [Thread-36:139752372160256] [django.request:284] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /admin/Blog/article/add/
+Traceback (most recent call last):
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/db/backends/mysql/base.py", line 112, in execute
+    return self.cursor.execute(query, args)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/pymysql/cursors.py", line 166, in execute
+    result = self._query(query)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/pymysql/connections.py", line 837, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/pymysql/connections.py", line 1021, in _read_query_result
+    result.read()
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/pymysql/connections.py", line 1304, in read
+    first_packet = self.connection._read_packet()
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/pymysql/connections.py", line 983, in _read_packet
+    packet.check_error()
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/pymysql/connections.py", line 395, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/pymysql/err.py", line 102, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.IntegrityError: (1048, "23000Column 'user_id' cannot be null")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/core/handlers/base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/core/handlers/base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/contrib/admin/options.py", line 541, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/utils/decorators.py", line 149, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/views/decorators/cache.py", line 57, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/contrib/admin/sites.py", line 244, in inner
+    return view(request, *args, **kwargs)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/contrib/admin/options.py", line 1437, in add_view
+    return self.changeform_view(request, None, form_url, extra_context)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/utils/decorators.py", line 67, in _wrapper
+    return bound_func(*args, **kwargs)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/utils/decorators.py", line 149, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/utils/decorators.py", line 63, in bound_func
+    return func.__get__(self, type(self))(*args2, **kwargs2)
+  File "/home/lau/anaconda3/lib/python3.5/contextlib.py", line 30, in inner
+    return func(*args, **kwds)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/contrib/admin/options.py", line 1378, in changeform_view
+    self.save_model(request, new_object, form, not add)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/contrib/admin/options.py", line 991, in save_model
+    obj.save()
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/db/models/base.py", line 708, in save
+    force_update=force_update, update_fields=update_fields)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/db/models/base.py", line 736, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/db/models/base.py", line 820, in _save_table
+    result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/db/models/base.py", line 859, in _do_insert
+    using=using, raw=raw)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/db/models/manager.py", line 122, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/db/models/query.py", line 1039, in _insert
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/db/models/sql/compiler.py", line 1060, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/db/backends/utils.py", line 79, in execute
+    return super(CursorDebugWrapper, self).execute(sql, params)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/db/utils.py", line 95, in __exit__
+    six.reraise(dj_exc_type, dj_exc_value, traceback)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/utils/six.py", line 685, in reraise
+    raise value.with_traceback(tb)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/db/backends/mysql/base.py", line 112, in execute
+    return self.cursor.execute(query, args)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/pymysql/cursors.py", line 166, in execute
+    result = self._query(query)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/pymysql/connections.py", line 837, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/pymysql/connections.py", line 1021, in _read_query_result
+    result.read()
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/pymysql/connections.py", line 1304, in read
+    first_packet = self.connection._read_packet()
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/pymysql/connections.py", line 983, in _read_packet
+    packet.check_error()
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/pymysql/connections.py", line 395, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/pymysql/err.py", line 102, in raise_mysql_exception
+    raise errorclass(errno, errval)
+django.db.utils.IntegrityError: (1048, "23000Column 'user_id' cannot be null")
+2017-02-05 15:43:01,967 [Thread-74:139752372160256] [django.request:284] [base:handle_uncaught_exception] [ERROR]- Internal Server Error: /admin/Blog/article/add/
+Traceback (most recent call last):
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/db/backends/mysql/base.py", line 112, in execute
+    return self.cursor.execute(query, args)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/pymysql/cursors.py", line 166, in execute
+    result = self._query(query)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/pymysql/connections.py", line 837, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/pymysql/connections.py", line 1021, in _read_query_result
+    result.read()
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/pymysql/connections.py", line 1304, in read
+    first_packet = self.connection._read_packet()
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/pymysql/connections.py", line 983, in _read_packet
+    packet.check_error()
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/pymysql/connections.py", line 395, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/pymysql/err.py", line 102, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.IntegrityError: (1048, "23000Column 'user_id' cannot be null")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/core/handlers/base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/core/handlers/base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/contrib/admin/options.py", line 541, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/utils/decorators.py", line 149, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/views/decorators/cache.py", line 57, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/contrib/admin/sites.py", line 244, in inner
+    return view(request, *args, **kwargs)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/contrib/admin/options.py", line 1437, in add_view
+    return self.changeform_view(request, None, form_url, extra_context)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/utils/decorators.py", line 67, in _wrapper
+    return bound_func(*args, **kwargs)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/utils/decorators.py", line 149, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/utils/decorators.py", line 63, in bound_func
+    return func.__get__(self, type(self))(*args2, **kwargs2)
+  File "/home/lau/anaconda3/lib/python3.5/contextlib.py", line 30, in inner
+    return func(*args, **kwds)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/contrib/admin/options.py", line 1378, in changeform_view
+    self.save_model(request, new_object, form, not add)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/contrib/admin/options.py", line 991, in save_model
+    obj.save()
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/db/models/base.py", line 708, in save
+    force_update=force_update, update_fields=update_fields)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/db/models/base.py", line 736, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/db/models/base.py", line 820, in _save_table
+    result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/db/models/base.py", line 859, in _do_insert
+    using=using, raw=raw)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/db/models/manager.py", line 122, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/db/models/query.py", line 1039, in _insert
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/db/models/sql/compiler.py", line 1060, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/db/backends/utils.py", line 79, in execute
+    return super(CursorDebugWrapper, self).execute(sql, params)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/db/utils.py", line 95, in __exit__
+    six.reraise(dj_exc_type, dj_exc_value, traceback)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/utils/six.py", line 685, in reraise
+    raise value.with_traceback(tb)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/db/backends/mysql/base.py", line 112, in execute
+    return self.cursor.execute(query, args)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/pymysql/cursors.py", line 166, in execute
+    result = self._query(query)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/pymysql/connections.py", line 837, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/pymysql/connections.py", line 1021, in _read_query_result
+    result.read()
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/pymysql/connections.py", line 1304, in read
+    first_packet = self.connection._read_packet()
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/pymysql/connections.py", line 983, in _read_packet
+    packet.check_error()
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/pymysql/connections.py", line 395, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/pymysql/err.py", line 102, in raise_mysql_exception
+    raise errorclass(errno, errval)
+django.db.utils.IntegrityError: (1048, "23000Column 'user_id' cannot be null")
+2017-02-05 15:45:36,452 [Thread-29:140311963019008] [django.request:182] [base:get_response] [WARNING]- Not Found: /js/nav.js
+2017-02-05 15:45:36,458 [Thread-30:140311741327104] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a1.jpg
+2017-02-05 15:45:36,462 [Thread-31:140311749719808] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a2.jpg
+2017-02-05 15:45:36,467 [Thread-32:140311971411712] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a3.jpg
+2017-02-05 15:45:36,473 [Thread-33:140311732934400] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a4.jpg
+2017-02-05 15:45:36,582 [Thread-34:140311732934400] [django.request:182] [base:get_response] [WARNING]- Not Found: /js/nav.js
+2017-02-05 15:45:36,603 [Thread-35:140311732934400] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a1.jpg
+2017-02-05 15:45:36,608 [Thread-36:140311971411712] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a2.jpg
+2017-02-05 15:45:36,614 [Thread-37:140311749719808] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a3.jpg
+2017-02-05 15:45:36,618 [Thread-38:140311741327104] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a4.jpg
