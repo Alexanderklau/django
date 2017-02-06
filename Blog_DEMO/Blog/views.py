@@ -8,6 +8,9 @@ from django.db import connection
 logger = logging.getLogger('blog.views')
 
 def global_setting(request):
+    category_list = Category.objects.all()
+    article_list = Article.objects.all()
+    paginator = Paginator(article_list, 10)
     return {
         'SITE_NAME':settings.SITE_NAME,
         'SITE_DESC':settings.SITE_DESC
@@ -15,9 +18,6 @@ def global_setting(request):
 def index(request):
     try:
         #分类信息获取
-        category_list = Category.objects.all()
-        article_list = Article.objects.all()
-        paginator = Paginator(article_list,10)
         try:
             page = int(request.GET.get('page',1))
             article_list = paginator.page(page)
