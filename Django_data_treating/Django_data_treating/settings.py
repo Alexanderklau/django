@@ -124,3 +124,5 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR,'static'),
     #找到绝对路径
 )
+from mongoengine import connect
+connect('Game',host='127.0.0.1',port=27017)

@@ -15,64 +15,35 @@
     <div class="main-content">
         <h2>Article</h2>
         <ul class="articles">
+            {% for item in Gameinfo %}
             <li>
                 <img src="{% static 'images/0001.jpg' %}" width="100" height="91">
                 <div class="article-info">
-                    <h3><a href="#">{{ title }}</a></h3>
+                    <h3><a href="#">{{ item.title }}</a></h3>
                     <p class="meta-info">
-                        <span class="meta-cate">fun</span>
-                        <span class="meta-cate">Wow</span>
+                        <span class="meta-cate">{{ item.type }}</span>
                     </p>
-                    <p class="description">{{ des }}</p>
+                    <p class="description">{{ item.star }}</p>
                 </div>
-                <div class="rate">
-                    <span class="rate-score">{{ score }}</span>
+                <div class="date">
+                    <span class="rate-score">{{ item.date }}</span>
+                </div>
+                <div class="ID">
+                    <span class="rate-score">{{ item.ID }}</span>
                 </div>
             </li>
-            <li>
-                <img src="{% static 'images/0002.jpg' %}" width="100" height="91">
-                <div class="article-info">
-                    <h3><a href="#">The blah</a></h3>
-                    <p class="meta-info">
-                        <span class="meta-cate">butt</span>
-                        <span class="meta-cate">NSFW</span>
-                    </p>
-                    <p class="description">Just say something.</p>
-                </div>
-                <div class="rate">
-                    <img src="{% static 'images/Fire.png' %}" width="18" height="18">
-                    <span class="rate-score">5.0</span>
-                </div>
-            </li>
-            <li>
-                <img src="{% static 'images/0003.jpg' %}" width="100" height="91">
-                <div class="article-info">
-                    <h3><a href="#">The blah</a></h3>
-                    <p class="meta-info">
-                        <span class="meta-cate">sea</span>
-                    </p>
-                    <p class="description">Just say something.</p>
-                </div>
-                <div class="rate">
-                    <span class="rate-score">3.5</span>
-                </div>
-            </li>
-            <li>
-                <img src="{% static 'images/0004.jpg' %}" width="100" height="91">
-                <div class="article-info">
-                    <h3><a href="#">The blah</a></h3>
-                    <p class="meta-info">
-                        <span class="meta-cate">bay</span>
-                        <span class="meta-cate">boat</span>
-                        <span class="meta-cate">beach</span>
-                    </p>
-                    <p class="description">Just say something.</p>
-                </div>
-                <div class="rate">
-                    <span class="rate-score">3.0</span>
-                </div>
-            </li>
+            {% endfor %}
         </ul>
+        <div class="main-content-pagitor">
+            {% if Gameinfo.has_previous %}
+            <a href="?page={{ Gameinfo.previous_page_number }}">< Pre</a>
+            {% endif %}
+            <p> {{ Gameinfo.number }} of {{ Gameinfo.paginator.num_pages }}</p>
+            <span> 1 of 2</span>
+            {% if Gameinfo.has_next %}
+            <a href="?page={{ Gameinfo.next_page_number }}">Next ></a>
+            {% endif %}
+        </div>
     </div>
     <div class="footer">
         <p>&copy; Mugglecoding</p>
