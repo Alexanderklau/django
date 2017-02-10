@@ -1,52 +1,77 @@
 {% load static %}
+<!DOCTYPE html>
 <html>
-<head>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/new_blah.css' %}">
-</head>
-<body>
-    <div class="header">
-        <img src="{% static 'images/blah.png' %}">
-        <ul class="nav">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Site</a></li>
-            <li><a href="#">Other</a></li>
-        </ul>
+  <head>
+    <meta charset="utf-8">
+    <title>A Awesome web!</title>
+    <link rel="stylesheet"href="{% static 'css/semantic.css' %}">
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/semantic.js' %}"></script>
+  </head>
+  <body>
+  <div class="ui thin visible left sidebar inverted vertical menu">
+    <div class="header item">
+      <img src="{% static 'images/logo2.png' %}">
     </div>
-    <div class="main-content">
-        <h2>Article</h2>
-        <ul class="articles">
-            {% for item in Gameinfo %}
-            <li>
-                <img src="{% static 'images/0001.jpg' %}" width="100" height="91">
-                <div class="article-info">
-                    <h3><a href="#">{{ item.title }}</a></h3>
-                    <p class="meta-info">
-                        <span class="meta-cate">{{ item.type }}</span>
-                    </p>
-                    <p class="description">{{ item.star }}</p>
-                </div>
-                <div class="date">
-                    <span class="rate-score">{{ item.date }}</span>
-                </div>
-                <div class="ID">
-                    <span class="rate-score">{{ item.ID }}</span>
-                </div>
-            </li>
-            {% endfor %}
-        </ul>
-        <div class="main-content-pagitor">
-            {% if Gameinfo.has_previous %}
-            <a href="?page={{ Gameinfo.previous_page_number }}">< Pre</a>
-            {% endif %}
-            <p> {{ Gameinfo.number }} of {{ Gameinfo.paginator.num_pages }}</p>
-            <span> 1 of 2</span>
-            {% if Gameinfo.has_next %}
-            <a href="?page={{ Gameinfo.next_page_number }}">Next ></a>
-            {% endif %}
+    <div class="item">
+      options 1
+      <i class="browser icon"></i>
+    </div>
+    <div class="item">
+      options 2
+      <i class="bar chart icon"></i>
+    </div>
+    <div class="item">
+      options 3
+      <i class="idea icon"></i>
+    </div>
+  </div>
+  <div class="pusher">
+    <div class="ui menu">
+      <div class="header item" id="menu">
+        menu
+        <i class="content icon"></i>
+      </div>
+      <a class="item">This</a>
+      <a class="item">company</a>
+    </div>
+    <div class="ui container" style="margin:70px 0 0 0 ">
+      <div class="ui divided items">
+        {% for item in Gameinfo %}
+         <div class="item">
+          <div class="content">
+            <a class="header">{{item.title}}</a>
+            <!--<div class="meta">-->
+              <!--{% for tag in item.type %}-->
+              <!--<span class="ui label">{{ tag }}</span>-->
+              <!--{% endfor %}-->
+            <!--</div>-->
+            <div class="description"> 星级：{{ item.star }}</div>
+            <div class="date">{{ item.date }}</div>
+            <div class="ID">游戏ID:{{ item.ID }}</div>
+          </div>
         </div>
+        {% endfor %}
+      </div>
+      <div class="ui pagination menu">
+        {% if Gameinfo.has_previous %}
+        <a class="icon item" href="?page={{ Gameinfo.previous_page_number }}">
+          < pre
+        </a>
+        {% endif %}
+        <div class="disable item">{{ Gameinfo.number }} of {{ Gameinfo.paginator.num_pages }}</div>
+        {% if Gameinfo.has_next %}
+            <a class="icon item" href="?page={{ Gameinfo.next_page_number }}">
+              Next >
+            </a>
+        {% endif %}
+      </div>
     </div>
-    <div class="footer">
-        <p>&copy; Mugglecoding</p>
-    </div>
-</body>
+    <script>
+      $('#menu').click(function () {
+      $('.ui.sidebar').sidebar('toggle');
+      });
+    </script>
+  </div>
+  </body>
 </html>

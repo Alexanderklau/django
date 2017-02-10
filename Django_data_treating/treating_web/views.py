@@ -2,7 +2,7 @@ from django.shortcuts import render
 from .models import Game_info
 from django.core.paginator import Paginator
 def index(request):
-    limit = 4
+    limit = 20
     game_info = Game_info.objects[:20]
     paginator = Paginator(game_info,limit)
     page = request.GET.get('page',1)
