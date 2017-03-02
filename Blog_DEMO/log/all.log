@@ -22637,3 +22637,588 @@ Traceback (most recent call last):
   File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/base.py", line 905, in _resolve_lookup
     (bit, current))  # missing attribute
 django.template.base.VariableDoesNotExist: Failed lookup for key [name] in '<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>'
+2017-02-23 02:51:26,858 [Dummy-1:140587532781312] [django.db.backends:89] [utils:execute] [DEBUG]- (0.000) SET SQL_AUTO_IS_NULL = 0; args=None
+2017-02-23 02:51:27,497 [Dummy-1:140587532781312] [django.db.backends:89] [utils:execute] [DEBUG]- (0.000) SET SQL_AUTO_IS_NULL = 0; args=None
+2017-02-23 02:51:27,629 [Dummy-1:140587532781312] [django.db.backends:89] [utils:execute] [DEBUG]- (0.132) SHOW FULL TABLES; args=None
+2017-02-23 02:51:27,758 [Dummy-1:140587532781312] [django.db.backends:89] [utils:execute] [DEBUG]- (0.080) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+2017-02-23 03:07:27,743 [Thread-2:140587513575168] [django.template:927] [base:_resolve_lookup] [DEBUG]- Exception while resolving variable 'category_list' in template 'index.html'.
+Traceback (most recent call last):
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/base.py", line 883, in _resolve_lookup
+    current = current[bit]
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/context.py", line 77, in __getitem__
+    raise KeyError(key)
+KeyError: 'category_list'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/base.py", line 889, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(type(current), bit):
+AttributeError: type object 'RequestContext' has no attribute 'category_list'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/base.py", line 898, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'category_list'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [category_list] in "[{'None': None, 'True': True, 'False': False}, {'perms': <django.contrib.auth.context_processors.PermWrapper object at 0x7fdd144cfb38>, 'SITE_NAME': '测试博客Blog', 'request': <WSGIRequest: GET '/'>, 'user': <SimpleLazyObject: <function AuthenticationMiddleware.process_request.<locals>.<lambda> at 0x7fdd14d130d0>>, 'DEFAULT_MESSAGE_LEVELS': {'INFO': 20, 'DEBUG': 10, 'ERROR': 40, 'SUCCESS': 25, 'WARNING': 30}, 'SITE_DESC': '测试功能', 'messages': <django.contrib.messages.storage.fallback.FallbackStorage object at 0x7fdd144ae048>, 'csrf_token': <SimpleLazyObject: <function csrf.<locals>._get_val at 0x7fdd144aad08>>}, {}, {'page': 1, 'request': <WSGIRequest: GET '/'>}, {}]"
+2017-02-23 03:07:27,778 [Thread-2:140587513575168] [django.template:927] [base:_resolve_lookup] [DEBUG]- Exception while resolving variable 'article_list' in template 'index.html'.
+Traceback (most recent call last):
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/base.py", line 883, in _resolve_lookup
+    current = current[bit]
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/context.py", line 77, in __getitem__
+    raise KeyError(key)
+KeyError: 'article_list'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/base.py", line 889, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(type(current), bit):
+AttributeError: type object 'RequestContext' has no attribute 'article_list'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/base.py", line 898, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'article_list'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [article_list] in '[{\'None\': None, \'True\': True, \'False\': False}, {\'perms\': <django.contrib.auth.context_processors.PermWrapper object at 0x7fdd144cfb38>, \'SITE_NAME\': \'测试博客Blog\', \'request\': <WSGIRequest: GET \'/\'>, \'user\': <SimpleLazyObject: <function AuthenticationMiddleware.process_request.<locals>.<lambda> at 0x7fdd14d130d0>>, \'DEFAULT_MESSAGE_LEVELS\': {\'INFO\': 20, \'DEBUG\': 10, \'ERROR\': 40, \'SUCCESS\': 25, \'WARNING\': 30}, \'SITE_DESC\': \'测试功能\', \'messages\': <django.contrib.messages.storage.fallback.FallbackStorage object at 0x7fdd144ae048>, \'csrf_token\': <SimpleLazyObject: <function csrf.<locals>._get_val at 0x7fdd144aad08>>}, {}, {\'page\': 1, \'request\': <WSGIRequest: GET \'/\'>}, {\'block\': <Block Node: left_content. Contents: [<TextNode: \'\\n   \'>, <django.template.loader_tags.IncludeNode object at 0x7fdd144c7668>, <TextNode: \'\\n    <!-- banner代码 结束 -->\'>, <For Node: for article in article_list, tail_len: 13>, <TextNode: \'\\n    </div>\\n  <div id="pa\'>, <IfNode>, <TextNode: \'\\n    <li class="active">\'>, <Variable Node: article_list.number>, <TextNode: \'/\'>, <Variable Node: article_list.paginator.num_pages>, <TextNode: \'</li>\\n \'>, <IfNode>, <TextNode: \'\\n   </ul>\\n</div>\\n\\n\\n\\n\'>]>}, {}]'
+2017-02-23 03:07:27,778 [Thread-2:140587513575168] [django.template:927] [base:_resolve_lookup] [DEBUG]- Exception while resolving variable 'article_list' in template 'index.html'.
+Traceback (most recent call last):
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/base.py", line 883, in _resolve_lookup
+    current = current[bit]
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/context.py", line 77, in __getitem__
+    raise KeyError(key)
+KeyError: 'article_list'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/base.py", line 889, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(type(current), bit):
+AttributeError: type object 'RequestContext' has no attribute 'article_list'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/base.py", line 898, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'article_list'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [article_list] in '[{\'None\': None, \'True\': True, \'False\': False}, {\'perms\': <django.contrib.auth.context_processors.PermWrapper object at 0x7fdd144cfb38>, \'SITE_NAME\': \'测试博客Blog\', \'request\': <WSGIRequest: GET \'/\'>, \'user\': <SimpleLazyObject: <function AuthenticationMiddleware.process_request.<locals>.<lambda> at 0x7fdd14d130d0>>, \'DEFAULT_MESSAGE_LEVELS\': {\'INFO\': 20, \'DEBUG\': 10, \'ERROR\': 40, \'SUCCESS\': 25, \'WARNING\': 30}, \'SITE_DESC\': \'测试功能\', \'messages\': <django.contrib.messages.storage.fallback.FallbackStorage object at 0x7fdd144ae048>, \'csrf_token\': <SimpleLazyObject: <function csrf.<locals>._get_val at 0x7fdd144aad08>>}, {}, {\'page\': 1, \'request\': <WSGIRequest: GET \'/\'>}, {\'block\': <Block Node: left_content. Contents: [<TextNode: \'\\n   \'>, <django.template.loader_tags.IncludeNode object at 0x7fdd144c7668>, <TextNode: \'\\n    <!-- banner代码 结束 -->\'>, <For Node: for article in article_list, tail_len: 13>, <TextNode: \'\\n    </div>\\n  <div id="pa\'>, <IfNode>, <TextNode: \'\\n    <li class="active">\'>, <Variable Node: article_list.number>, <TextNode: \'/\'>, <Variable Node: article_list.paginator.num_pages>, <TextNode: \'</li>\\n \'>, <IfNode>, <TextNode: \'\\n   </ul>\\n</div>\\n\\n\\n\\n\'>]>}]'
+2017-02-23 03:07:27,779 [Thread-2:140587513575168] [django.template:927] [base:_resolve_lookup] [DEBUG]- Exception while resolving variable 'article_list' in template 'index.html'.
+Traceback (most recent call last):
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/base.py", line 883, in _resolve_lookup
+    current = current[bit]
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/context.py", line 77, in __getitem__
+    raise KeyError(key)
+KeyError: 'article_list'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/base.py", line 889, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(type(current), bit):
+AttributeError: type object 'RequestContext' has no attribute 'article_list'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/base.py", line 898, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'article_list'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [article_list] in '[{\'None\': None, \'True\': True, \'False\': False}, {\'perms\': <django.contrib.auth.context_processors.PermWrapper object at 0x7fdd144cfb38>, \'SITE_NAME\': \'测试博客Blog\', \'request\': <WSGIRequest: GET \'/\'>, \'user\': <SimpleLazyObject: <function AuthenticationMiddleware.process_request.<locals>.<lambda> at 0x7fdd14d130d0>>, \'DEFAULT_MESSAGE_LEVELS\': {\'INFO\': 20, \'DEBUG\': 10, \'ERROR\': 40, \'SUCCESS\': 25, \'WARNING\': 30}, \'SITE_DESC\': \'测试功能\', \'messages\': <django.contrib.messages.storage.fallback.FallbackStorage object at 0x7fdd144ae048>, \'csrf_token\': <SimpleLazyObject: <function csrf.<locals>._get_val at 0x7fdd144aad08>>}, {}, {\'page\': 1, \'request\': <WSGIRequest: GET \'/\'>}, {\'block\': <Block Node: left_content. Contents: [<TextNode: \'\\n   \'>, <django.template.loader_tags.IncludeNode object at 0x7fdd144c7668>, <TextNode: \'\\n    <!-- banner代码 结束 -->\'>, <For Node: for article in article_list, tail_len: 13>, <TextNode: \'\\n    </div>\\n  <div id="pa\'>, <IfNode>, <TextNode: \'\\n    <li class="active">\'>, <Variable Node: article_list.number>, <TextNode: \'/\'>, <Variable Node: article_list.paginator.num_pages>, <TextNode: \'</li>\\n \'>, <IfNode>, <TextNode: \'\\n   </ul>\\n</div>\\n\\n\\n\\n\'>]>}]'
+2017-02-23 03:07:27,780 [Thread-2:140587513575168] [django.template:927] [base:_resolve_lookup] [DEBUG]- Exception while resolving variable 'article_list' in template 'index.html'.
+Traceback (most recent call last):
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/base.py", line 883, in _resolve_lookup
+    current = current[bit]
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/context.py", line 77, in __getitem__
+    raise KeyError(key)
+KeyError: 'article_list'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/base.py", line 889, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(type(current), bit):
+AttributeError: type object 'RequestContext' has no attribute 'article_list'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/base.py", line 898, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'article_list'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [article_list] in '[{\'None\': None, \'True\': True, \'False\': False}, {\'perms\': <django.contrib.auth.context_processors.PermWrapper object at 0x7fdd144cfb38>, \'SITE_NAME\': \'测试博客Blog\', \'request\': <WSGIRequest: GET \'/\'>, \'user\': <SimpleLazyObject: <function AuthenticationMiddleware.process_request.<locals>.<lambda> at 0x7fdd14d130d0>>, \'DEFAULT_MESSAGE_LEVELS\': {\'INFO\': 20, \'DEBUG\': 10, \'ERROR\': 40, \'SUCCESS\': 25, \'WARNING\': 30}, \'SITE_DESC\': \'测试功能\', \'messages\': <django.contrib.messages.storage.fallback.FallbackStorage object at 0x7fdd144ae048>, \'csrf_token\': <SimpleLazyObject: <function csrf.<locals>._get_val at 0x7fdd144aad08>>}, {}, {\'page\': 1, \'request\': <WSGIRequest: GET \'/\'>}, {\'block\': <Block Node: left_content. Contents: [<TextNode: \'\\n   \'>, <django.template.loader_tags.IncludeNode object at 0x7fdd144c7668>, <TextNode: \'\\n    <!-- banner代码 结束 -->\'>, <For Node: for article in article_list, tail_len: 13>, <TextNode: \'\\n    </div>\\n  <div id="pa\'>, <IfNode>, <TextNode: \'\\n    <li class="active">\'>, <Variable Node: article_list.number>, <TextNode: \'/\'>, <Variable Node: article_list.paginator.num_pages>, <TextNode: \'</li>\\n \'>, <IfNode>, <TextNode: \'\\n   </ul>\\n</div>\\n\\n\\n\\n\'>]>}]'
+2017-02-23 03:07:27,781 [Thread-2:140587513575168] [django.template:927] [base:_resolve_lookup] [DEBUG]- Exception while resolving variable 'article_list' in template 'index.html'.
+Traceback (most recent call last):
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/base.py", line 883, in _resolve_lookup
+    current = current[bit]
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/context.py", line 77, in __getitem__
+    raise KeyError(key)
+KeyError: 'article_list'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/base.py", line 889, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(type(current), bit):
+AttributeError: type object 'RequestContext' has no attribute 'article_list'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/base.py", line 898, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'article_list'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [article_list] in '[{\'None\': None, \'True\': True, \'False\': False}, {\'perms\': <django.contrib.auth.context_processors.PermWrapper object at 0x7fdd144cfb38>, \'SITE_NAME\': \'测试博客Blog\', \'request\': <WSGIRequest: GET \'/\'>, \'user\': <SimpleLazyObject: <function AuthenticationMiddleware.process_request.<locals>.<lambda> at 0x7fdd14d130d0>>, \'DEFAULT_MESSAGE_LEVELS\': {\'INFO\': 20, \'DEBUG\': 10, \'ERROR\': 40, \'SUCCESS\': 25, \'WARNING\': 30}, \'SITE_DESC\': \'测试功能\', \'messages\': <django.contrib.messages.storage.fallback.FallbackStorage object at 0x7fdd144ae048>, \'csrf_token\': <SimpleLazyObject: <function csrf.<locals>._get_val at 0x7fdd144aad08>>}, {}, {\'page\': 1, \'request\': <WSGIRequest: GET \'/\'>}, {\'block\': <Block Node: left_content. Contents: [<TextNode: \'\\n   \'>, <django.template.loader_tags.IncludeNode object at 0x7fdd144c7668>, <TextNode: \'\\n    <!-- banner代码 结束 -->\'>, <For Node: for article in article_list, tail_len: 13>, <TextNode: \'\\n    </div>\\n  <div id="pa\'>, <IfNode>, <TextNode: \'\\n    <li class="active">\'>, <Variable Node: article_list.number>, <TextNode: \'/\'>, <Variable Node: article_list.paginator.num_pages>, <TextNode: \'</li>\\n \'>, <IfNode>, <TextNode: \'\\n   </ul>\\n</div>\\n\\n\\n\\n\'>]>}]'
+2017-02-23 03:07:27,781 [Thread-2:140587513575168] [django.template:927] [base:_resolve_lookup] [DEBUG]- Exception while resolving variable 'archive_list' in template 'index.html'.
+Traceback (most recent call last):
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/base.py", line 883, in _resolve_lookup
+    current = current[bit]
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/context.py", line 77, in __getitem__
+    raise KeyError(key)
+KeyError: 'archive_list'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/base.py", line 889, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(type(current), bit):
+AttributeError: type object 'RequestContext' has no attribute 'archive_list'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/base.py", line 898, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'archive_list'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [archive_list] in "[{'None': None, 'True': True, 'False': False}, {'perms': <django.contrib.auth.context_processors.PermWrapper object at 0x7fdd144cfb38>, 'SITE_NAME': '测试博客Blog', 'request': <WSGIRequest: GET '/'>, 'user': <SimpleLazyObject: <function AuthenticationMiddleware.process_request.<locals>.<lambda> at 0x7fdd14d130d0>>, 'DEFAULT_MESSAGE_LEVELS': {'INFO': 20, 'DEBUG': 10, 'ERROR': 40, 'SUCCESS': 25, 'WARNING': 30}, 'SITE_DESC': '测试功能', 'messages': <django.contrib.messages.storage.fallback.FallbackStorage object at 0x7fdd144ae048>, 'csrf_token': <SimpleLazyObject: <function csrf.<locals>._get_val at 0x7fdd144aad08>>}, {}, {'page': 1, 'request': <WSGIRequest: GET '/'>}, {}]"
+2017-02-23 03:07:27,998 [Thread-7:140587407755008] [django.template:927] [base:_resolve_lookup] [DEBUG]- Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/core/handlers/base.py", line 134, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/core/urlresolvers.py", line 404, in resolve
+    raise Resolver404({'tried': tried, 'path': new_path})
+django.core.urlresolvers.Resolver404: {'tried': [[<RegexURLPattern None ^upload/(?P<path>.*)$>], [<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>], [<RegexURLPattern index ^$>], [<RegexURLPattern upload_image ^admin/upload/(?P<dir_name>[^/]+)$>]], 'path': 'js/nav.js'}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/base.py", line 883, in _resolve_lookup
+    current = current[bit]
+TypeError: 'RegexURLResolver' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/base.py", line 891, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'RegexURLResolver' object has no attribute 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/base.py", line 898, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [name] in '<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>'
+2017-02-23 03:07:28,001 [Thread-8:140587399362304] [django.template:927] [base:_resolve_lookup] [DEBUG]- Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/core/handlers/base.py", line 134, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/core/urlresolvers.py", line 404, in resolve
+    raise Resolver404({'tried': tried, 'path': new_path})
+django.core.urlresolvers.Resolver404: {'tried': [[<RegexURLPattern None ^upload/(?P<path>.*)$>], [<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>], [<RegexURLPattern index ^$>], [<RegexURLPattern upload_image ^admin/upload/(?P<dir_name>[^/]+)$>]], 'path': 'images/a1.jpg'}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/base.py", line 883, in _resolve_lookup
+    current = current[bit]
+TypeError: 'RegexURLResolver' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/base.py", line 891, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'RegexURLResolver' object has no attribute 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/base.py", line 898, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [name] in '<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>'
+2017-02-23 03:07:28,004 [Thread-9:140587416147712] [django.template:927] [base:_resolve_lookup] [DEBUG]- Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/core/handlers/base.py", line 134, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/core/urlresolvers.py", line 404, in resolve
+    raise Resolver404({'tried': tried, 'path': new_path})
+django.core.urlresolvers.Resolver404: {'tried': [[<RegexURLPattern None ^upload/(?P<path>.*)$>], [<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>], [<RegexURLPattern index ^$>], [<RegexURLPattern upload_image ^admin/upload/(?P<dir_name>[^/]+)$>]], 'path': 'images/a2.jpg'}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/base.py", line 883, in _resolve_lookup
+    current = current[bit]
+TypeError: 'RegexURLResolver' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/base.py", line 891, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'RegexURLResolver' object has no attribute 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/base.py", line 898, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [name] in '<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>'
+2017-02-23 03:07:28,007 [Thread-10:140587424540416] [django.template:927] [base:_resolve_lookup] [DEBUG]- Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/core/handlers/base.py", line 134, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/core/urlresolvers.py", line 404, in resolve
+    raise Resolver404({'tried': tried, 'path': new_path})
+django.core.urlresolvers.Resolver404: {'tried': [[<RegexURLPattern None ^upload/(?P<path>.*)$>], [<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>], [<RegexURLPattern index ^$>], [<RegexURLPattern upload_image ^admin/upload/(?P<dir_name>[^/]+)$>]], 'path': 'images/a3.jpg'}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/base.py", line 883, in _resolve_lookup
+    current = current[bit]
+TypeError: 'RegexURLResolver' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/base.py", line 891, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'RegexURLResolver' object has no attribute 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/base.py", line 898, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [name] in '<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>'
+2017-02-23 03:07:28,010 [Thread-11:140587432933120] [django.template:927] [base:_resolve_lookup] [DEBUG]- Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/core/handlers/base.py", line 134, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/core/urlresolvers.py", line 404, in resolve
+    raise Resolver404({'tried': tried, 'path': new_path})
+django.core.urlresolvers.Resolver404: {'tried': [[<RegexURLPattern None ^upload/(?P<path>.*)$>], [<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>], [<RegexURLPattern index ^$>], [<RegexURLPattern upload_image ^admin/upload/(?P<dir_name>[^/]+)$>]], 'path': 'images/a4.jpg'}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/base.py", line 883, in _resolve_lookup
+    current = current[bit]
+TypeError: 'RegexURLResolver' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/base.py", line 891, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'RegexURLResolver' object has no attribute 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/base.py", line 898, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [name] in '<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>'
+2017-02-23 03:07:28,265 [Thread-12:140587432933120] [django.template:927] [base:_resolve_lookup] [DEBUG]- Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/core/handlers/base.py", line 134, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/core/urlresolvers.py", line 404, in resolve
+    raise Resolver404({'tried': tried, 'path': new_path})
+django.core.urlresolvers.Resolver404: {'tried': [[<RegexURLPattern None ^upload/(?P<path>.*)$>], [<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>], [<RegexURLPattern index ^$>], [<RegexURLPattern upload_image ^admin/upload/(?P<dir_name>[^/]+)$>]], 'path': 'images/a1.jpg'}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/base.py", line 883, in _resolve_lookup
+    current = current[bit]
+TypeError: 'RegexURLResolver' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/base.py", line 891, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'RegexURLResolver' object has no attribute 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/base.py", line 898, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [name] in '<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>'
+2017-02-23 03:07:28,271 [Thread-13:140587424540416] [django.template:927] [base:_resolve_lookup] [DEBUG]- Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/core/handlers/base.py", line 134, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/core/urlresolvers.py", line 404, in resolve
+    raise Resolver404({'tried': tried, 'path': new_path})
+django.core.urlresolvers.Resolver404: {'tried': [[<RegexURLPattern None ^upload/(?P<path>.*)$>], [<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>], [<RegexURLPattern index ^$>], [<RegexURLPattern upload_image ^admin/upload/(?P<dir_name>[^/]+)$>]], 'path': 'images/a2.jpg'}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/base.py", line 883, in _resolve_lookup
+    current = current[bit]
+TypeError: 'RegexURLResolver' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/base.py", line 891, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'RegexURLResolver' object has no attribute 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/base.py", line 898, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [name] in '<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>'
+2017-02-23 03:07:28,276 [Thread-14:140587416147712] [django.template:927] [base:_resolve_lookup] [DEBUG]- Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/core/handlers/base.py", line 134, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/core/urlresolvers.py", line 404, in resolve
+    raise Resolver404({'tried': tried, 'path': new_path})
+django.core.urlresolvers.Resolver404: {'tried': [[<RegexURLPattern None ^upload/(?P<path>.*)$>], [<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>], [<RegexURLPattern index ^$>], [<RegexURLPattern upload_image ^admin/upload/(?P<dir_name>[^/]+)$>]], 'path': 'images/a3.jpg'}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/base.py", line 883, in _resolve_lookup
+    current = current[bit]
+TypeError: 'RegexURLResolver' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/base.py", line 891, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'RegexURLResolver' object has no attribute 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/base.py", line 898, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [name] in '<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>'
+2017-02-23 03:07:28,281 [Thread-15:140587399362304] [django.template:927] [base:_resolve_lookup] [DEBUG]- Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/core/handlers/base.py", line 134, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/core/urlresolvers.py", line 404, in resolve
+    raise Resolver404({'tried': tried, 'path': new_path})
+django.core.urlresolvers.Resolver404: {'tried': [[<RegexURLPattern None ^upload/(?P<path>.*)$>], [<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>], [<RegexURLPattern index ^$>], [<RegexURLPattern upload_image ^admin/upload/(?P<dir_name>[^/]+)$>]], 'path': 'images/a4.jpg'}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/base.py", line 883, in _resolve_lookup
+    current = current[bit]
+TypeError: 'RegexURLResolver' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/base.py", line 891, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'RegexURLResolver' object has no attribute 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/base.py", line 898, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [name] in '<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>'
+2017-02-23 03:07:29,320 [Thread-24:140587416147712] [django.template:927] [base:_resolve_lookup] [DEBUG]- Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/core/handlers/base.py", line 134, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/core/urlresolvers.py", line 404, in resolve
+    raise Resolver404({'tried': tried, 'path': new_path})
+django.core.urlresolvers.Resolver404: {'tried': [[<RegexURLPattern None ^upload/(?P<path>.*)$>], [<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>], [<RegexURLPattern index ^$>], [<RegexURLPattern upload_image ^admin/upload/(?P<dir_name>[^/]+)$>]], 'path': 'favicon.ico'}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/base.py", line 883, in _resolve_lookup
+    current = current[bit]
+TypeError: 'RegexURLResolver' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/base.py", line 891, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'RegexURLResolver' object has no attribute 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/base.py", line 898, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [name] in '<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>'
+2017-02-23 03:07:29,344 [Thread-25:140587416147712] [django.template:927] [base:_resolve_lookup] [DEBUG]- Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/core/handlers/base.py", line 134, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/core/urlresolvers.py", line 404, in resolve
+    raise Resolver404({'tried': tried, 'path': new_path})
+django.core.urlresolvers.Resolver404: {'tried': [[<RegexURLPattern None ^upload/(?P<path>.*)$>], [<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>], [<RegexURLPattern index ^$>], [<RegexURLPattern upload_image ^admin/upload/(?P<dir_name>[^/]+)$>]], 'path': 'favicon.ico'}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/base.py", line 883, in _resolve_lookup
+    current = current[bit]
+TypeError: 'RegexURLResolver' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/base.py", line 891, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'RegexURLResolver' object has no attribute 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/base.py", line 898, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lau/anaconda3/lib/python3.5/site-packages/django/template/base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [name] in '<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>'

@@ -991,3 +991,14 @@ django.db.utils.IntegrityError: (1048, "23000Column 'user_id' cannot be null")
 2017-02-06 04:34:39,399 [Thread-14:140631081838336] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a2.jpg
 2017-02-06 04:34:39,405 [Thread-15:140631090231040] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a3.jpg
 2017-02-06 04:34:39,406 [Thread-16:140631098885888] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a4.jpg
+2017-02-23 03:07:27,921 [Thread-7:140587407755008] [django.request:182] [base:get_response] [WARNING]- Not Found: /js/nav.js
+2017-02-23 03:07:27,981 [Thread-8:140587399362304] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a1.jpg
+2017-02-23 03:07:27,983 [Thread-9:140587416147712] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a2.jpg
+2017-02-23 03:07:27,984 [Thread-10:140587424540416] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a3.jpg
+2017-02-23 03:07:27,985 [Thread-11:140587432933120] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a4.jpg
+2017-02-23 03:07:28,262 [Thread-12:140587432933120] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a1.jpg
+2017-02-23 03:07:28,268 [Thread-13:140587424540416] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a2.jpg
+2017-02-23 03:07:28,272 [Thread-14:140587416147712] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a3.jpg
+2017-02-23 03:07:28,278 [Thread-15:140587399362304] [django.request:182] [base:get_response] [WARNING]- Not Found: /images/a4.jpg
+2017-02-23 03:07:29,317 [Thread-24:140587416147712] [django.request:182] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2017-02-23 03:07:29,340 [Thread-25:140587416147712] [django.request:182] [base:get_response] [WARNING]- Not Found: /favicon.ico
