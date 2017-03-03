@@ -6,7 +6,10 @@ from .models import *
 
 def archive(request):
     posts = BlogPost.objects.all()#ORM关系映射，大量特性
-    t = loader.get_template("archive.html")
-    c = Context({'post':posts})
-    return HttpResponse(t.render(c))
+    return render(request,'archive.html',{'posts':posts})
+    # TutorialList = ["HTML", "CSS", "jQuery", "Python", "Django"]
+    # return render(request,'archive.html',{'TutorialList':TutorialList})
+    # t = loader.get_template("archive.html")
+    # c = Context({'post':posts})
+    # return HttpResponse(t.render(c))
 # Create your views here.
