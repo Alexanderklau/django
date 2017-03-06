@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/django.iml" filepath="$PROJECT_DIR$/.idea/django.iml" />
       <module fileurl="file://$PROJECT_DIR$/../python-project/.idea/python-project.iml" filepath="$PROJECT_DIR$/../python-project/.idea/python-project.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../python-web-crawlers/.idea/python-web-crawlers.iml" filepath="$PROJECT_DIR$/../python-web-crawlers/.idea/python-web-crawlers.iml" />
     </modules>
   </component>
 </project>
