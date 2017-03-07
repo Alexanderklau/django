@@ -29,7 +29,7 @@
         {% if categoryies %}
             <ul>
                 {% for category in categoryies %}
-                <li>{{ category.name }}</li>
+                <li><a href="/rango/category/{{ category.slug }}">{{ category.name }}</a></li>
                 {% endfor %}
             </ul>
         {% else %}
