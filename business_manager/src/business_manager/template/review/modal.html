@@ -1,0 +1,724 @@
+{% extends "base_modal_new.html" %}
+
+{% block header %}
+<div class="main-title">
+    <div class="close cancel-btn" data-dismiss="modal" aria-label="Close" >
+        <a><img src="/static/images/icon_small_exit.svg"/></a>
+    </div>
+    <div><img src="/static/images/icon_small_user.svg" class="fl">
+        <h4 class="modal-title" id="ModalLabel" name={{apply.id}}>{{ apply.create_by.name }}</h4>
+    {% if auto_check_status %}
+        <div style="
+            top: 20px;
+            position: relative;
+            font-size: 3rem;
+            ">
+            <span class="label label-danger" style=""> {{ auto_check_status }}</span>
+        </div>
+    {% endif %}
+    </div>
+</div>
+
+
+{% endblock %}
+                                {% block right_menu2 %}
+<div class="process">
+    <div calss="btn-group">
+        <button type="button" class="btn btn-info btn-circle" >通过</button>
+        <button type="button" class="btn btn-danger btn-circle" >拒绝</button>
+    </div>
+</div>
+<style>
+.process{
+    position: fixed;
+    right: 1%;
+}
+</style>
+
+{% endblock %}
+
+
+{% block right_menu1 %}
+<div class="right_menu">
+    <div class="bg-mask"></div>
+    <nav class="cd-stretchy-nav nav-is-visible">
+        <a class="cd-nav-trigger" href="#0">
+            <span aria-hidden="true"></span>
+        </a>
+        <ul id="menu" class="">
+
+
+            {% if apply_status == '0' %}
+
+
+
+            <li><a class="menu_item id_review" targets="id_review" href="#id_review" title="初审信息"><img src="/static/img/icon_small_pass.png"></a></li>
+            <li style="display:none"><a class="menu_item pic_front_review" targets="pic_front_review" href="#pic_front_review" title="身份证正面照片"><img src="/static/img/icon_small_pass.png"></a></li>
+            <li style="display:none" ><a class="menu_item o_pic_back_review" targets="o_pic_back_review" href="#o_pic_back_review" title="身份证背面照片"><img src="/static/img/icon_small_pass.png"></a></li>
+            <li style="display:none" ><a class="menu_item q_pic_hand_review" targets="q_pic_hand_review" href="#q_pic_hand_review" title="身份证手持照片"><img src="/static/img/icon_small_pass.png"></a></li>
+            <li style="display:none" ><a class="menu_item work_review" targets="work_review" href="#work_review" title="工作信息"><img src="/static/img/icon_small_reject.png"><img src="/static/img/icon_small_pass.png"></a></li>
+            <li style="display:none" ><a class="menu_item family_review" targets="family_review" href="#family_review" title="联系人信息"><img src="/static/img/icon_small_pass.png"></a></li>
+
+            <li style="display:none"><a class="menu_item e_business_review" targets="b_out_review" href="#e_business_review" title="外访信息"><img src="/static/img/icon_small_pass.png"></a></li>
+            <li style="display:none"><a class="menu_item chsi_review" targets="third_review" href="#chsi_review" title="三方信息"><img src="/static/img/icon_small_pass.png"></a></li>
+            <li style="display:none"><a class="menu_item chsi_review" targets="c_interview_review" href="#chsi_review" title="面签信息"><img src="/static/img/icon_small_pass.png"></a></li>
+            {% endif %}
+
+
+
+            {% if apply_status == '1' %}
+
+            <li><a class="menu_item  b_out_review" targets="b_out_review" href="#e_business_review" title="外访信息"><img src="/static/img/icon_small_pass.png"></a></li>
+            <!--<li><a class="menu_item  chsi_review" targets="b_out_review" href="#e_business_review" title="外访信息"><img src="/static/img/icon_small_pass.png"></a></li>-->
+            <li style="display:none"><a class="menu_item chsi_review" targets="third_review" href="#chsi_review" title="三方信息"><img src="/static/img/icon_small_pass.png"></a></li>
+            <li style="display:none"><a class="menu_item chsi_review" targets="third_review" href="#chsi_review" title="三方信息"><img src="/static/img/icon_small_pass.png"></a></li>
+            <li style="display:none"><a class="menu_item chsi_review" targets="c_interview_review" href="#chsi_review" title="面签信息"><img src="/static/img/icon_small_pass.png"></a></li>
+
+            <li style="display:none"><a class="menu_item chsi_review" targets="c_interview_review" href="#chsi_review" title="面签信息"><img src="/static/img/icon_small_pass.png"></a></li>
+            <li style="display:none"><a class="menu_item chsi_review" targets="c_interview_review" href="#chsi_review" title="面签信息"><img src="/static/img/icon_small_pass.png"></a></li>
+            <li style="display:none"><a class="menu_item chsi_review" targets="c_interview_review" href="#chsi_review" title="面签信息"><img src="/static/img/icon_small_pass.png"></a></li>
+            <li style="display:none"><a class="menu_item chsi_review" targets="c_interview_review" href="#chsi_review" title="面签信息"><img src="/static/img/icon_small_pass.png"></a></li>
+            <li style="display:none"><a class="menu_item chsi_review" targets="c_interview_review" href="#chsi_review" title="面签信息"><img src="/static/img/icon_small_pass.png"></a></li>
+
+
+
+            {% endif %}
+
+
+            {% if apply_status == '2' %}
+
+            <!--<li><a class="menu_item e_business_review" targets="b_out_review" href="#e_business_review" title="外访信息"><img src="/static/img/icon_small_pass.png"></a></li>-->
+            <li><a class="menu_item third_review" targets="third_review" href="#chsi_review" title="三方信息"><img src="/static/img/icon_small_pass.png"></a></li>
+            <li style="display:none"><a class="menu_item chsi_review" targets="c_interview_review" href="#chsi_review" title="面签信息"><img src="/static/img/icon_small_pass.png"></a></li>
+
+            <li style="display:none"><a class="menu_item chsi_review" targets="c_interview_review" href="#chsi_review" title="面签信息"><img src="/static/img/icon_small_pass.png"></a></li>
+
+            <li style="display:none"><a class="menu_item chsi_review" targets="c_interview_review" href="#chsi_review" title="面签信息"><img src="/static/img/icon_small_pass.png"></a></li>
+
+            <li style="display:none"><a class="menu_item chsi_review" targets="c_interview_review" href="#chsi_review" title="面签信息"><img src="/static/img/icon_small_pass.png"></a></li>
+
+            <li style="display:none"><a class="menu_item chsi_review" targets="c_interview_review" href="#chsi_review" title="面签信息"><img src="/static/img/icon_small_pass.png"></a></li>
+
+
+            <li style="display:none"><a class="menu_item chsi_review" targets="c_interview_review" href="#chsi_review" title="面签信息"><img src="/static/img/icon_small_pass.png"></a></li>
+            <li style="display:none"><a class="menu_item chsi_review" targets="c_interview_review" href="#chsi_review" title="面签信息"><img src="/static/img/icon_small_pass.png"></a></li>
+            <li style="display:none"><a class="menu_item chsi_review" targets="c_interview_review" href="#chsi_review" title="面签信息"><img src="/static/img/icon_small_pass.png"></a></li>
+
+
+            {% endif %}
+
+
+            {% if apply_status == '3' %}
+
+            <!--<li><a class="menu_item e_business_review" targets="b_out_review" href="#e_business_review" title="外访信息"><img src="/static/img/icon_small_pass.png"></a></li>-->
+            <!--<li><a class="menu_item chsi_review" targets="third_review" href="#chsi_review" title="三方信息"><img src="/static/img/icon_small_pass.png"></a></li>-->
+            <li style="display:none"><a class="menu_item chsi_review" targets="c_interview_review" href="#chsi_review" title="面签信息"><img src="/static/img/icon_small_pass.png"></a></li>
+            <li style="display:none"><a class="menu_item chsi_review" targets="c_interview_review" href="#chsi_review" title="面签信息"><img src="/static/img/icon_small_pass.png"></a></li>
+
+            <li style="display:none"><a class="menu_item chsi_review" targets="c_interview_review" href="#chsi_review" title="面签信息"><img src="/static/img/icon_small_pass.png"></a></li>
+            <li style="display:none"><a class="menu_item chsi_review" targets="c_interview_review" href="#chsi_review" title="面签信息"><img src="/static/img/icon_small_pass.png"></a></li>
+            <li style="display:none"><a class="menu_item chsi_review" targets="c_interview_review" href="#chsi_review" title="面签信息"><img src="/static/img/icon_small_pass.png"></a></li>
+
+            <li style="display:none"><a class="menu_item chsi_review" targets="c_interview_review" href="#chsi_review" title="面签信息"><img src="/static/img/icon_small_pass.png"></a></li>
+
+            <li style="display:none"><a class="menu_item chsi_review" targets="c_interview_review" href="#chsi_review" title="面签信息"><img src="/static/img/icon_small_pass.png"></a></li>
+
+            <li style="display:none"><a class="menu_item chsi_review" targets="c_interview_review" href="#chsi_review" title="面签信息"><img src="/static/img/icon_small_pass.png"></a></li>
+
+
+
+
+            <li><a class="menu_item c_interview_review" targets="c_interview_review" href="#chsi_review" title="面签信息"><img src="/static/img/icon_small_pass.png"></a></li>
+            {% endif %}
+
+
+
+            <li><a id="submit_review" apply_id="{{apply.id}}" href="#0" title="提交审批结果"></a></li>
+        </ul>
+        <span aria-hidden="true" class="stretchy-nav-bg"></span>
+    </nav>
+</div>
+{% block id_review %}
+<div class="col-md-3 panel-container" name="id_review">
+    <div class="float-panel-container rds10">
+        <div class="float-panel-heading">
+            <button class="close" style="opacity: 0.6; color: white; position: absolute; right: 0px; margin-top: 15px; font-weight: 500;" onclick="closed()"><span>×</span></button>
+            <h4 class="float-panel-title">审批 - 初审信息</h4>
+        </div>
+        <div class="float-panel-body">
+            <ul>
+                <li><textarea class="form-panel form150 notes_area" type="text" placeholder="在这里输入备注"></textarea></li>
+                {% if labels.radio.id %}
+                <li class="pt12-pb5">
+                {% for radio_label, radio_value in labels.radio.id.items%}
+                {% for sub_value in radio_value.sub_value%}
+                {% if forloop.first %}
+                <p>
+                <span>{{radio_value.name}}</span>
+                <input type="radio" class="align-radio" checked="checked" name="{{radio_value.name}}" id="{{radio_value.name}}" value="{{sub_value.value}}">是
+                {% else %}
+                <input type="radio" class="align-radio" name="{{radio_value.name}}" id="{{radio_value.name}}" value="{{sub_value.value}}">否
+                </p>
+                {% endif %}
+                {% endfor %}
+                {% endfor %}
+                </li>
+                {% endif %}
+                <li class="check-button">
+                <!--<input type="button" class="pass_radio btn btns-default btn-green mr10"  name="id_review" checked="checked" value="通过"/>-->
+                <input type="button" class="pass_radio btn btns-default mr10"  name="id_review" checked="checked" value="通过"/>
+                <input type="button" class="recall_radio btn btns-default mr10" name="id_review"  value="打回"/>
+                <input type="button" class="reject_radio btn btns-default mr10" name="id_review" value="拒绝"/>
+                </li>
+                <li  class="return-form-panel" style=" display: none;padding: 10px;"><input class="form-panel return_msg_area" type="text" placeholder="在这里输入打回原因"></li>
+                <li class="reject-form-panel pt15-pb10" style="display: none;">
+                {% for check_label in labels.check.id %}
+                <span><input type="checkbox" value={{check_label.value}} class="align-checkbox">{{check_label.name}}</span>
+                {% endfor %}
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}
+<!--{% block action_review %}-->
+<!--<div class="col-md-3 panel-container" name="action_review">-->
+<!--<div class="float-panel-container rds10">-->
+<!--<div class="float-panel-heading">-->
+<!--<button class="close" style="opacity: 0.6; color: white; position: absolute; right: 0px; margin-top: 15px; font-weight: 500;" onclick="closed()"><span>×</span></button>-->
+<!--<h4 class="float-panel-title">审批 - 用户行为信息</h4>-->
+<!--</div>-->
+<!--<div class="float-panel-body">-->
+<!--<ul>-->
+<!--<li><textarea class="form-panel form150 notes_area" type="text" placeholder="在这里输入备注"></textarea></li>-->
+<!--{% if labels.radio.action %}-->
+<!--<li class="pt12-pb5">-->
+<!--{% for radio_label, radio_value in labels.radio.action.items%}-->
+<!--{% for sub_value in radio_value.sub_value%}-->
+<!--{% if forloop.first %}-->
+<!--<p>-->
+<!--<span>{{radio_value.name}}</span>-->
+<!--<input type="radio" class="align-radio" checked="checked" name="{{radio_value.name}}" id="{{radio_value.name}}" value="{{sub_value.value}}">是-->
+<!--{% else %}-->
+<!--<input type="radio" class="align-radio" name="{{radio_value.name}}" id="{{radio_value.name}}" value="{{sub_value.value}}">否-->
+<!--</p>-->
+<!--{% endif %}-->
+<!--{% endfor %}-->
+<!--{% endfor %}-->
+<!--</li>-->
+<!--{% endif %}-->
+<!--<li class="check-button">-->
+<!--<input type="button" class="pass_radio btn btns-default btn-green mr10"  name="action_review" checked="checked" value="通过"/>-->
+<!--<input type="button" class="reject_radio btn btns-default mr10" name="action_review" value="拒绝"/>-->
+<!--</li>-->
+<!--<li  class="return-form-panel" style=" display: none;padding: 10px;"><input class="form-panel return_msg_area" type="text" placeholder="在这里输入打回原因"></li>-->
+<!--<li class="reject-form-panel pt15-pb10" style="display: none;">-->
+<!--{% for check_label in labels.check.action %}-->
+<!--<span><input type="checkbox" value={{check_label.value}} class="align-checkbox">{{check_label.name}}</span>-->
+<!--{% endfor %}-->
+<!--</li>-->
+<!--</ul>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--{% endblock %}-->
+{%block pic_front_review %}
+<div class="col-md-3 panel-container" name="pic_front_review">
+    <div class="float-panel-container rds10">
+        <div class="float-panel-heading">
+            <button class="close" style="opacity: 0.6; color: white; position: absolute; right: 0px; margin-top: 15px; font-weight: 500;" onclick="closed()"><span>×</span></button>
+            <h4 class="float-panel-title">审批 - 用户身份证正面照片</h4>
+        </div>
+        <div class="float-panel-body">
+            <ul>
+                <li><textarea class="form-panel form150 notes_area" type="text" placeholder="在这里输入备注"></textarea></li>
+                {% if labels.radio.front_pic %}
+                <li class="pt12-pb5">
+                {% for radio_label, radio_value in labels.radio.front_pic.items%}
+                {% for sub_value in radio_value.sub_value%}
+                {% if forloop.first %}
+                <p>
+                <span>{{radio_value.name}}</span>
+                <input type="radio" class="align-radio" checked="checked" name="{{radio_value.name}}" id="{{radio_value.name}}" value="{{sub_value.value}}">是
+                {% else %}
+                <input type="radio" class="align-radio" name="{{radio_value.name}}" id="{{radio_value.name}}" value="{{sub_value.value}}">否
+                </p>
+                {% endif %}
+                {% endfor %}
+                {% endfor %}
+                </li>
+                {% endif %}
+                <li class="check-button">
+                <input type="button" class="pass_radio btn btns-default  mr10"  name="pic_front_review" checked="checked" value="通过"/>
+                <!--<input type="button" class="pass_radio btn btns-default  mr10"  name="pic_front_review" checked="checked" value="通过"/>-->
+                <input type="button" class="recall_radio btn btns-default mr10" name="pic_front_review" value="打回"/>
+                <input type="button" class="reject_radio btn btns-default mr10" name="pic_front_review" value="拒绝"/>
+                </li>
+                <li  class="return-form-panel" style=" display: none;padding: 10px;"><input class="form-panel return_msg_area" type="text" placeholder="在这里输入打回原因"></li>
+                <li class="reject-form-panel pt15-pb10" style="display: none;">
+                {% for check_label in labels.check.front_pic %}
+                <span><input type="checkbox" value={{check_label.value}} class="align-checkbox">{{check_label.name}}</span>
+                {% endfor %}
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block o_pic_back_review%}
+<div class="col-md-3 panel-container" name="o_pic_back_review">
+    <div class="float-panel-container rds10">
+        <div class="float-panel-heading">
+            <button class="close" style="opacity: 0.6; color: white; position: absolute; right: 0px; margin-top: 15px; font-weight: 500;" onclick="closed()"><span>×</span></button>
+            <h4 class="float-panel-title">审批 - 用户身份证背面照片</h4>
+        </div>
+        <div class="float-panel-body">
+            <ul>
+                <li><textarea class="form-panel form150 notes_area" type="text" placeholder="在这里输入备注"></textarea></li>
+                {% if labels.radio.back_pic %}
+                <li class="pt12-pb5">
+                {% for radio_label, radio_value in labels.radio.back_pic.items%}
+                {% for sub_value in radio_value.sub_value%}
+                {% if forloop.first %}
+                <p>
+                <span>{{radio_value.name}}</span>
+                <input type="radio" class="align-radio" checked="checked" name="{{radio_value.name}}" id="{{radio_value.name}}" value="{{sub_value.value}}">是
+                {% else %}
+                <input type="radio" class="align-radio" name="{{radio_value.name}}" id="{{radio_value.name}}" value="{{sub_value.value}}">否
+                </p>
+                {% endif %}
+                {% endfor %}
+                {% endfor %}
+                </li>
+                {% endif %}
+                <li class="check-button">
+                <input type="button" class="pass_radio btn btns-default  mr10"  name="o_pic_back_review" checked="checked" value="通过"/>
+                <!--<input type="button" class="pass_radio btn btns-default mr10"  name="o_pic_back_review" checked="checked" value="通过"/>-->
+                <input type="button" class="recall_radio btn btns-default mr10" name="o_pic_back_review" value="打回"/>
+                <input type="button" class="reject_radio btn btns-default mr10" name="o_pic_back_review" value="拒绝"/>
+                </li>
+                <li  class="return-form-panel" style=" display: none;padding: 10px;"><input class="form-panel return_msg_area" type="text" placeholder="在这里输入打回原因"></li>
+                <li class="reject-form-panel pt15-pb10" style="display: none;">
+                {% for check_label in labels.check.back_pic %}
+                <span><input type="checkbox" value={{check_label.value}} class="align-checkbox">{{check_label.name}}</span>
+                {% endfor %}
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block q_pic_hand_review %}
+<div class="col-md-3 panel-container" name="q_pic_hand_review">
+    <div class="float-panel-container rds10">
+        <div class="float-panel-heading">
+            <button class="close" style="opacity: 0.6; color: white; position: absolute; right: 0px; margin-top: 15px; font-weight: 500;" onclick="closed()"><span>×</span></button>
+            <h4 class="float-panel-title">审批 - 用户身份证手持照片</h4>
+        </div>
+        <div class="float-panel-body">
+            <ul>
+                <li><textarea class="form-panel form150 notes_area" type="text" placeholder="在这里输入备注"></textarea></li>
+                {% if labels.radio.hand_pic %}
+                <li class="pt12-pb5">
+                {% for radio_label, radio_value in labels.radio.hand_pic.items%}
+                {% for sub_value in radio_value.sub_value%}
+                {% if forloop.first %}
+                <p>
+                <span>{{radio_value.name}}</span>
+                <input type="radio" class="align-radio" checked="checked" name="{{radio_value.name}}" id="{{radio_value.name}}" value="{{sub_value.value}}">是
+                {% else %}
+                <input type="radio" class="align-radio" name="{{radio_value.name}}" id="{{radio_value.name}}" value="{{sub_value.value}}">否
+                </p>
+                {% endif %}
+                {% endfor %}
+                {% endfor %}
+                </li>
+                {% endif %}
+                <li class="check-button">
+                <input type="button" class="pass_radio btn btns-default  mr10"  name="q_pic_hand_review" checked="checked" value="通过"/>
+                <!--<input type="button" class="pass_radio btn btns-default mr10"  name="q_pic_hand_review" checked="checked" value="通过"/>-->
+                <input type="button" class="recall_radio btn btns-default mr10" name="q_pic_hand_review" value="打回"/>
+                <input type="button" class="reject_radio btn btns-default mr10" name="q_pic_hand_review"  value="拒绝"/>
+                </li>
+                <li  class="return-form-panel" style=" display: none;padding: 10px;"><input class="form-panel return_msg_area" type="text" placeholder="在这里输入打回原因"></li>
+                <li class="reject-form-panel pt15-pb10" style="display: none;">
+                {% for check_label in labels.check.hand_pic %}
+                <span><input type="checkbox" value={{check_label.value}} class="align-checkbox">{{check_label.name}}</span>
+                {% endfor %}
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block work_review %}
+<div class="col-md-3 panel-container" name="work_review">
+    <div class="float-panel-container rds10">
+        <div class="float-panel-heading">
+            <button class="close" style="opacity: 0.6; color: white; position: absolute; right: 0px; margin-top: 15px; font-weight: 500;" onclick="closed()"><span>×</span></button>
+            <h4 class="float-panel-title">审批 - 用户工作信息</h4>
+        </div>
+        <div class="float-panel-body">
+            <ul>
+                <li><textarea class="form-panel form150 notes_area" type="text" placeholder="在这里输入备注"></textarea></li>
+                {% if labels.radio.work %}
+                <li class="pt12-pb5">
+                {% for radio_label, radio_value in labels.radio.work.items%}
+                {% for sub_value in radio_value.sub_value%}
+                {% if forloop.first %}
+                <p>
+                <span>{{radio_value.name}}</span>
+                <input type="radio" class="align-radio" checked="checked" name="{{radio_value.name}}" id="{{radio_value.name}}" value="{{sub_value.value}}">是
+                {% else %}
+                <input type="radio" class="align-radio" name="{{radio_value.name}}" id="{{radio_value.name}}" value="{{sub_value.value}}">否
+                </p>
+                {% endif %}
+                {% endfor %}
+                {% endfor %}
+                </li>
+                {% endif %}
+                <li class="check-button">
+                <input type="button" class="pass_radio btn btns-default  mr10"  name="work_review" checked="checked" value="通过"/>
+                <!--<input type="button" class="pass_radio btn btns-default mr10"  name="work_review" checked="checked" value="通过"/>-->
+                <input type="button" class="recall_radio btn btns-default mr10" name="work_review" value="打回"/>
+                <input type="button" class="reject_radio btn btns-default mr10" name="work_review" value="拒绝"/>
+                </li>
+                <li  class="return-form-panel" style=" display: none;padding: 10px;"><input class="form-panel return_msg_area" type="text" placeholder="在这里输入打回原因"></li>
+                <li class="reject-form-panel pt15-pb10" style="display: none;">
+                {% for check_label in labels.check.work %}
+                <span><input type="checkbox" value={{check_label.value}} class="align-checkbox">{{check_label.name}}</span>
+                {% endfor %}
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block e_business_review %}
+<div class="col-md-3 panel-container" name="e_business_review">
+    <div class="float-panel-container rds10">
+        <div class="float-panel-heading">
+            <button class="close" style="opacity: 0.6; color: white; position: absolute; right: 0px; margin-top: 15px; font-weight: 500;" onclick="closed()"><span>×</span></button>
+            <h4 class="float-panel-title">审批 - 用户电商信息</h4>
+        </div>
+        <div class="float-panel-body">
+            <ul>
+                <li><textarea class="form-panel form150 notes_area" type="text" placeholder="在这里输入备注"></textarea></li>
+                <!-- 暂时没有电商的radio labels -->
+                <li class="check-button">
+                <input type="button" class="pass_radio btn btns-default  mr10"  name="e_business_review" checked="checked" value="通过"/>
+                <!--<input type="button" class="pass_radio btn btns-default mr10"  name="e_business_review" checked="checked" value="通过"/>-->
+
+                <input type="button" class="reject_radio btn btns-default mr10" name="e_business_review" value="拒绝"/>
+                </li>
+                <li  class="return-form-panel" style=" display: none;padding: 10px;"><input class="form-panel return_msg_area" type="text" placeholder="在这里输入打回原因"></li>
+                <li class="reject-form-panel pt15-pb10" style="display: none;">
+                {% for check_label in labels.check.chsi %}
+                <span><input type="checkbox" value={{check_label.value}} class="align-checkbox">{{check_label.name}}</span>
+                {% endfor %}
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block chsi_review%}
+<div class="col-md-3 panel-container" name="chsi_review">
+    <div class="float-panel-container rds10">
+        <div class="float-panel-heading">
+            <button class="close" style="opacity: 0.6; color: white; position: absolute; right: 0px; margin-top: 15px; font-weight: 500;" onclick="closed()"><span>×</span></button>
+            <h4 class="float-panel-title">审批 - 学籍信息</h4>
+        </div>
+        <div class="float-panel-body">
+            <ul>
+                <li><textarea class="form-panel form150 notes_area" type="text" placeholder="在这里输入备注"></textarea></li>
+                {% if labels.radio.chsi %}
+                <li class="pt12-pb5">
+                {% for radio_label, radio_value in labels.radio.chsi.items%}
+                {% for sub_value in radio_value.sub_value%}
+                {% if forloop.first %}
+                <p>
+                <span>{{radio_value.name}}</span>
+                <input type="radio" class="align-radio" checked="checked" name="{{radio_value.name}}" id="{{radio_value.name}}" value="{{sub_value.value}}">是
+                {% else %}
+                <input type="radio" class="align-radio" name="{{radio_value.name}}" id="{{radio_value.name}}" value="{{sub_value.value}}">否
+                </p>
+                {% endif %}
+                {% endfor %}
+                {% endfor %}
+                </li>
+                {% endif %}
+                <li class="check-button">
+                <input type="button" class="pass_radio btn btns-default  mr10"  name="chsi_review" checked="checked" value="通过"/>
+                <!--<input type="button" class="pass_radio btn btns-default mr10"  name="chsi_review" checked="checked" value="通过"/>-->
+                <input type="button" class="reject_radio btn btns-default mr10" name="chsi_review" value="拒绝"/>
+                </li>
+                <li  class="return-form-panel" style=" display: none;padding: 10px;"><input class="form-panel return_msg_area" type="text" placeholder="在这里输入打回原因"></li>
+                <li class="reject-form-panel pt15-pb10" style="display: none;">
+                {% for check_label in labels.check.chsi %}
+                <span><input type="checkbox" value={{check_label.value}} class="align-checkbox">{{check_label.name}}</span>
+                {% endfor %}
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{%block family_review%}
+<div class="col-md-3 panel-container" name="family_review">
+    <div class="float-panel-container rds10">
+        <div class="float-panel-heading">
+            <button class="close" style="opacity: 0.6; color: white; position: absolute; right: 0px; margin-top: 15px; font-weight: 500;" onclick="closed()"><span>×</span></button>
+            <h4 class="float-panel-title">审批 - 用户联系人信息</h4>
+        </div>
+        <div class="float-panel-body">
+            <ul>
+                <li><textarea class="form-panel form150 notes_area" type="text" placeholder="在这里输入备注"></textarea></li>
+                {% if labels.radio.contact %}
+                <li class="pt12-pb5">
+                {% for radio_label, radio_value in labels.radio.contact.items%}
+                {% for sub_value in radio_value.sub_value%}
+                {% if forloop.first %}
+                <p>
+                <span>{{radio_value.name}}</span>
+                <input type="radio" class="align-radio" checked="checked" name="{{radio_value.name}}" id="{{radio_value.name}}" value="{{sub_value.value}}">是
+                {% else %}
+                <input type="radio" class="align-radio" name="{{radio_value.name}}" id="{{radio_value.name}}" value="{{sub_value.value}}">否
+                </p>
+                {% endif %}
+                {% endfor %}
+                {% endfor %}
+                </li>
+                {% endif %}
+                <li class="check-button">
+                <input type="button" class="pass_radio btn btns-default  mr10"  name="family_review" checked="checked" value="通过"/>
+                <!--<input type="button" class="pass_radio btn btns-default  mr10"  name="family_review" checked="checked" value="通过"/>-->
+                <input type="button" class="recall_radio btn btns-default mr10" name="family_review" value="打回"/>
+                <input type="button" class="reject_radio btn btns-default mr10" name="family_review" value="拒绝"/>
+                </li>
+                <li  class="return-form-panel" style=" display: none;padding: 10px;"><input class="form-panel return_msg_area" type="text" placeholder="在这里输入打回原因"></li>
+                <li class="reject-form-panel radio-inline pt15-pb10" style="display: none;">
+                <span><input value="304" class="align-checkbox" type="checkbox">联系人重复出现</span>
+
+                <span><input value="305" class="align-checkbox" type="checkbox">代偿意愿差</span>
+
+                <span><input value="306" class="align-checkbox" type="checkbox">多次无法确认</span>
+
+                <span><input value="307" class="align-checkbox" type="checkbox">三方负面消息</span>
+
+                <span><input value="308" class="align-checkbox" type="checkbox">催收通话记录</span>
+
+                <span><input value="309" class="align-checkbox" type="checkbox">本人出现在通话记录</span>
+
+                <span><input value="310" class="align-checkbox" type="checkbox">与父母无联系</span>
+
+
+
+                <span><input value="316" class="align-checkbox" type="checkbox">电话实名不匹配</span>
+                <span><input value="312" class="align-checkbox" type="checkbox">与多家贷款公司联系异常</span>
+
+
+                <span><input value="311" class="align-checkbox" type="checkbox">无通讯录、通话记录、详单</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block b_out_review %}
+<div id="out" class="col-md-3 panel-container" name="b_out_review">
+    <div class="float-panel-container rds10">
+        <div class="float-panel-heading">
+            <button class="close" style="opacity: 0.6; color: white; position: absolute; right: 0px; margin-top: 15px; font-weight: 500;" onclick="closed()"><span>×</span></button>
+            <h4 class="float-panel-title">审批 - 外访信息</h4>
+        </div>
+        <div class="float-panel-body">
+            <ul>
+                <li><textarea class="form-panel form150 notes_area" type="text" placeholder="在这里输入备注">
+                    {{  report.url }}
+                </textarea></li>
+                {% if labels.radio.work %}
+                <li class="pt12-pb5">
+                {% for radio_label, radio_value in labels.radio.work.items%}
+                {% for sub_value in radio_value.sub_value%}
+                {% if forloop.first %}
+                <p>
+                <span>{{radio_value.name}}</span>
+                <input type="radio" class="align-radio" checked="checked" name="{{radio_value.name}}" id="{{radio_value.name}}" value="{{sub_value.value}}">是
+                {% else %}
+                <input type="radio" class="align-radio" name="{{radio_value.name}}" id="{{radio_value.name}}" value="{{sub_value.value}}">否
+                </p>
+                {% endif %}
+                {% endfor %}
+                {% endfor %}
+                </li>
+                {% endif %}
+                <li class="check-button">
+                <input type="button" class="pass_radio btn btns-default  mr10"  name="work_review" checked="checked" value="通过"/>
+                <!--<input type="button" class="pass_radio btn btns-default  mr10"  name="work_review" checked="checked" value="通过"/>-->
+
+                <form id="uploadReportForm" enctype="multipart/form-data">
+                    <input id='reportFile' type="file"/>
+                    <input style="display:none" name="apply_id"/>
+                    <button type="button"  onclick="btnSubReport()" style="color:black">上传</button>
+                    <!--<input type="button" onclick="btnSubReport()"/>-->
+                    <form>
+                        <input type="button" class="reject_radio btn btns-default mr10" name="work_review" value="拒绝"/>
+                        </li>
+                        <li  class="return-form-panel" style=" display: none;padding: 10px;"><input class="form-panel return_msg_area" type="text" placeholder="在这里输入打回原因"></li>
+                        <li class="reject-form-panel pt15-pb10" style="display: none;">
+                        {% for check_label in labels.check.work %}
+                        <span><input type="checkbox" value={{check_label.value}} class="align-checkbox">{{check_label.name}}</span>
+                        {% endfor %}
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <script >
+
+function createXmlHttpRequest() {
+    return window.XMLHttpRequest ? new XMLHttpRequest() : window.ActiveXObject ? new ActiveXObject("Microsoft.XMLHTTP") : new XMLHttpRequest();
+}
+
+function btnSubReport() {
+            var id = $("a#submit_review").attr("apply_id");
+            var file = document.getElementById("reportFile").files[0];
+            console.info(file)
+            console.info(id)
+            var formData = new FormData();
+            formData.append('file',file);
+            formData.append('apply_id', id);
+            console.info(formData)
+
+            $.ajax(
+                {
+                    url:"/review/action/upload_others_report",
+                    type:'POST',
+                    cache:false,
+                    data:formData,
+                    processData:false,
+                    contentType:false,
+                }
+            ).done(function(res){
+                var result = JSON.parse(res);
+                var keys = Object.keys(result);
+                if('url'==keys){
+                        alert('上传成功');
+                        console.info($("#out").find(".notes_area"));
+                        $("#out").find(".notes_area").attr('readonly','readonly');
+                       $("#out").find(".notes_area").val(result['url']);
+                    }
+                else {
+                        alert('上传失败');
+                    };
+                console.info(result);
+            });
+
+        }
+            </script>
+        </div>
+        {% endblock %}
+        {% block third_review %}
+        <div class="col-md-3 panel-container" name="third_review">
+            <div class="float-panel-container rds10">
+                <div class="float-panel-heading">
+                    <button class="close" style="opacity: 0.6; color: white; position: absolute; right: 0px; margin-top: 15px; font-weight: 500;" onclick="closed()"><span>×</span></button>
+                    <h4 class="float-panel-title">审批 - 三方信息</h4>
+                </div>
+                <div class="float-panel-body">
+                    <ul>
+                        <li><textarea class="form-panel form150 notes_area" type="text" placeholder="在这里输入备注"></textarea></li>
+                        {% if labels.radio.work %}
+                        <li class="pt12-pb5">
+                        {% for radio_label, radio_value in labels.radio.work.items%}
+                        {% for sub_value in radio_value.sub_value%}
+                        {% if forloop.first %}
+                        <p>
+                        <span>{{radio_value.name}}</span>
+                        <input type="radio" class="align-radio" checked="checked" name="{{radio_value.name}}" id="{{radio_value.name}}" value="{{sub_value.value}}">是
+                        {% else %}
+                        <input type="radio" class="align-radio" name="{{radio_value.name}}" id="{{radio_value.name}}" value="{{sub_value.value}}">否
+                        </p>
+                        {% endif %}
+                        {% endfor %}
+                        {% endfor %}
+                        </li>
+                        {% endif %}
+                        <li class="check-button">
+                        <input type="button" class="pass_radio btn btns-default  mr10"  name="work_review" checked="checked" value="通过"/>
+                        <!--<input type="button" class="pass_radio btn btns-default mr10"  name="work_review" checked="checked" value="通过"/>-->
+                        <input type="button" class="reject_radio btn btns-default mr10" name="work_review" value="拒绝"/>
+                        </li>
+                        <li  class="return-form-panel" style=" display: none;padding: 10px;"><input class="form-panel return_msg_area" type="text" placeholder="在这里输入打回原因"></li>
+                        <li class="reject-form-panel pt15-pb10" style="display: none;">
+                        {% for check_label in labels.check.work %}
+                        <span><input type="checkbox" value={{check_label.value}} class="align-checkbox">{{check_label.name}}</span>
+                        {% endfor %}
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        {% endblock %}
+        {% block c_interview_review %}
+        <div class="col-md-3 panel-container" name="c_interview_review">
+            <div class="float-panel-container rds10">
+                <div class="float-panel-heading">
+                    <button class="close" style="opacity: 0.6; color: white; position: absolute; right: 0px; margin-top: 15px; font-weight: 500;" onclick="closed()"><span>×</span></button>
+                    <h4 class="float-panel-title">审批 - 面签信息</h4>
+                </div>
+                <div class="float-panel-body">
+                    <ul>
+                        <li><textarea class="form-panel form150 notes_area" type="text" placeholder="在这里输入备注"></textarea></li>
+                        {% if labels.radio.work %}
+                        <li class="pt12-pb5">
+                        {% for radio_label, radio_value in labels.radio.work.items%}
+                        {% for sub_value in radio_value.sub_value%}
+                        {% if forloop.first %}
+                        <p>
+                        <span>{{radio_value.name}}</span>
+                        <input type="radio" class="align-radio" checked="checked" name="{{radio_value.name}}" id="{{radio_value.name}}" value="{{sub_value.value}}">是
+                        {% else %}
+                        <input type="radio" class="align-radio" name="{{radio_value.name}}" id="{{radio_value.name}}" value="{{sub_value.value}}">否
+                        </p>
+                        {% endif %}
+                        {% endfor %}
+                        {% endfor %}
+                        </li>
+                        {% endif %}
+                        <li class="check-button">
+                        <input type="button" class="pass_radio btn btns-default  mr10"  name="work_review" checked="checked" value="通过"/>
+                        <!--<input type="button" class="pass_radio btn btns-default  mr10"  name="work_review" checked="checked" value="通过"/>-->
+                        <input type="button" class="reject_radio btn btns-default mr10" name="work_review" value="拒绝"/>
+                        </li>
+                        <li  class="return-form-panel" style=" display: none;padding: 10px;"><input class="form-panel return_msg_area" type="text" placeholder="在这里输入打回原因"></li>
+                        <li class="reject-form-panel pt15-pb10" style="display: none;">
+                        {% for check_label in labels.check.work %}
+                        <span><input type="checkbox" value={{check_label.value}} class="align-checkbox">{{check_label.name}}</span>
+                        {% endfor %}
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        {% endblock %}
+
+
+        {% endblock %}
+
+
+        {% block load_contact %}
+        <script>
+{% if not phone_basics %}
+$(".contact-head").addClass("hide");
+var url = "/review/info/contact/" + {{apply.id}};
+$(".family-and-business").load(url)
+{% else %}
+$(".family-and-business .progress").addClass("hide");
+{% endif %}
+        </script>
+        {% endblock %}
+
+
+

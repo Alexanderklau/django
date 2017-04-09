@@ -1,0 +1,289 @@
+{% load num_compute %}
+<div class="modal-dialog modal-lg">
+  <div class="modal-content">
+    <div class="modal-header">
+      {% block modal_title %}
+      <h4 class="modal-title" id="ModalLabel">代扣确认</h4>
+      {% endblock %}
+    </div>
+    <div class="modal-body">
+      <div class="container-fluid">
+        <div class="row">
+            <div class="box-body table-responsive" id="user_info" value="{{payment.user.id}}">
+            <!--user info start-->
+            {% block modal_user_info %}
+            <div class="col-md-12 pdlr10">
+                <div class="stats-info rds5">
+                    <div class="panel-heading">
+                        <img src="/static/images/check_icon01.svg" class="title-icon icon01 fl">
+                        <h4 class="panel-title fl">用户信息</h4>
+                        <a href="#" title="收起"><img src="/static/images/arrow01.svg" class="title-icon fr"></a>
+                    </div>
+                    <div class="panel-body pdlr10" id="panel">
+                    <!--info start-->
+                        <div class="col-md-12 mt20 pdlr10 mb20">
+                            <div class="bd pdlr20">
+                                <table frame="void" class="mt20">
+                                    <thead>
+                                      <tr>
+                                        <th class="col-md-1 align-mid">姓名</th>
+                                        <th class="col-md-2 align-mid">手机号</th>
+                                        <th class="col-md-3 align-mid">身份证号</th>
+                                        <th class="col-md-3 align-mid">银行卡号</th>
+                                        <th class="col-md-1 align-mid">银行名称</th>
+                                        <th class="col-md-2 align-mid"></th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr class="success">
+                                        <td class="align-mid">{{payment.user.name}}</td>
+                                        <td class="align-mid">{{payment.user.phone_no}}</td>
+                                        <td class="align-mid">{{payment.user.id_no}}</td>
+                                        <td class="align-mid">{{bank_card.card_number}}</td>
+                                        <td class="align-mid">{{bank_card.bank_name}}</td>
+                                        <td class="align-mid"><div class="top-tab top-tab-blue rds99 plr12-ptb5"><a class="btn inline-btn" id="send_message"> 发送短信</a></div></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    <!--info end-->
+                    <!--order start-->
+                        <div class="col-md-12 mt20 pdlr10 mb20">
+                            <div class="bd pdlr20">
+                                <table frame="void" class="mt20">
+                                    <thead>
+                                      <tr>
+                                          <th>订单号</th>
+                                          <th>贷款方式</th>
+                                          <th>借款本金</th>
+                                          <th>当前期数</th>
+                                          <th>需还期数</th>
+                                          <th>资金来源渠道</th>
+                                          <th>账户盈余</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      <tr>
+                                        <td class="align-mid">{{payment.order_number}}</td>
+                                        <!--<td class="align-mid">{{payment.get_strategy_id_display}}</td>-->
+                                        <td class="align-mid">{{strategy.installment_count}} 个月</td>
+                                        <td class="align-mid">{{payment.apply_amount | math_div}}</td>
+                                        <!--td>{{installment.installment_number}}</td>-->
+                                        <td class="align-mid">{{installment_more.now_apply_number}}</td>
+                                        <td class="align-mid">{{installment_more.peroids}}</td>
+                                        <!--<td class="align-mid">{{payment.get_capital_channel_id_display}}</td>-->
+                                        <td class="align-mid"> 湖银 </td>
+                                        <td class="align-mid">{{payment.balance | math_div}}</td>
+                                      </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    <!--order end-->
+                                {% block installment_table %}
+                    <!--balance start-->
+                        <div class="col-md-12 pdlr10 mb20">
+                            <div class="bd pdlr20">
+                                <table frame="void" class="mt20">
+                                    <thead>
+                                      <tr class="info">
+                                        <!--<th>应还本金</th>-->
+                                        <!--<th>应还利息</th>-->
+                                        <!--<th>应还手续费</th>-->
+                                        <th>应还服务费</th>
+                                        <!--<th class="col-md-1 align-mid">正常需还金额<br/>-->
+                                            <!--<span class="font12 font-light">(本金+利息+服务费+银行手续费)</span></th>-->
+                                        <th>应还罚息</th>
+                                        <th>应还罚金</th>
+                                        <!--<th class="col-md-1 align-mid">逾期滞纳金<br/>-->
+                                            <!--<span class="font12 font-light">(罚息+罚金)</span></th>-->
+                                        <!--<th>减免金额</th>-->
+                                        <!--<th>实际已还总额</th>-->
+                                        <th>实际应还金额</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      <tr>
+                                        <!--<td class="align-mid">{{installment_more.repay_principle| math_div}}</td>-->
+                                        <!--<td class="align-mid">{{installment_more.repay_interest| math_div}}</td>-->
+                                        <!--<td class="align-mid">{{installment_more.repay_bank_fee| math_div}}</td>-->
+                                        <td class="align-mid">{{installment_more.repay_fee| math_div}}</td>
+                                        <!--<td class="align-mid">{{installment_more.should_repay_amount| math_div}}</td>-->
+                                        <td class="align-mid">{{installment_more.repay_overdue_interest| math_div}}</td>
+                                        <td class="align-mid">{{installment_more.repay_penalty| math_div}}</td>
+                                        <!--<td class="align-mid">{{installment_more.repay_overdue | math_div}}</td>-->
+                                        <!--<td class="align-mid">{{installment_more.reduction_amount | math_div}}</td>-->
+                                        <!--<td class="align-mid">{{installment_more.real_repay_amount| math_div}}</td>-->
+                                        <td class="align-mid">{{installment_more.actual_should_repay_amount| math_div}}</td>
+                                      </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    <!--balance end-->
+                                {% endblock %}
+                    </div>
+                </div>
+            </div>
+            {% endblock %}
+            <!--user info end-->
+            <!--loan start-->
+            {% block modal_repay_info %}
+            <div class="col-md-12 pdlr10">
+                <div class="col-md-12 stats-info rds5">
+                    <div class="panel-heading">
+                        <img src="/static/images/check_icon10.svg" class="title-icon icon01 fl">
+                        <h4 class="panel-title fl">借贷信息</h4>
+                        <a href="#" title="收起"><img src="/static/images/arrow01.svg" class="title-icon fr"></a> </div>
+                    <div class="panel-body pdlr10" id="panel">
+                        <div class="box-body table-responsive panel-nested-table">
+                                <table id="loan_table" class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>订单号</th>
+                                            <th>申请金额</th>
+                                            <th>实际打款金额</th>
+                                            <th>还款状态</th>
+                                            <th>申请时间</th>
+                                            <th>单期详情</th>
+                                        </tr>
+                                    </thead>
+                                </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endblock %}
+            <!--loan end-->
+            {% block modal_contact_info %}
+            {% endblock %}
+{% block review_info %}
+    <div class="col-md-12 pdlr10">
+        <div class="col-md-12 stats-info rds5">
+           <div class="panel-heading">
+           <div class="title-icon icon12 fl"></div>
+           <h4 class="panel-title fl">催记</h4>
+            </div>
+            <!--div class="panel-heading bg-info">催记</div>-->
+            <div class="panel-body">
+                <div class="row">
+                    <div class="box-body table-responsive panel-nested-table">
+                        <div class="btn-group">
+                            <button type="button" id="recordTypeButton" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                催记类型 <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" id="recordTypeBox" name="all">
+                                <li><a href="#" name="record">催记</a></li>
+                                <li><a href="#" name="repay">扣款</a></li>
+                                <li><a href="#" name="dispatch">分配</a></li>
+                                <li><a href="#" name="message">短信</a></li>
+                                <li><a href="#" name="all">所有</a></li>
+                            </ul>
+                        </div>
+                        <table id="collection_record_table" class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>催记类型</th>
+                                    <th>处理人</th>
+                                    <th>处理时间</th>
+                                    <!--
+                                    <th>承诺还款时间</th>
+                                    -->
+                                    <th style="width:60%">备注</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+            </div>
+    </div>
+    </div>
+{% endblock %}
+　　　　　　{% block modal_collection_check_label %}
+            {% endblock %}
+
+            {% block repay_info %}
+     <div class="col-md-12 pdlr10">
+         <div class="col-md-12 stats-info rds5">
+            <div class="panel-heading">
+
+            <!--div class="col-md-12">
+                <div class="panel panel-default">
+          <div  style= "background-color:#7f95b0" class="panel-heading"-->
+          <div class="title-icon icon13 fl"></div>
+          <h4 class="panel-title fl">扣款</h4>
+          <a href="#" title="收起"><img src="/static/images/arrow01.svg" class="title-icon fr"></a> </div>
+
+                    <div class="panel-body" style= "margin-left:0; margin-right:auto">
+                        <div class="row">
+                            <div id = "repay_channel_radiobox" class = "radio panel-nested-table general-radio">
+                                还款方式
+                                <label class="radio-inline">
+                                    <input name="repay_channel" type="radio" id="inlineCheckbox1" value="realtime_repay" checked> 代扣
+                                </label>
+                                <label class="radio-inline">
+                                    <input name="repay_channel" type="radio" id="inlineCheckbox2" value="topublic_repay"> 对公转账
+                                </label>
+                                <label class="radio-inline">
+                                    <input name="repay_channel" type="radio" id="inlineCheckbox3" value="alipay_repay"> 支付宝转账
+                                </label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div id = "repay_type_radiobox" class = "radio panel-nested-table general-radio">
+                                还款类型
+                                <label class="radio-inline">
+                                    <input name="repay_type" amount={{installment_more.rest_repay_money|math_div}} type="radio" id="repay_type_installment" value="installment" checked> 期款{{installment_more.rest_repay_money| math_div }}
+                                </label>
+                                {%if installment_more.can_repay_all %}
+                                <label class="radio-inline">
+                                    <input name="repay_type" amount={{installment_more.all_rest_repay_money|math_div}} type="radio" id="repay_type_repayment" value="repayment"> 结清{{installment_more.all_rest_repay_money|math_div}}
+                                </label>
+                                {% endif %}
+                                <!--<label id='custom_repay_radio' class="radio-inline">-->
+                                    <!--<input name="repay_type" type="radio" id="repay_type_c" value="custom"> 自定义-->
+                                <!--</label>-->
+                                <!--<label class="radio-inline">-->
+                                    <!--<input type="text" id="repay_amount_input" value=0>-->
+                                <!--</label>-->
+                            </div>
+                        </div>
+                        <form id="upload_check_file" enctype="multipart/form-data">
+                            <input id="check_file" class="file" url="" type="file" multiple data-min-file-count="1">
+                            <p class="formfield">
+                                <label for="check_amount">凭证金额</label>
+                                <input type="text" style="width:25%" clanss="form-control" id="check_amount" placeholder="">
+                            </p>
+                            <p class="formfield">
+                                <label for="check_notes" style="vertical-align: top;">备注</label>
+                                <textarea class="form-control"  style="width:70%" rows="3" id="check_notes" placeholder="备注.."></textarea>
+                            </p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            {% endblock %}
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+        {% block modal_footer %}
+        {% if apply.status == 'k' %}
+            <button type="button" class="btn" disabled="disabled">等待复核</button>
+            <input type="hidden" id="submit_repayment" aid="{{apply.id}}"  />
+        {% elif apply.status == '8' %}
+            <input type="hidden" id="submit_repayment" aid="{{apply.id}}"  />
+        {% elif apply.status == '9' %}
+            <input type="hidden" id="submit_repayment" aid="{{apply.id}}"  />
+        {% else %}
+            <button type="button" id="submit_repayment" token="{{token}}" aid="{{apply.id}}" class="btn btn-primary">确认</button>
+        {% endif %}
+        <button type="button" id="cancel_repayment"  aid="{{apply.id}}" class="btn btn-default" data-dismiss="modal">取消</button>
+        {% endblock %}
+    </div>
+   {% block extra %}
+    {% endblock %}
+  </div>
+</div>
+</div>

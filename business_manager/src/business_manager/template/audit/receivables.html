@@ -1,0 +1,113 @@
+{%extends "base.html"%}
+
+{%block title%}财务管理{%endblock%}
+
+{%block css%}
+    <link type="text/css" rel="stylesheet" href="/static/style/daterangepicker-bs3.css"/>
+{%endblock%}
+{%block js%}
+    <script type="text/javascript" src="/static/js/moment.min.js"></script>
+    <script type="text/javascript" src="/static/js/daterangepicker.js"></script>
+    <script type="text/javascript" src="/static/js/jquery.fileDownload.js"></script>
+    <script type="text/javascript" src="/static/js/waiting-dialog.js"></script>
+{%endblock%}
+
+{%block content%}
+    <div class='boxA' id='Table'>
+        <table cellpadding="0" cellspacing="0" border="0" class="display review_table" width="100%" id="check_receivables">
+            <thead>
+                <tr>
+                    {%for column in columns %}
+                    <th>{{column}}</th>
+                    {%endfor%}
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+            <tfoot>
+                <tr>
+                    {%for column in columns %}
+                    <th>{{column}}</th>
+                    {%endfor%}
+                </tr>
+            </tfoot>
+        </table>
+        <iframe id="txtArea1" style="display:none"></iframe>
+        <!--<button type="button" onclick="bntAjax()">下载报表</button>-->
+        <a id="download-excel" class="btn btn-info" href="">下载报表</a>
+        <div class="clear"></div>
+
+        <script>
+            function bntAjax()
+            {
+                $("td").attr("style","mso-number-format:'\@';");
+                var tab_text="<table border='2px'><tr bgcolor='#87AFC6'>";
+                var textRange; 
+                var j=0;
+                tab = document.getElementById('check_receivables'); // id of table
+
+                for(j = 0 ; j < tab.rows.length ; j++)
+                {
+                    tab_text=tab_text+tab.rows[j].innerHTML+"</tr>";
+                }
+
+                tab_text=tab_text+"</table>";
+                tab_text= tab_text.replace(/<A[^>]*>|<\/A>/g, "");
+                tab_text= tab_text.replace(/<img[^>]*>/gi,"");
+                tab_text= tab_text.replace(/<input[^>]*>|<\/input>/gi, "");
+                console.info(tab_text);
+
+                var ua = window.navigator.userAgent;
+                var msie = ua.indexOf("MSIE ");
+
+                if (msie > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./))
+                {
+                    txtArea1.document.open("txt/html","replace");
+                    txtArea1.document.write(tab_text);
+                    txtArea1.document.close();
+                    txtArea1.focus();
+                    sa=txtArea1.document.execCommand("SaveAs",true,"Say Thanks to Sumit.xls");
+                    alert(1)
+                }
+                else
+                    sa = window.open('data:application/vnd.ms-excel,' + encodeURIComponent(tab_text));
+                    <!--sa = window.open('data:application/vnd.ms-excel,' + escape(tab_text));-->
+                return (sa);
+            }
+        </script>
+
+
+
+        <!--<script>-->
+            <!--function bntAjax(){-->
+            <!--$.ajax(-->
+                    <!--{-->
+                        <!--url:"/audit/action/get_url",-->
+                        <!--type:'GET',-->
+                        <!--data:-->
+                            <!--{-->
+                                <!--'request_type':'receivables',-->
+                                <!--'status':$("#statusBox").attr("name"),-->
+                                <!--'type':$("#typeBox").attr("name"),-->
+                                <!--'time':$("#timeBox").attr("name"),-->
+                                <!--'start':'0',-->
+                                <!--'length':15,-->
+                                <!--'search':{'value':'', 'regex':false},-->
+                                <!--'stime':$("#timeBox").attr("stime"),-->
+                                <!--'etime':$("#timeBox").attr("etime"),-->
+                            <!--}-->
+                    <!--}-->
+                  <!--).done(function(res){-->
+                      <!--window.open(res);-->
+                      <!--});-->
+            <!--}-->
+        <!--</script>-->
+    </div>
+    <!--
+    <div class="btn-toolbar" role="toolbar" aria-label="..." id='payBox'>
+        <a href="#" id="export_pay" class="btn btn-primary " role="button">业务报表</a>
+    </div>
+    -->
+    <div class="clear"></div>
+    <div class="modal fade bs-example-modal-lg" id="check_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+{%endblock%}

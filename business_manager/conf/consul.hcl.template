@@ -1,0 +1,29 @@
+consul {
+    address = "${CONSUL_HOST}"
+    token   = "${CONSUL_TOKEN}"
+    retry {
+    	enabled = true
+    	attempts = 3
+    	backoff = "250ms"
+  }
+}
+
+log_level = "info"
+
+wait {
+  min = "2s"
+  max = "10s"
+}
+
+template {
+    source = "/app/conf/settings.py.ctmpl"
+    destination = "/app/src/business_manager/settings.py"
+    wait {
+      min = "2s"
+      max = "10s"
+    }
+    command = "uwsgi --reload /tmp/app.pid"
+    command_timeout = "30s"
+    perms = 0600
+    backup = true
+}

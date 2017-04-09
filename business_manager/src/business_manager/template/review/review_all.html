@@ -1,0 +1,199 @@
+{%extends "base.html"%}
+
+{%block css%}
+    <link type="text/css" rel="stylesheet" href="/static/style/daterangepicker-bs3.css"/>
+    <link type="text/css" rel="stylesheet" href="/static/style/review-all.css"/>
+
+    <link type="text/css" rel="stylesheet" href="/static/style/dataTables.bootstrap.min.css"/>
+{%endblock%}
+{%block js%}
+    <script type="text/javascript" src="/static/js/moment.min.js"></script>
+    <script type="text/javascript" src="/static/js/daterangepicker.js"></script>
+    <script type="text/javascript" src="/static/js/jquery.fileDownload.js"></script>
+    <script type="text/javascript" src="/static/js/waiting-dialog.js"></script>
+
+{%endblock%}
+
+{%block title%}所有审批{%endblock%}
+
+{%block nav_review%}
+
+    <li role="presentation" class="active">
+        <div class="callout active">
+            <span class="icon-svg icon-svg-large svg-nav_icon02" aria-hidden="true"></span>
+            <a href="/review">审批管理</a>
+        </div>
+        <div class="f2">
+            <ul class="list-group">
+                <li class="list-group-item "> <a href="mine">●&nbsp;&nbsp;我的审批</a> </li>
+                <li class="list-group-item list-group-item-info">
+                <a class="round_nav_btn" href="all">●&nbsp;&nbsp;所有审批</a>
+                <span class="icon-svg icon-svg-large icon-right svg-arrow02" aria-hidden="true"></span>
+                </li>
+            </ul>
+        </div>
+    </li>
+
+{%endblock%}
+
+{%block topnav%}
+{%endblock%}
+
+{%block search%}
+    <div class="btn-toolbar" role="toolbar" aria-label="...">
+        <div class="btn-group">
+            <button type="button" class="btn btn-default dropdown-toggle" id="statusButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">待审核
+               <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu" id="statusBox" name="waiting">
+                <!--<li><a href="#" name="waiting">待初审</a> </li>-->
+                {%for status in status_list%}
+                    <li><a href="#" name={{status.status_code}}>{{status.name}}</a></li>
+                {%endfor%}
+                <li><a href="#" name="r">打回修改</a> </li>
+                <li><a href="#" name="y">已通过</a> </li>
+                <li><a href="#" name="n">已拒绝</a> </li>
+                <li><a href="#" name="all">全部</a> </li>
+            </ul>
+        </div>
+        <!--<div class="btn-group">-->
+            <!--<button type="button" class="btn btn-default dropdown-toggle" id="typeButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+                <!--基本信息 <span class="caret"></span>-->
+            <!--</button>-->
+            <!--<ul class="dropdown-menu" id="typeBox" name="basic">-->
+                <!--<li><a href="#" name="basic">基本信息</a> </li>-->
+                <!--<li><a href="#" name="promotion">额度提升</a> </li>-->
+                <!--<li><a href="#" name="second">二次提现</a> </li>-->
+                <!--<li><a href="#" name="loan">提现</a> </li>-->
+                <!--<li><a href="#" name="all">全部</a> </li>-->
+            <!--</ul>-->
+        <!--</div>-->
+
+        <div class="btn-group">
+            <button type="button" class="btn btn-default dropdown-toggle" id="timeFilterButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                按提交时间 <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" id="timeFilterBox" name="apply">
+                <li><a href="#" name="apply">按提交时间</a></li>
+                <li><a href="#" name="review">按审批时间</a></li>
+            </ul>
+        </div>
+
+        <div class="btn-group btn-group-right" role="group" aria-label="..." id='customtimeBox' name=''>
+            <a href="#" name="icon" class="btn btn-info icon-svg icon-svg-large svg-calendar disabled" role="button">&nbsp;</a>
+            <a href="#" name="custom"   class="btn btn-default" role="button">自定义时间</a>
+        </div>
+
+        <div class="btn-group btn-group-right" role="group" aria-label="..." id='timeBox' name='twodays'>
+        <a href="#" name="twodays"    class="btn btn-info active" role="button">近两天</a>
+        <a href="#" name="today"    class="btn btn-default" role="button">今天</a>
+        <a href="#" name="yestoday" class="btn btn-default" role="button">昨天</a>
+        <a href="#" name="toweek"   class="btn btn-default" role="button">本周</a>
+        <a href="#" name="tomonth"  class="btn btn-default" role="button">本月</a>
+        </div>
+
+    </div>
+
+{%endblock%}
+
+
+
+{%block content%}
+    <div class="clear"></div>
+    <div class='boxA' id='orderTable'>
+        <!--<div class="form-inline">-->
+            <!--<div id="all_review_filter" class="dataTables_filter">-->
+                <!--<div class="form-group ">-->
+                    <!--<label class="control-label icon-svg svg-search" for="inputSuccess4"></label>-->
+                    <!--<input type="text" class="form-control" id="inputSuccess4" aria-describedby="inputSuccess4Status">-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="dataTables_length" id="all_review_length">-->
+                    <!--<div class="form-group ">-->
+                        <!--<label class="control-label" for="select-page-show">每页显示</label>-->
+                        <!--<select class="form-control" id="select-page-show">-->
+                            <!--<option>1</option>-->
+                            <!--<option>2</option>-->
+                            <!--<option>3</option>-->
+                            <!--<option>4</option>-->
+                            <!--<option>5</option>-->
+                        <!--</select>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+
+
+        <table cellpadding="0" cellspacing="0" border="0" class="display review_table " width="100%" id="all_review">
+            <thead>
+                <tr>
+                    {%for column in columns %}
+                    <th>{{column}}
+                        <!--<div class="arrow-group">-->
+                            <!--<span class="caret up"></span>-->
+                            <!--<span class="caret"></span>-->
+                        <!--</div>-->
+                    </th>
+                    {%endfor%}
+                </tr>
+                <!--<tr role="row" class="odd"><td>149346</td><td>蔡爱华</td><td>基本信息</td><td>2016-03-17 09:46:09</td><td></td><td>管理员</td><td>2000/0</td><td><a class="view_review" name="201600596" href="#">-->
+                            <!--<span class="label label-default label-machine-reject">机器拒绝</span>-->
+                <!--</a></td></tr>-->
+
+                <!--<tr role="row" class="odd"><td>149346</td><td>蔡爱华</td><td>基本信息</td><td>2016-03-17 09:46:09</td><td></td><td>管理员</td><td>2000/0</td><td><a class="view_review" name="201600596" href="#">-->
+                            <!--<span class="label label-default label-reject">已拒绝</span>-->
+                <!--</a></td></tr>-->
+
+                <!--<tr role="row" class="odd"><td>149346</td><td>蔡爱华</td><td>基本信息</td><td>2016-03-17 09:46:09</td><td></td><td>管理员</td><td>2000/0</td><td><a class="view_review" name="201600596" href="#">-->
+                            <!--<span class="label label-success label-pass">已通过</span>-->
+                <!--</a></td></tr>-->
+
+                <!--<tr role="row" class="odd"><td>149346</td><td>蔡爱华</td><td>基本信息</td><td>2016-03-17 09:46:09</td><td></td><td>管理员</td><td>2000/0</td><td><a class="view_review" name="201600596" href="#">-->
+                            <!--<span class="label label-primary label-wait">待审批</span>-->
+                <!--</a></td></tr>-->
+
+                <!--<tr role="row" class="odd"><td>149346</td><td>蔡爱华</td><td>基本信息</td><td>2016-03-17 09:46:09</td><td></td><td>管理员</td><td>2000/0</td><td><a class="view_review" name="201600596" href="#">-->
+                            <!--<span class="label label-danger label-back">返回修改</span>-->
+                <!--</a></td></tr>-->
+
+                <!--<tr role="row" class="odd"><td>149346</td><td>蔡爱华</td><td>基本信息</td><td>2016-03-17 09:46:09</td><td></td><td>管理员</td><td>2000/0</td><td><a class="view_review" name="201600596" href="#">-->
+                            <!--<span class="label label-warning label-processing">处理中</span>-->
+                <!--</a></td></tr>-->
+
+            </thead>
+            <tbody>
+            </tbody>
+            <tfoot>
+                <tr>
+                    {%for column in columns %}
+                    <th>{{column}}</th>
+                    {%endfor%}
+                </tr>
+            </tfoot>
+        </table>
+        <div class="clear"></div>
+
+        <!--<nav>-->
+            <!--<ul class="pagination" style=" ">-->
+                <!--<li class="disabled" style=" ">-->
+                <!--<a href="#" aria-label="Previous" style=" ">-->
+                    <!--<span aria-hidden="true">上一页</span>-->
+                <!--</a>-->
+                <!--</li>-->
+                <!--<li style=" "><a href="#" style=" ">1</a></li>-->
+                <!--<li><a href="#">2</a></li>-->
+                <!--<li><a href="#">3</a></li>-->
+                <!--<li><a href="#">4</a></li>-->
+                <!--<li><a href="#">5</a></li>-->
+                <!--<li>-->
+                <!--<a href="#" aria-label="Next">-->
+                    <!--<span aria-hidden="true">下一页</span>-->
+                <!--</a>-->
+                <!--</li>-->
+            <!--</ul>-->
+        <!--</nav>-->
+
+    </div>
+
+    <div class="modal fade bs-example-modal-lg" id="review_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    </div>
+{%endblock%}

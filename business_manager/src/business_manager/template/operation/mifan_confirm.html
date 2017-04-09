@@ -1,0 +1,89 @@
+{% load num_compute %}
+<div class="modal-dialog modal-lg">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="ModalLabel">批量打款</h4>
+        </div>
+        <div class="modal-body">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-14">
+                        <div class="panel panel-default">
+                            <!--<div class="panel-heading bg-info">用户借贷信息</div>-->
+                            <div class="panel-heading bg-info"><input id = "pay_loan_mifan_checkall" type="checkbox" name="checkall" >
+                                <label for="pay_loan_mifan_checkall">全选反选</label>
+                            </div>
+
+                            <div width= "90%"class="panel-body">
+                                <div class="row">
+                                    <div class="col-md-12">
+    <div class="pay_time_amount">
+        <div>
+            <label for='pay_time' >打款时间:</label>
+            <input id='pay_time' placeholder='不填:则使用当前时间'/>
+        </div>
+    </div>
+ 
+
+
+                                        <div class='boxAA' id='orderTableAA' style='overflow:auto'>
+                                            <table class="table-responsive table" id="pay_loan_mifan" width="80%">
+                                                <thead>
+                                                    <tr>
+                                                        {%for column in columns %}
+                                                        <th>{{column}}</th>
+                                                        {%endfor%}
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                </tbody>
+                                                <tfoot>
+                                                    <tr>
+                                                        {%for column in columns %}
+                                                        <th>{{column}}</th>
+                                                        {%endfor%}
+                                                    </tr>
+                                                </tfoot>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <!--<button type="button" id="realtime_pay_batch" class="btn btn-primary" token="{{token}}" data-pay-type='realtime_pay'>银联代付</button>-->
+            <button type="button" id="comfirm_success_batch" class="btn btn-primary" token="{{token}}" data-pay-type='comfirm_success'>银联代付</button>
+            <!--<button type="button" id="comfirm_success_batch" class="btn btn-primary" token="{{token}}" data-pay-type='comfirm_success'>确定打款已成功</button>-->
+            <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+<style>
+.pay_time_amount input{
+    color: red;
+}
+</style>
+
+<script>
+single_date_config = date_config;
+single_date_config.singleDatePicker = true;
+$('#pay_time').daterangepicker(
+        single_date_config,
+        function(start, end, label) {
+        $("#pay_time").val(start.format('YYYY-MM-DD'));
+        }
+        );
+
+</script>
+

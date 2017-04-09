@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+	<head>
+		<title>{%block title%}{%endblock%}</title>
+		<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+		<meta content="no-cache" http-equiv="Pragma" />
+
+		<!--TODO: change them to cdn -->
+		<!--
+    <link type="text/css" rel="stylesheet" href="/static/style/bootstrap.min.css"/>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+-->
+		<link rel="stylesheet" href="/static/style/bootstrap.min.css">
+		<link rel="stylesheet" href="/static/style/flat-ui.min.css">
+		<!--<link type="text/css" rel="stylesheet" href="/static/style/jquery.dataTables.min.css "/>-->
+		<link type="text/css" rel="stylesheet" href="/static/style/row_detail.css " />
+		<!--using in develop enviroment -->
+		<link type="text/css" rel="stylesheet" href="/static/style/styles.css" />
+		<link type="text/css" rel="stylesheet" href="/static/style/daterangepicker.css" />
+		<!--<link type="text/css" rel="stylesheet" href="https://cdn.datatables.net/1.10.11/css/dataTables.bootstrap.min.css" />-->
+		<link type="text/css" rel="stylesheet" href="/static/style/dataTables.bootstrap.min.css" />
+
+		<link type="text/css" rel="stylesheet" href="/static/style/global.css" /> {%block css%}{%endblock%}
+		<script type="text/javascript" src="/static/js/jquery-1.11.2.min.js"></script>
+		<script src="//cdn.bootcss.com/bootbox.js/4.4.0/bootbox.js"></script>
+
+		<script type="text/javascript" src="/static/js/jquery.dataTables.min.js"></script>
+		<script type="text/javascript" src="/static/js/dataTables.bootstrap.min.js"></script>
+		<!--<script type="text/javascript" src="https://cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js"></script>-->
+		<!--<script type="text/javascript" src="https://cdn.datatables.net/1.10.11/js/dataTables.bootstrap.min.js"></script>-->
+		<!--
+    <script type="text/javascript" src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
+    -->
+		<script type="text/javascript" src="/static/js/flat-ui.min.js"></script>
+
+		<script type="text/javascript" src="/static/js/moment.min.js"></script>
+		<script type="text/javascript" src="/static/js/daterangepicker.js"></script>
+		<!--<script type="text/javascript" src="http://underscorejs.org/underscore-min.js"></script>-->
+		<script type="text/javascript" src="/static/js/underscore-min.js"></script>
+
+		<!--
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/js/jquery.dataTables.min.js"></script>
+-->
+		<!--<script type="text/javascript" src="/static/js/jquery.dataTables.js"></script>-->
+		<!--using in develop enviroment -->
+		<!--<script src="/static/js/less-1.7.1.min.js"></script>-->
+		{%block js%}{%endblock%}
+		<script type="text/javascript" src="/static/js/search.js"></script>
+		<script type="text/javascript" src="/static/js/main.js"></script>
+	</head>
+
+	<body>
+		<div id="background2" class="container">
+			<div class="row" id="area_wrapper">
+				<div class="col-md-10" id="content_area">
+					<div class="row">
+						{%block header%}{%endblock%}
+					</div>
+					<div class="row">
+						{%block topnav%}{%endblock%}
+					</div>
+					{%block search%}
+					<div class="btn-toolbar search-toolbar hide" role="toolbar" aria-label="...">
+						<!--<div class="btn-group" role="group" aria-label="..." id='timeBox' name='twodays'>-->
+						<!--<a href="#" name=""    class="btn btn-info active" role="button">近两天</a>-->
+						<!--</div>-->
+						<!--{%block search-date%}-->
+						<!--<div class="btn-group" role="group" aria-label="..." id='timeBox' name='twodays'>-->
+						<!--<a href="#" name="twodays"    class="btn btn-info active" role="button">近两天</a>-->
+						<!--<a href="#" name="today"    class="btn btn-default" role="button">今天</a>-->
+						<!--<a href="#" name="yestoday" class="btn btn-default" role="button">昨天</a>-->
+						<!--<a href="#" name="toweek"   class="btn btn-default" role="button">本周</a>-->
+						<!--<a href="#" name="tomonth"  class="btn btn-default" role="button">本月</a>-->
+						<!--</div>-->
+						<!--{%endblock%}-->
+					</div>
+					{%endblock%} {%block content%}{%endblock%}
+				</div>
+			</div>
+		</div>
+		<div class="clear"></div>
+	</body>
+	<script>
+		window.onload = function() {
+			$(".heads_d").hide();
+			var locurl = window.location.href;
+			if(locurl.indexOf("new_order/new_apply") > -1) {
+				$(".heads_d").show();
+			}
+		}
+	</script>
+
+</html>

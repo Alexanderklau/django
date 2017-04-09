@@ -1,0 +1,635 @@
+{%extends "base.html"%}
+
+{%block css%}
+    <link type="text/css" rel="stylesheet" href="/static/style/daterangepicker-bs3.css"/>
+    <link type="text/css" rel="stylesheet" href="/static/style/review-all.css"/>
+
+    <link type="text/css" rel="stylesheet" href="/static/style/review_home.css"/>
+
+    <link type="text/css" rel="stylesheet" href="/static/style/dataTables.bootstrap.min.css"/>
+{%endblock%}
+{%block js%}
+    <script type="text/javascript" src="/static/js/moment.min.js"></script>
+    <script type="text/javascript" src="/static/js/daterangepicker.js"></script>
+    <script type="text/javascript" src="/static/js/jquery.fileDownload.js"></script>
+    <script type="text/javascript" src="/static/js/waiting-dialog.js"></script>
+
+    <script type="text/javascript" src="/static/js/echarts.min.js"></script>
+
+{%endblock%}
+
+{%block title%}所有审批{%endblock%}
+
+{%block nav_review%}
+
+    <li role="presentation" class="active">
+        <div class="callout active">
+            <span class="icon-svg icon-svg-large svg-nav_icon02" aria-hidden="true"></span>
+            <a href="/review" class="">审批管理</a>
+        </div>
+        <div class="f2">
+            <ul class="list-group">
+                <li class="list-group-item "> <a href="mine">●&nbsp;&nbsp;我的审批</a> </li>
+                <li class="list-group-item ">
+                <a class="round_nav_btn" href="all">●&nbsp;&nbsp;所有审批</a>
+                <span class="icon-svg icon-svg-large icon-right svg-arrow02" aria-hidden="true"></span>
+                </li>
+            </ul>
+        </div>
+    </li>
+
+{%endblock%}
+
+{%block topnav%}
+
+{%endblock%}
+
+{%block content-path-nav%}
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <ol class="breadcrumb content-path-nav" >
+                <span class="icon-svg svg-list" aria-hidden="true"></span>
+                    <li><a href="#">审批管理</a></li>
+                    <li class="active"><a href="#">首页</a></li>
+                </ol>
+            </div>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                        <a href="/review?mod_params=mine" class="btn btn-default navbar-btn">个人详情页</a>
+                </li>
+                <li>
+
+                        <a href="javascript:window.location.reload();" class="reload btn btn-default navbar-btn">
+                            <span class="icon-svg icon-svg-large svg-icon_small_check_refresh" aria-hidden="true"></span>
+                            刷新
+                        </a>
+
+                <li>
+                <li>
+                    <button type="button" id="export_review_2" class="btn btn-default navbar-btn disabled">
+                        <span class="icon-svg icon-svg-large svg-icon_small_check_time" aria-hidden="true"></span>
+                        <!--数据截止上一个工作日 {{last_time}}</button>-->
+                        数据截止 <strong class="last_time"></strong> </button>
+                <li>
+            </ul>
+        </div>
+    </nav>
+{%endblock%}
+
+
+
+
+
+{%block content%}
+    <div class="clear"></div>
+    <div class="overview overview-panel">
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="panel panel-danger">
+                    <div class="panel-heading">
+                        <span class="icon-svg icon-svg-xl svg-icon_small_check_order"></span>
+                        <h3 class="panel-title">
+                            今日预计总单量
+                        </h3>
+                        <span class="icon-svg icon-svg-xl svg-icon_small_check_setting icon-right hidden"></span>
+                    </div>
+                    <div class="panel-body">
+                        <span> {{expect_done_num}}单 </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="panel panel-success apply-now-num">
+                    <div class="panel-heading">
+                        <span class="icon-svg icon-svg-xl svg-icon_small_check_done"></span>
+                        <h3 class="panel-title">
+                            实时单量完成情况
+                        </h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <div class="apply-chart-pie left">
+                                </div>
+                            </div>
+                            <div class="col-sm-8">
+                                <div class="apply-num text-group">
+                                    <span class="apply-now"> {{real_time_done_num}}单 </span>
+                                    <span class="apply-total text-sm "> / {{expect_done_num}}单</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="panel panel-primary panel-real_time_pass_rate">
+                    <div class="panel-heading">
+                        <span class="icon-svg icon-svg-xl svg-icon_small_check_pass"></span>
+                        <h3 class="panel-title">
+                        实时通过率
+                        </h3>
+                    </div>
+                    <div class="panel-body">
+                        <span> {{real_time_pass_rate}} % </span>
+                        <div class="progress-group">
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="{{real_time_pass_rate}}" aria-valuemin="0" aria-valuemax="100" style="width: {{real_time_pass_rate}}%">
+                                    <span class="sr-only">{{real_time_pass_rate}}% Complete</span>
+                                </div>
+                            </div>
+                            <span class="left"> 0%</span>
+                            <span class="right"> 100%</span>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row panel-padding2">
+            <div class="col-md-6">
+                <div class="panel panel-default apply-process-time-avg">
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <span class="icon-img svg-check_index_time"> </span>
+                            </div>
+                            <div class="col-md-9">
+                                <div class="text-group">
+                                    <span class="text-sm text-lighter"> 整体平均做单时长
+                                    </span>
+                                    <span class="time-avg"> {{apply_process_time_avg}}
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-footer">
+                        昨日整体平均做单时长 <strong>{{apply_process_time_avg_yesterday}}
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="panel panel-default apply-process-num">
+                    <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <span class="icon-img svg-check_index_delay"> </span>
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="text-group">
+                                        <span class="text-sm text-lighter"> 整体逾期情况
+                                        </span>
+                                        <!--<span class="time-avg"> 21单 <span class="text-sm text-lighter"> (占总单量的 10.2 %) </span>-->
+                                        <span class="total-undo-num"> {{apply_overdue_num}}单
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                    <div class="panel-footer">
+                        昨日整体逾期情况 <strong>{{apply_overdue_num_yesterday}}单
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="overview overview-personal-panel">
+        <div class="row">
+            <div class="col-md-10">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="panel panel-default member-info">
+                            <div class="panel-body">
+                                <div class="text-group text-center">
+                                    <span class="icon-img svg-check_index_staff"></span>
+                                    <span class="text-sm member_name"> ... </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--<div class="col-md-5">-->
+                        <!--<div class="panel panel-default">-->
+                            <!--<div class="panel-body">-->
+                                <!--<div class="text-group text-center">-->
+                                    <!--<span class="text-sm dot text-lighter"> TA的完成率 </span>-->
+                                    <!--<span class="member-done-rate text-lg linear linear-green"> 98.6 % </span>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+
+                    <div class="col-md-9">
+                        <div class="panel panel-default member_pass_rate_info">
+                            <div class="panel-body">
+                                <div class="text-group text-center">
+                                    <span class="text-sm dot text-lighter"> TA的通过率 </span>
+                                    <span class="member-pass-rate text-lg linear linear-orange"> ... </span>
+                                </div>
+                            </div>
+                            <div class="panel-footer">
+                                昨日通过率 <strong class="member_pass_rate_yesterday linear linear-orange"> ... </strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="panel panel-default member_second_loan_info">
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <span class="icon-img svg-check_index_order"></span>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <div class="text-group">
+                                            <span class="text-sm text-lighter"> TA的二次提现单量
+                                            </span>
+                                            <!--<span class="time-avg"> 21单 <span class="text-sm text-lighter"> (占总单量的 10.2 %) </span>-->
+                                            <span class="second_loan_num"> ...
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+     
+                            </div>
+                            <div class="panel-footer">
+                                昨日二次提现单量 <strong class="second_loan_num_yesterday"> ... </strong>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="panel panel-default member_overdue_apply_info">
+                            <div class="panel-body">
+                                <div class="alert alert-danger hide" role="alert" style="
+                                    ">
+                                    <span class="icon-svg icon-svg-xl svg-icon_small_check_warning"></span>
+                                    个人逾期高于整体逾期
+                                    <span class="tail glyphicon glyphicon-triangle-bottom" aria-hidden="true" style="
+                                        "></span>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <span class="icon-img svg-check_index_delay_red"></span>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <div class="text-group">
+                                            <span class="text-sm text-lighter"> TA的逾期情况
+                                            </span>
+                                            <!--<span class="time-avg"> 21单 <span class="text-sm text-lighter"> (占总单量的 10.2 %) </span>-->
+                                            <span class="overdue_apply_num"> ...
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel-footer">
+                                昨日逾期情况 <strong class="overdue_apply_num_yesterday"> ... </strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="panel panel-default overview-member">
+                    <!-- Default panel contents -->
+                    <div class="panel-heading">
+                        <h4> 审批专员名单 </h4>
+                    </div>
+                    <!--<div class="panel-body">-->
+                    <!--</div>-->
+                    <!--<input type="search" class="search overview_member_search form-control" placeholder="搜索"/>-->
+                    <ul class="list-group overview-member-list list" style="">
+                        {%for member in members%}
+                            {% if forloop.first%}
+                                <li class="list-group-item active"><span class="icon-svg icon-svg-xl svg-icon_small_check_staff"></span>
+                                <a data-id="{{member.id}}" > {{member.name}}</a></li>
+                            {%else%}
+                                <li class="list-group-item "><span class="icon-svg icon-svg-xl svg-icon_small_check_staff"></span>
+                                <a data-id="{{member.id}}" > {{member.name}}</a></li>
+                            {% endif %}
+                        {%endfor%}
+                    </ul>
+                    <ul class="list-group overview-member-list search_result hidden">
+                            <!--<div class="sk-circle cprogress">-->
+                                <!--<div class="sk-circle1 sk-child"></div> <div class="sk-circle2 sk-child"></div> <div class="sk-circle3 sk-child"></div> <div class="sk-circle4 sk-child"></div> <div class="sk-circle5 sk-child"></div> <div class="sk-circle6 sk-child"></div> <div class="sk-circle7 sk-child"></div> <div class="sk-circle8 sk-child"></div> <div class="sk-circle9 sk-child"></div> <div class="sk-circle10 sk-child"></div> <div class="sk-circle11 sk-child"></div> <div class="sk-circle12 sk-child"></div>-->
+                            <!--</div>-->
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade bs-example-modal-lg" id="review_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    </div>
+
+<script>
+
+
+/*chart*/
+default_pie_option = {
+
+    title: {
+        text: "bycx",
+        left: 'center',
+        top: 'center',
+        textStyle: {
+            color: '#ffffff',
+            fontSize: 20,
+            fontWeight: 300,
+        },
+
+        subtextStyle:{
+            color: '#ffffff',
+            fontSize: 40,
+            fontWeight: 900,
+        }
+    },
+
+    tooltip: {
+        trigger: 'item',
+        formatter: "{b}: <strong class='tooltip-value'>{c}</strong> <br/> <strong class='tooltip-icon'>●</strong> 占比: <strong class='tooltip-value'>{d}%</strong>",
+        padding: [10, 30],
+        backgroundColor: '#fff',
+        textStyle:{
+            color: "hsl(200, 18%, 46%)",
+
+        }
+
+    },
+    color: ['#c23531','#2f4554', '#61a0a8', '#d48265', '#91c7ae','#749f83',  '#ca8622', '#bda29a','#6e7074', '#546570', '#c4ccd3'],
+
+    series: [
+    {
+        name:'访问来源',
+        type:'pie',
+        radius: ['65%', '90%'],
+        avoidLabelOverlap: false,
+        label: {
+            normal: {
+                show: false,
+                position: 'center'
+            }
+        },
+        labelLine: {
+            normal: {
+                show: false
+            }
+        },
+    }
+    ]
+};
+
+pie_option_dic ={
+    "apply-chart-pie":{
+        color: ['hsl(88, 100%, 67%)', 'hsl(123, 41%, 41%)'],
+        title:{
+            text: "",
+            subtext: "",
+        },
+        tooltip: {
+             show: false,
+             showContent: false,
+         },
+        series:[
+        {
+            name:'访问来源',
+            type:'pie',
+            radius: '80%',
+            avoidLabelOverlap: false,
+            label: {
+                normal: {
+                    show: false,
+                    position: 'center'
+                }
+            },
+            labelLine: {
+                normal: {
+                    show: false
+                }
+            },
+            data:[
+                 {value: {{real_time_done_num}}, name:'审批单量'},
+                 {value: {{expect_done_num}} - {{real_time_done_num}}, name:'剩余单量'},
+                 /*
+                 {value:{{chart.apply_review.0}}, name:'通过单量'},
+                 {value:{{chart.apply_review.1}}, name:'拒绝单量'},
+                 {value:{{chart.apply_review.2}}, name:'打回单量'},
+                 */
+            ]
+
+       }
+       ]
+    },
+}
+
+
+
+function draw_chart(option_dic, default_option){
+    console.log("draw chart")
+    for(var k in option_dic){
+        console.log(k)
+        var option = option_dic[k];
+        new_option = _.clone(default_option);
+        for(var ok in option){
+            if(_.indexOf(["color", "series"], ok) == -1){
+                _.extend(new_option[ok], option[ok]);
+            }else if (ok == "color"){
+                new_option[ok] = _.union(option[ok], new_option[ok]);
+            }else if(ok == "series"){
+                new_option[ok] = option[ok];
+            }
+        }
+        echarts.init($("." + k)[0]).setOption(new_option, false);
+    }
+}
+
+draw_chart(pie_option_dic, default_pie_option);
+
+
+
+
+
+var review_employee_info = {};
+
+/*
+function is_scroll_bottom(ele, height){
+    height = height || 0;
+    var result = false;
+    var $ele = $(ele);
+    var view_height = $ele.height(),
+        content_height = $ele[0].scrollHeight,
+        scroll_top = $ele.scrollTop();
+    // height < 1 则认为是百分比
+    if(height >= 1 || height == 0){
+        if((content_height - view_height - scroll_top) <= height){
+            result = true;
+        }
+    }else{
+        if(((view_height + scroll_top) / content_height) >= height){
+            result = true;
+        }
+    }
+
+    return result;
+}
+
+function get_review_employee(ele, url, params, type){
+    var default_params = {
+        limit: 10,
+        page: 1,
+    };
+    type = type || "update"
+    params = _.extend(default_params, params);
+    console.log("aaaaaaaaaa")
+    //console.table(default_params)
+    console.log(params)
+    // params = default_params;
+
+    var clients_html = $.getJSON(url, params, function(data){
+        ele.removeClass("loading");
+        console.log(data)
+        console.log(_.isEmpty(data))
+        if(_.isEmpty(data)){
+            ele.addClass("no_more_data");
+        }
+        _.extend(review_employee_info, data.employee_detail_info);
+        if(type == "update"){
+            ele.append(data.employee);
+        }else if(type == "new"){
+            ele.html(data.employee)
+        }
+        update_review_employee_info();
+        //swiper.appendSlide(data);
+    });
+    // 请求 api 时添加, 限制只能有一个请求, 请求完成后移除.
+    ele.addClass("loading");
+}
+
+
+// 滚动到底部后, 请求 api
+var employee_page = 0,
+    employee_search_page = 0;
+$(".list-group.overview-member-list").scroll(function(){
+    var result = is_scroll_bottom($(this), 0.8);
+    var page;
+    if(result && !$(this).hasClass("no_more_data") && !$(this).hasClass("loading")){
+        if(!$(this).hasClass("search_result")){
+            page = employee_page += 1;
+        }else{
+            page = employee_search_page += 1;
+        }
+
+        var url = "/review/info/employee";
+        var params = {
+            page: page,
+        }
+        get_review_employee($(this), url, params);
+    }
+})
+
+// 搜索
+var employee_search_t;
+$(".overview_member_search").keyup(function(){
+    clearTimeout(employee_search_t);
+    // 重新搜索时, .search_result 状态重置, employee_search_page = 0
+    $search_result = $(".overview-member-list.search_result")
+    $search_result.removeClass("no_more_data loading");
+    $search_result.scrollTop(0);
+    employee_search_page = 0;
+
+    var $search = $(this);
+    if($search.val() == ""){
+        $(".overview-member-list").removeClass("hidden");
+        $search_result.addClass("hidden");
+        return ;
+    }
+    employee_search_t = setTimeout(function(){
+
+        search_value = $search.val();
+        var url = "/review/info/employee";
+        var params = {
+            limit: 10,
+            search: search_value,
+        }
+        $(".overview-member-list").addClass("hidden");
+        $search_result.removeClass("hidden");
+        get_review_employee($search_result, url, params, "new");
+    }, 500);
+})
+
+*/
+
+function update_review_employee_info(){
+    /*
+       点击 审批专员名是, 更新右边 审批专员详细信息.
+    */
+    var $personal = $(".overview-personal-panel"),
+        $member_name = $personal.find(".member_name"),
+        $done_rate = $personal.find(".member-done-rate"),
+        $pass_rate = $personal.find(".member-pass-rate"),
+        $pass_rate_yesterday = $personal.find(".member_pass_rate_yesterday"),
+        $second_loan_num = $personal.find(".second_loan_num"),
+        $second_loan_num_yesterday = $personal.find(".member_second_loan_info .second_loan_num_yesterday"),
+        $overdue_apply_num = $personal.find(".overdue_apply_num"),
+        $overdue_apply_num_yesterday = $personal.find(".member_overdue_apply_info .overdue_apply_num_yesterday");
+
+    var $overview_member = $(".overview-member .overview-member-list .list-group-item");
+
+    $overview_member.click(function(){
+        var member_id = $(this).children("a").attr("data-id");
+        var url = 'http://' + member_id;
+        var member_data = review_employee_info[member_id];
+        $member_name.text(member_data.member_name);
+        $done_rate.text(member_data.done_rate + "%");
+        $pass_rate.text(member_data.pass_rate + "%");
+        $pass_rate_yesterday.text(member_data.pass_rate_yesterday + "%");
+        $second_loan_num.text(member_data.second_loan_num + "单");
+        $second_loan_num_yesterday.text(member_data.second_loan_num_yesterday+ "单");
+        $overdue_apply_num.text(member_data.overdue_apply_num + "单");
+        $overdue_apply_num_yesterday.text(member_data.overdue_apply_num_yesterday + "单");
+
+        $overview_member.removeClass("active");
+        $(this).addClass("active");
+    });
+}
+
+
+var url = "/review/info/employee";
+var params = {
+    limit: 10,
+    // search: search_value,
+}
+$.getJSON(url, params, function(data){
+        _.extend(review_employee_info, data.employee_detail_info);
+        $(".overview-member-list.list").html(data.employee)
+        update_review_employee_info();
+        $(".overview-member-list.list li").first().trigger('click');
+        //swiper.appendSlide(data);
+    });
+
+//update_review_employee_info();
+
+
+$(".last_time").text(
+    moment().format('YYYY-MM-DD HH:mm:ss')
+)
+
+</script>
+
+
+
+{%endblock%}

@@ -1,0 +1,65 @@
+{%extends "base.html"%}
+
+{%block title%}订单管理{%endblock%}
+
+{%block nav_order%}
+        <li role="presentation" class="active">
+            <div class="callout active">
+                <span class="icon-svg icon-svg-large svg-nav_icon01" aria-hidden="true"></span>
+                <a href="/order">订单管理</a>
+            </div>
+
+            <div class="f2">
+                <ul class="list-group">
+                    <li class="list-group-item list-group-item-info"> <a href="/order/all">●&nbsp;&nbsp;所有订单</a>
+                <span class="icon-svg icon-svg-large icon-right svg-arrow02" aria-hidden="true"></span>
+                    </li>
+                    <li class="list-group-item"> <a href="/order/apply">●&nbsp;&nbsp;基本信息</a>
+                    </li>
+                    <li class="list-group-item"> <a href="/order/promotion">●&nbsp;&nbsp;额度提升</a>
+                    </li>
+                    <li class="list-group-item"> <a href="/order/loan">●&nbsp;&nbsp;贷款审核</a>
+                    </li>
+                    <li class="list-group-item"> <a href="/order/collection">●&nbsp;&nbsp;催收订单</a>
+                    </li>
+                    <li class="list-group-item disabled"> <a href="/order/trendsinsight">●&nbsp;&nbsp;趋势分析</a> </li>
+                </ul>
+            </div>
+        </li>
+{%endblock%}
+
+{%block content%}
+    <div class='boxA' id='orderTable'>
+        <table cellpadding="0" cellspacing="0" border="0" class="display" width="100%" id="all_order">
+            <thead>
+                <tr>
+                    {%for column in columns %}
+                    <th>{{column}}</th>
+                    {%endfor%}
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+            <tfoot>
+                <tr>
+                    {%for column in columns %}
+                    <th>{{column}}</th>
+                    {%endfor%}
+                </tr>
+            </tfoot>
+        </table>
+        <div class="clear"></div>
+    </div>
+<!--
+    <button type="button" class="btn btn-default" id='gen_order'>生成基本信息审核</button>
+    <button type="button" class="btn btn-default" id='gen_promotion'>生成额度提升审核</button>
+    <button type="button" class="btn btn-default" id='gen_loan'>生成提现申请</button>
+-->
+   <div class="midd_div"><input type="text" class="form-inline" id="delete_user_input" placeholder="用户手机号">
+    <button type="button" class="btn btn-default" id='delete_user'>删除用户</button>
+    <input type="text" class="form-inline" id="repay_repayment_input" placeholder="贷款订单号">
+    <button type="button" class="btn btn-default" id='repay_repayment'>还清贷款</button>
+    <input type="text" class="form-inline" id="check_loan_input" placeholder="2016-01-01">
+    <button type="button" class="btn btn-default" id='check_loan'>逾期计算</button>
+</div>
+{%endblock%}

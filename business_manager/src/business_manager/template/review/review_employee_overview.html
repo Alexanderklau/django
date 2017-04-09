@@ -1,0 +1,905 @@
+{%extends "base.html"%}
+
+{%block css%}
+    <link type="text/css" rel="stylesheet" href="/static/style/daterangepicker-bs3.css"/>
+    <link type="text/css" rel="stylesheet" href="/static/style/review-all.css"/>
+
+    <link type="text/css" rel="stylesheet" href="/static/style/review_home.css"/>
+
+    <link type="text/css" rel="stylesheet" href="/static/style/dataTables.bootstrap.min.css"/>
+    <link type="text/css" rel="stylesheet" href="/static/style/swiper.css"/>
+
+    <style>
+    .swiper-container {
+    width: 100%;
+    height: 100%;
+
+    }
+    .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+
+    }
+    </style>
+
+{%endblock%}
+{%block js%}
+    <script type="text/javascript" src="/static/js/moment.min.js"></script>
+    <script type="text/javascript" src="/static/js/daterangepicker.js"></script>
+    <script type="text/javascript" src="/static/js/jquery.fileDownload.js"></script>
+    <script type="text/javascript" src="/static/js/waiting-dialog.js"></script>
+
+    <script type="text/javascript" src="/static/js/echarts.min.js"></script>
+    <script type="text/javascript" src="/static/js/swiper.min.js"></script>
+
+
+{%endblock%}
+
+{%block title%}所有审批{%endblock%}
+
+{%block nav_review%}
+
+    <li role="presentation" class="active">
+        <div class="callout active">
+            <span class="icon-svg icon-svg-large svg-nav_icon02" aria-hidden="true"></span>
+            <a href="/review">审批管理</a>
+        </div>
+        <div class="f2">
+            <ul class="list-group">
+                <li class="list-group-item "> <a href="mine">●&nbsp;&nbsp;我的审批</a> </li>
+                <li class="list-group-item ">
+                <a class="round_nav_btn" href="all">●&nbsp;&nbsp;所有审批</a>
+                <span class="icon-svg icon-svg-large icon-right svg-arrow02" aria-hidden="true"></span>
+                </li>
+            </ul>
+        </div>
+    </li>
+
+{%endblock%}
+
+{%block topnav%}
+
+{%endblock%}
+
+{%block content-path-nav%}
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <ol class="breadcrumb content-path-nav" >
+                <span class="icon-svg svg-list" aria-hidden="true"></span>
+                    <li><a href="#">审批管理</a></li>
+                    <li class="active"><a href="#">首页</a></li>
+                </ol>
+            </div>
+
+            <ul class="nav navbar-nav navbar-right">
+                {% if is_manager %}
+                <li>
+                        <a href="/review" class="btn btn-default navbar-btn">总览页</a>
+                </li>
+                {% endif %}
+                 <li>
+                        <a href="javascript:window.location.reload();" class="reload btn btn-default navbar-btn">
+                            <span class="icon-svg icon-svg-large svg-icon_small_check_refresh" aria-hidden="true"></span>
+                            刷新
+                        </a>
+                <li>
+                <li>
+                    <button type="button" id="export_review_2" class="btn btn-default navbar-btn disabled">
+                        <span class="icon-svg icon-svg-large svg-icon_small_check_time" aria-hidden="true"></span>
+                        <!--数据截止 {{last_time}}</button>-->
+                        数据截止 <strong class="last_time"></strong> </button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+{%endblock%}
+
+
+
+
+
+{%block content%}
+    <div class="clear"></div>
+    <div class="overview overview-panel">
+        
+        <div class="row">
+
+            <div class="col-md-7">
+
+                <div class="panel panel-default panel-chart panel-dark">
+                    <div class="panel-body">
+                        <div class="title"> 我的审批数据 </div>
+                        <div class="chart-pie-1" >
+                        </div>
+                        <div class="chart-pie-2" >
+                        </div>
+                    </div>
+                    <div class="panel-footer panel-chart-thumb">
+                        <div class="chart-bar-1-thumb">
+                        </div>
+                        <div class="chart-bar-2-thumb">
+                        </div>
+                        <!--<div class="row">-->
+                            <!--<div class="col-md-6">-->
+                                <!--[><ul class="legend"><]-->
+                                    <!--[><li class='color-1'> 昨日通过量</li><]-->
+                                    <!--[><li class='color-2'> 昨日拒绝量</li><]-->
+                                    <!--[><li class='color-3'> 昨日打回量</li><]-->
+                                <!--[></ul><]-->
+                            <!--</div>-->
+                            <!--<div class="col-md-6">-->
+                                <!--<ul class="legend">-->
+                                    <!--<li class='color-1'> 总通过单量</li>-->
+                                    <!--<li class='color-2'> 二次提现通过单量</li>-->
+                                    <!--<li class='color-3'> 总单量/二次提现单量</li>-->
+                                <!--</ul>-->
+                            <!--</div>-->
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-5 panel-padding2">
+                        <div class="panel panel-primary panel-sm panel-primary work_time_info">
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <span class="icon-img icon-img-sm svg-check_index_time"> </span>
+                                    </div>
+                                    <div class="col-md-10">
+                                        <div class="text-group">
+                                            <div class="work_time_today">
+                                                今日工作时长
+                                                <strong class="time_avg"> {{work_time_today}}
+                                                </strong >
+                                            </div>
+                                            <div class="work_time_yesterday">
+                                                昨日工作总时长 <strong>{{work_time_yesterday}}</strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--<div class="panel-footer">-->
+                            <!--</div>-->
+                        </div>
+
+                        <div class="panel panel-sm panel-blue-green overview_time_info">
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <span class="icon-img icon-img-sm svg-check_index_time"> </span>
+                                    </div>
+                                    <div class="col-md-10">
+                                        <div class="text-group">
+                                            <div class="overview_time_today">
+                                                今日审批时长
+                                                <strong class="time_avg"> {{overview_time_today}}
+                                                </strong>
+                                            </div>
+                                            <div class="overview_time_yesterday">
+                                                昨日审批总时长 <strong>{{overview_time_yesterday}}</strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="panel panel-sm panel-green apply_pass_time_avg_yesterday_info">
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <span class="icon-img icon-img-sm svg-check_index_delay"> </span>
+                                    </div>
+                                    <div class="col-md-10">
+                                        <div class="text-group">
+                                            <div class="text-sm">
+                                                昨日
+                                                <strong class=""> 通过单
+                                                </strong>
+                                                审批平均时长
+                                            </div>
+                                            <div class="apply_pass_time_avg_yesterday">
+                                                {{apply_pass_time_avg_yesterday}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <div class="panel panel-sm panel-red apply_reject_time_avg_yesterday_info">
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <span class="icon-img icon-img-sm svg-check_index_delay"> </span>
+                                    </div>
+                                    <div class="col-md-10">
+                                        <div class="text-group">
+                                            <div class="text-sm">
+                                                昨日
+                                                <strong class=""> 拒绝单
+                                                </strong>
+                                                审批平均时长
+                                            </div>
+                                            <div class="apply_reject_time_avg_yesterday">
+                                                {{apply_reject_time_avg_yesterday}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+
+        <div class="row client">
+
+
+            <div class="col-md-6">
+                <div class="panel panel-info m0-client">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">还款良好的客户</h3>
+                        <div class="swiper-button">
+                            <span  class="swiper-button-prev glyphicon glyphicon-chevron-left">  </span>
+                            <span class="swiper-button-next glyphicon glyphicon-chevron-right">  </span>
+                        </div>
+                        <!--<input type="search" class="search m0_client_search form-control" placeholder="搜索" />-->
+                    </div>
+                    <div class="panel-body">
+
+
+                        <div class="swiper-container list">
+                            <div class="sk-circle cprogress">
+                                <div class="sk-circle1 sk-child"></div> <div class="sk-circle2 sk-child"></div> <div class="sk-circle3 sk-child"></div> <div class="sk-circle4 sk-child"></div> <div class="sk-circle5 sk-child"></div> <div class="sk-circle6 sk-child"></div> <div class="sk-circle7 sk-child"></div> <div class="sk-circle8 sk-child"></div> <div class="sk-circle9 sk-child"></div> <div class="sk-circle10 sk-child"></div> <div class="sk-circle11 sk-child"></div> <div class="sk-circle12 sk-child"></div>
+                            </div>
+                            <ul class="swiper-wrapper list-group client-list m0-client-list hidden">
+                                {% comment %}
+                                {% for client in m0_client %}
+                                    <li class="swiper-slide list-group-item">
+                                        <div class="client-info">
+                                            <a class="client-name"> {{ client.client_name }}</a>
+                                            <span class="client-id">ID: {{ client.client_id }}</span>
+                                            <span class="client-repay-time">还款时间: {{ client.client_repay_time }}</span>
+                                            <span> &nbsp;</span>
+                                        </div>
+                                    </li>
+                                {% endfor %}
+                                {% endcomment %}
+                            </ul>
+                            <!-- Add Pagination -->
+                            <div class="swiper-pagination"></div>
+                        </div>
+
+                        <div class="swiper-container search_result hidden">
+                            <div class="sk-circle cprogress">
+                                <div class="sk-circle1 sk-child"></div> <div class="sk-circle2 sk-child"></div> <div class="sk-circle3 sk-child"></div> <div class="sk-circle4 sk-child"></div> <div class="sk-circle5 sk-child"></div> <div class="sk-circle6 sk-child"></div> <div class="sk-circle7 sk-child"></div> <div class="sk-circle8 sk-child"></div> <div class="sk-circle9 sk-child"></div> <div class="sk-circle10 sk-child"></div> <div class="sk-circle11 sk-child"></div> <div class="sk-circle12 sk-child"></div>
+                            </div>
+                            <ul class="swiper-wrapper list-group client-list m0-client-list search_result hidden">
+                            </ul>
+                            <div class="swiper-pagination"></div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="panel panel-danger overdue-client">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">逾期客户</h3>
+                        <div class="swiper-button">
+                            <span  class="swiper-button-prev glyphicon glyphicon-chevron-left">  </span>
+                            <span class="swiper-button-next glyphicon glyphicon-chevron-right">  </span>
+                        </div>
+                        <!--<input type="search" class="search overdue_client_search form-control" placeholder="搜索" />-->
+                        </div>
+                    <div class="panel-body">
+
+
+                        <div class="swiper-container list">
+                            <div class="sk-circle cprogress">
+                                <div class="sk-circle1 sk-child"></div> <div class="sk-circle2 sk-child"></div> <div class="sk-circle3 sk-child"></div> <div class="sk-circle4 sk-child"></div> <div class="sk-circle5 sk-child"></div> <div class="sk-circle6 sk-child"></div> <div class="sk-circle7 sk-child"></div> <div class="sk-circle8 sk-child"></div> <div class="sk-circle9 sk-child"></div> <div class="sk-circle10 sk-child"></div> <div class="sk-circle11 sk-child"></div> <div class="sk-circle12 sk-child"></div>
+                            </div>
+
+                            <ul class="swiper-wrapper list-group client-list overdue-client-list hidden">
+                                {% comment %}
+                                {% for client in overdue_client %}
+                                    <li class="swiper-slide list-group-item">
+                                        <div class="client-info">
+                                            <a class="client-name"> {{ client.client_name }}</a>
+                                            <span class="client-id">ID: {{ client.client_id }}</span>
+                                            <span class="client-repay-time">应还时间: {{ client.client_repay_time }}</span>
+                                            <span class="client-overdue-day">逾期天数: {{ client.client_overdue_day}}</span>
+                                        </div>
+                                    </li>
+                                {% endfor %}
+                                {% endcomment %}
+
+
+                            </ul>
+                            <!-- Add Pagination -->
+                            <div class="swiper-pagination"></div>
+                        </div>
+                        <div class="swiper-container search_result hidden">
+                            <div class="sk-circle cprogress">
+                                <div class="sk-circle1 sk-child"></div> <div class="sk-circle2 sk-child"></div> <div class="sk-circle3 sk-child"></div> <div class="sk-circle4 sk-child"></div> <div class="sk-circle5 sk-child"></div> <div class="sk-circle6 sk-child"></div> <div class="sk-circle7 sk-child"></div> <div class="sk-circle8 sk-child"></div> <div class="sk-circle9 sk-child"></div> <div class="sk-circle10 sk-child"></div> <div class="sk-circle11 sk-child"></div> <div class="sk-circle12 sk-child"></div>
+                            </div>
+                            <ul class="swiper-wrapper list-group client-list overdue-client-list search_result hidden">
+                            </ul>
+                            <div class="swiper-pagination"></div>
+                        </div>
+
+
+
+
+                    </div>
+                </div>
+ 
+            </div>
+
+
+
+        </div>
+
+    </div>
+
+    <div class="modal fade bs-example-modal-lg" id="review_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    </div>
+
+
+<!-- Initialize Swiper -->
+<script>
+// 刷新网页时, swiper 没有数据, 默认会调用一次 onReachEnd. 所以不用写请求 api 的代码.
+// cprogress: css3 progress
+
+
+var m0_search_swiper_page = 1
+var m0_search_swiper = new Swiper('.m0-client .swiper-container.search_result', {
+pagination: '.swiper-pagination',
+slidesPerView: 3,
+slidesPerGroup: 3,
+paginationClickable: true,
+spaceBetween: 10,
+keyboardControl: true,
+mousewheelControl: true,
+nextButton: '.m0-client .swiper-button-next',
+prevButton: '.m0-client .swiper-button-prev',
+onReachEnd: function(swiper){
+    m0_search_swiper_page += 1;
+    var $ele = $(".m0-client .swiper-container.search_result");
+    if(!$ele.hasClass("no_more_data") && !$ele.hasClass("loading")){
+        var url = "/review/client/good";
+        params = {
+            page: m0_search_swiper_page,
+        }
+        get_clients(swiper, $ele, url, params);
+    }
+},
+});
+
+
+
+
+
+
+// 搜索
+var good_client_search_t;
+$(".m0_client_search").keyup(function(){
+    clearTimeout(good_client_search_t);
+    // 重新搜索时, .search_result 状态重置, employee_search_page = 0
+    var $ele = $(".m0-client .swiper-container");
+    $search_result = $(".m0-client .swiper-container.search_result")
+    $search_result.removeClass("no_more_data loading");
+    $search_result.scrollTop(0);
+    m0_search_swiper_page = 1;
+
+    $ele.addClass("hidden");
+    $search_result.removeClass("hidden");
+    $search_result.children(".cprogress").removeClass("hidden");
+    $search_result.children(".client-list").addClass("hidden");
+    var $search = $(this);
+    if($search.val() == ""){
+        $ele.removeClass("hidden");
+        $search_result.addClass("hidden");
+        return ;
+    }
+        good_client_search_t = setTimeout(function(){
+
+        if(!$(this).hasClass("no_more_data") && !$(this).hasClass("loading")){
+            search_value = $search.val();
+            var url = "/review/client/good";
+            var params = {
+                limit: 10,
+                search: search_value,
+            }
+            get_clients(m0_search_swiper, $ele, url, params, "new");
+        }
+    }, 500);
+
+})
+
+
+
+
+var overdue_swiper_page = 1;
+var m0_swiper_page = 1;
+
+var m0_swiper = new Swiper('.m0-client .swiper-container.list', {
+pagination: '.swiper-pagination',
+slidesPerView: 3,
+slidesPerGroup: 3,
+paginationClickable: true,
+spaceBetween: 10,
+keyboardControl: true,
+mousewheelControl: true,
+nextButton: '.m0-client .swiper-button-next',
+prevButton: '.m0-client .swiper-button-prev',
+onReachEnd: function(swiper){
+    m0_swiper_page += 1;
+    var $m0_client = $(".m0-client .swiper-container.list");
+    if(!$m0_client.hasClass("no_more_data")){
+        var url = "/review/client/good";
+        params = {
+            page: m0_swiper_page,
+        }
+        get_clients(swiper, $m0_client, url, params);
+    }
+},
+});
+
+
+var overdue_search_swiper_page = 1
+var overdue_search_swiper = new Swiper('.overdue-client .swiper-container.search_result', {
+pagination: '.swiper-pagination',
+slidesPerView: 3,
+slidesPerGroup: 3,
+paginationClickable: true,
+spaceBetween: 10,
+keyboardControl: true,
+mousewheelControl: true,
+nextButton: '.overdue-client .swiper-button-next',
+prevButton: '.overdue-client .swiper-button-prev',
+onReachEnd: function(swiper){
+    overdue_search_swiper_page += 1;
+    var $ele = $(".overdue-client .swiper-container.search_result");
+    if(!$ele.hasClass("no_more_data") && !$ele.hasClass("loading")){
+        var url = "/review/client/overdue";
+        params = {
+            page: overdue_search_swiper_page,
+        }
+        get_clients(swiper, $ele, url, params);
+    }
+},
+});
+
+// 搜索
+var overdue_client_search_t;
+$(".overdue_client_search").keyup(function(){
+    clearTimeout(good_client_search_t);
+    // 重新搜索时, .search_result 状态重置, employee_search_page = 0
+    var $ele = $(".overdue-client .swiper-container");
+    $search_result = $(".overdue-client .swiper-container.search_result")
+    $search_result.removeClass("no_more_data loading");
+    $search_result.scrollTop(0);
+    overdue_search_swiper_page = 1;
+
+    $ele.addClass("hidden");
+    $search_result.removeClass("hidden");
+    $search_result.children(".cprogress").removeClass("hidden");
+    $search_result.children(".client-list").addClass("hidden");
+
+    var $search = $(this);
+    if($search.val() == ""){
+        $ele.removeClass("hidden");
+        $search_result.addClass("hidden");
+        return ;
+    }
+        good_client_search_t = setTimeout(function(){
+
+        if(!$(this).hasClass("no_more_data") && !$(this).hasClass("loading")){
+            search_value = $search.val();
+            var url = "/review/client/overdue";
+            var params = {
+                limit: 10,
+                search: search_value,
+            }
+            get_clients(overdue_search_swiper, $ele, url, params, "new");
+        }
+    }, 500);
+
+})
+
+
+
+
+
+
+var overdue_swiper = new Swiper('.overdue-client .swiper-container.list', {
+pagination: '.swiper-pagination',
+slidesPerView: 3,
+slidesPerGroup: 3,
+paginationClickable: true,
+spaceBetween: 10,
+keyboardControl: true,
+mousewheelControl: true,
+nextButton: '.overdue-client .swiper-button-next',
+prevButton: '.overdue-client .swiper-button-prev',
+onReachEnd: function(swiper){
+    overdue_swiper_page += 1;
+    var $overdue_client = $(".overdue-client .swiper-container.list");
+    if(!$overdue_client.hasClass("no_more_data")){
+        var url = "/review/client/overdue";
+        params = {
+            page: overdue_swiper_page
+        }
+        get_clients(swiper, $overdue_client, url, params);
+    }
+},
+});
+
+function get_clients(swiper, ele, url, params, type){
+    var default_params = {
+        limit: 10,
+        page: 1,
+    };
+    type = type || "update";
+    params = _.extend(default_params, params);
+
+    var clients_html = $.get(url, params, function(data){
+        ele.children(".cprogress").addClass("hidden");
+
+        $(swiper.wrapper).removeClass("hidden");
+        ele.removeClass("loading");
+        // 临时的: 不启用分页
+        ele.addClass("no_more_data");
+        if(data.replace(/\s*/, "") == ""){
+            ele.addClass("no_more_data");
+        }
+        console.log('len');
+        console.log(ele.children(".client-list").children());
+        console.log(ele.children(".client-list").children().length);
+        if(type == "update"){
+            swiper.appendSlide(data);
+        }else if(type == "new"){
+            wrapper_child_len = swiper.wrapper[0].children.length;
+            swiper.appendSlide(data);
+            // 重新回到第一个(页)
+            swiper.slideTo(0, 0, false)
+            swiper.removeSlide(_.range(0, wrapper_child_len));
+        }
+
+        if(ele.children(".client-list").children().length == 0){
+            ele.children(".client-list").html('<div style="text-align:center; width: 100%;">没有数据!</div>')
+        }
+    });
+    ele.addClass("loading")
+}
+
+
+/*chart*/
+default_pie_option = {
+
+    title: {
+        text: "bycx",
+        left: 'center',
+        top: 'center',
+        textStyle: {
+            color: '#ffffff',
+            fontSize: 20,
+            fontWeight: 300,
+        },
+
+        subtextStyle:{
+            color: '#ffffff',
+            fontSize: 40,
+            fontWeight: 900,
+        }
+    },
+
+    tooltip: {
+        trigger: 'item',
+        formatter: "{b}: <strong class='tooltip-value'>{c}</strong> <br/> <strong class='tooltip-icon'>●</strong> 占比: <strong class='tooltip-value'>{d}%</strong>",
+        padding: [10, 30],
+        backgroundColor: '#fff',
+        textStyle:{
+            color: "hsl(200, 18%, 46%)",
+
+        }
+
+    },
+    color: ['#c23531','#2f4554', '#61a0a8', '#d48265', '#91c7ae','#749f83',  '#ca8622', '#bda29a','#6e7074', '#546570', '#c4ccd3'],
+
+    series: [
+    {
+        name:'访问来源',
+        type:'pie',
+        radius: ['65%', '90%'],
+        avoidLabelOverlap: false,
+        label: {
+            normal: {
+                show: false,
+                position: 'center'
+            }
+        },
+        labelLine: {
+            normal: {
+                show: false
+            }
+        },
+    }
+    ]
+};
+
+
+pie_option_dic ={
+    "chart-pie-1":{
+        color: ['hsl(165, 59%, 55%)', 'hsl(36, 100%, 75%)'],
+        title:{
+            text: "首次审批单量",
+            subtext: "{{chart.apply_review.3}}",
+        },
+        series:[
+        {
+            name:'访问来源',
+            type:'pie',
+            radius: ['65%', '90%'],
+            avoidLabelOverlap: false,
+            label: {
+                normal: {
+                    show: false,
+                    position: 'center'
+                }
+            },
+            labelLine: {
+                normal: {
+                    show: false
+                }
+            },
+            data:[
+                 {value:{{chart.apply_review.0}}, name:'通过单量'},
+                 {value:{{chart.apply_review.1}}, name:'拒绝单量'},
+                 {value:{{chart.apply_review.2}}, name:'打回单量'},
+            ]
+
+       }
+       ]
+    },
+    "chart-pie-2":{
+color: ['hsl(165, 59%, 55%)', 'hsl(231, 100%, 79%)'],
+       title: {
+text: '二次提现单量',
+      subtext: '{{chart.second_loan_review.3}}',
+       },
+series:[
+       {
+            name:'访问来源',
+            type:'pie',
+            radius: ['65%', '90%'],
+            avoidLabelOverlap: false,
+            label: {
+                normal: {
+                    show: false,
+                    position: 'center'
+                }
+            },
+            labelLine: {
+                normal: {
+                    show: false
+                }
+            },
+ 
+        data:[
+             {value:{{chart.second_loan_review.0}}, name:'通过单量'},
+             {value:{{chart.second_loan_review.1}}, name:'拒绝单量'},
+             ]
+       },
+]
+}
+}
+
+function draw_chart(option_dic, default_option){
+    for(var k in option_dic){
+        var option = option_dic[k];
+        new_option = _.clone(default_option);
+        for(var ok in option){
+            if(_.indexOf(["color", "series"], ok) == -1){
+                _.extend(new_option[ok], option[ok]);
+            }else if (ok == "color"){
+                new_option[ok] = _.union(option[ok], new_option[ok]);
+            }else if(ok == "series"){
+                new_option[ok] = option[ok];
+            }
+        }
+        echarts.init($("." + k)[0]).setOption(new_option, false);
+    }
+}
+
+draw_chart(pie_option_dic, default_pie_option);
+
+
+/* bar chart */
+default_bar_thumb_option = {
+    tooltip: {
+        trigger: 'item',
+                 formatter: "{b} </br> <strong class='tooltip-icon'>●</strong> {a}: <strong class='tooltip-value'>{c}</strong>",
+        padding: [10, 30],
+        backgroundColor: '#fff',
+        textStyle:{
+            color: "hsl(200, 18%, 46%)",
+
+        }
+
+    },
+/*
+title:{
+text: "昨日首次审批",
+      top: "center",
+      left: 0,
+      textStyle:{
+        color: "#fff",
+               fontSize: 12
+        },
+      },
+      */
+    color: ['#c23531','#2f4554', '#61a0a8', '#d48265', '#91c7ae','#749f83',  '#ca8622', '#bda29a','#6e7074', '#546570', '#c4ccd3'],
+    xAxis:  {
+        type: 'value',
+        axisLine:{
+            show:false
+        },
+        axisTick: {
+            show: false
+        },
+        splitLine: {
+            show: false
+        },
+        axisLabel: {
+            show: false
+        }
+
+    },
+    yAxis: {
+        type: 'category',
+        data: ['周一'],
+        axisLine:{
+            show:false
+        },
+        axisTick:{
+            show: false
+        },
+        splitLine: {
+            show: false
+
+        },
+        axisLabel: {
+            show: false
+        }
+
+    },
+    series:[{}, {}, {}],
+
+};
+
+bar_thumb_option_dic ={
+    "chart-bar-1-thumb":{
+        color: ['hsl(165, 59%, 55%)', 'hsl(36, 100%, 75%)'],
+               yAxis:{ data: ["昨日首次审批单量"]},
+        series:[
+            {
+                name: '通过单量',
+                type: 'bar',
+                stack: '总量',
+                label: {
+                    normal: {
+                        show: false,
+                        position: 'insideRight',
+                    }
+                },
+                data: [{{chart.apply_review_yesterday.0}} ]
+            },
+            {
+                name: '拒绝单量',
+                type: 'bar',
+                stack: '总量',
+                label: {
+                    normal: {
+                        show: false,
+                        position: 'insideRight'
+                    }
+                },
+                data: [{{chart.apply_review_yesterday.1}} ]
+            },
+            {
+                name: '打回单量',
+                type: 'bar',
+                stack: '总量',
+                label: {
+                    normal: {
+                        show: false,
+                        position: 'insideRight'
+                    }
+                },
+                data: [{{chart.apply_review_yesterday.2}} ]
+            },
+       ]
+    },
+    "chart-bar-2-thumb":{
+        color: ['hsl(165, 59%, 55%)', 'hsl(231, 100%, 79%)'],
+        yAxis:{ data: ["昨日二次提现审批单量"]},
+        series:[
+            {
+                name: '通过单量',
+                type: 'bar',
+                stack: '总量',
+                label: {
+                    normal: {
+                        show: false,
+                        position: 'insideRight',
+                    }
+                },
+                data: [{{chart.second_loan_review_yesterday.0}} ],
+            },
+            {
+                name: '拒绝单量',
+                type: 'bar',
+                stack: '总量',
+                label: {
+                    normal: {
+                        show: false,
+                        position: 'insideRight'
+                    }
+                },
+                data: [{{chart.second_loan_review_yesterday.1}} ],
+            },
+       ]
+    },
+
+
+}
+draw_chart(bar_thumb_option_dic, default_bar_thumb_option);
+
+
+function sum(array){
+    return _.reduce(_.flatten(array), function(x, y){return x+y});
+}
+// 当昨日没有数据时, 不会绘图, 只会有一个0. 不好看, 所以需要特殊处理
+for(var k in bar_thumb_option_dic){
+    var v = bar_thumb_option_dic[k];
+    var datas = _.map(v["series"], function(v, k){return v["data"]});
+    var total = sum(datas);
+    if(total == 0){
+        $("." + k).html(v["yAxis"]["data"][0] + "为 0").css({"top": "-8px"})
+    }
+}
+
+$(".last_time").text(
+    moment().format('YYYY-MM-DD HH:mm:ss')
+)
+
+
+</script>
+
+
+
+{%endblock%}

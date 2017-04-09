@@ -1,0 +1,597 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>审批报表</title>
+<link href="/static/style/bootstrap.min.css" rel="stylesheet" type="text/css">
+<link href="/static/style/style.css" rel="stylesheet" type="text/css">
+<link href="/static/style/slider_lupeng.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<div class="bg-mask"></div>
+
+<div class="col-md-11 pd30">
+    <div class="main-content rds10 drop-shadow"> 
+        <!--top tab start-->
+        <div class="main-title">
+            <div class="colmask threecol">
+                <div class="colmid">
+                    <div class="colleft">
+                        <div class="col1">
+                            <h5>标签</h5>
+                            <div class="top-tab top-tab-red rds99 fl top-tab-mg">310 / 联系人信息 / 与父母无联系</div>
+                            <div class="top-tab top-tab-green rds99 fl top-tab-mg">405 / 用户行为信息 / 是否容许再进件: 是</div>
+                            <div class="top-tab top-tab-blue rds99 fl top-tab-mg">999 / 测试 / 测试测试</div>
+                            <div class="top-tab top-tab-green rds99 fl top-tab-mg">999 / 测试测试测试 / 测试测试测试测试</div>
+                        </div>
+                        <div class="col2"><img src="/static/img/icon_small_user.svg" class="fl">
+                            <h4>容成富</h4>
+                        </div>
+                        <div class="col3"><a href="#" title="关闭"><img src="/static/img/icon_small_exit.svg"></a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--top tab end-->
+        <div class="pdlr10"> 
+            <!--user info start-->
+            {% with user_data=logic_rsp.module_set.0.field_set %}
+            <div class="col-md-12 pdlr10">
+                <div class="stats-info stats-info-hover rds5">
+                    <div id="test" class="panel-heading"><div class="title-icon icon01 fl"></div>
+                        <h4 class="panel-title fl">借款人身份信息</h4>
+                        <a href="#" title="收起"><img src="/static/img/arrow01.svg" class="title-icon fr"></a></div>
+                    <div class="panel-body" id="panel">
+                        <ul class="fl col-md-8 bdr pd0" >
+                            <li>机器审批结果
+                            <div class="tab tab-green rds99 fr">{{ user_data.0.string_user_value }}</div>
+                            </li>
+                            <li>用户类型
+                            <div class="tab tab-blue rds99 fr">工薪</div>
+                            </li>
+                            <li class="col-md-6 br-dashed">ID：<b>93341</b></li>
+                            <li class="col-md-6">姓名：<b>{{ user_data.0.string_user_value }}</b></li>
+                            <li class="col-md-6 br-dashed">性别：<b>{{ user_data.1.string_json['1'] }}</b></li>
+                            <li class="col-md-6">婚姻状况：<b>{{ user_data.1.string_user_value  }}</b></li>
+                            <li class="col-md-12">手机号
+                            <div class="txt-bold fr">18088886666</div>
+                            </li>
+                            <li class="col-md-12">身份证号
+                            <div class="txt-bold fr">500230199408252112</div>
+                            </li>
+                            <li class="col-md-12 last">QQ
+                            <div class="txt-bold fr">88886666</div>
+                            </li>
+                        </ul>
+                        <ul class="fl col-md-4">
+                            <div class="col-md-12 mtb20 pd0" style="padding-left:10px !important;">
+                                <div class="pic-frame fl idcard-pic"><a href="#"><img src="/static/img/non_pic.jpg" /></a></div>
+                                <div class="fl" style="width:4%;">&nbsp;</div>
+                                <div class="pic-frame fl idcard-pic"><a href="#"><img src="/static/img/non_pic.jpg" /></a></div>
+                                <div class="pic-frame fl mt20 idcard-pic"><a href="#"><img src="/static/img/non_pic.jpg" /></a></div>
+                            </div>
+                        </ul>
+                        <!--<div class="pic-frame fr mtb20"><a href="#"><img src="/static/img/non_pic.jpg" /></a></div>-->
+                    </div>
+                    <div class="panel-tail">2015年12月9日 10:58　<span class="font-blue">打回修改</span>　打回原因：资料不全</div>
+                </div>
+            </div>
+            {% endwith %}
+            <!--user info end--> 
+
+            <!--user behavior start-->
+            <div class="col-md-12 pdlr10">
+                <div class="stats-info stats-info-hover rds5">
+                    <div class="panel-heading panel-heading-hover"><div class="title-icon icon10 fl"></div>
+                        <h4 class="panel-title fl">借款人贷款信息</h4>
+                        <a href="#" title="收起"><img src="/static/img/arrow01.svg" class="title-icon fr"></a></div>
+                    <div class="panel-body" id="panel">
+                        <ul>
+                            <li>测试测试
+                            <div class="txt-bold fr">test</div>
+                            </li>
+                            <li>测试测试
+                            <div class="txt-bold fr">test</div>
+                            </li>
+                            <li>测试测试
+                            <div class="txt-bold fr">test</div>
+                            </li>
+                            <li>测试测试
+                            <div class="txt-bold fr">test</div>
+                            </li>
+                            <li class="last">测试测试
+                            <div class="txt-bold fr">test</div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="panel-tail">2015年12月9日 10:58　<span class="font-red">拒绝</span></div>
+                </div>
+            </div>
+            <!--user behavior end--> 
+            <!--user work start-->
+            <div class="col-md-12 pdlr10">
+                <div class="stats-info stats-info-hover rds5">
+                    <div class="panel-heading"><div class="title-icon icon06 fl"></div>
+                        <h4 class="panel-title fl">借款人工作信息</h4>
+                        <a href="#" title="收起"><img src="/static/img/arrow01.svg" class="title-icon fr"></a></div>
+                    <div class="panel-body" id="panel">
+                        <ul>
+                            <li>公司名称
+                            <div class="txt-bold fr">绿景集团</div>
+                            </li>
+                            <li>工作职位
+                            <div class="txt-bold fr">文员</div>
+                            </li>
+                            <li>工作电话
+                            <div class="txt-bold fr">075523625000</div>
+                            </li>
+                            <li>工作地点
+                            <div class="txt-bold fr">广东省 - 深圳市 - 福田区 - 广东省深圳市福田区华强北</div>
+                            </li>
+                            <li class="last">家庭住址
+                            <div class="txt-bold fr">广东省 - 茂名市 - 化州市 - 杨梅镇江口村</div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="panel-tail">2015年12月9日 10:58　<span class="font-blue">打回修改</span>　打回原因：资料不全</div>
+                </div>
+            </div>
+            <!--user work end--> 
+
+            <!--user contacts start-->
+            <div class="col-md-12 pdlr10">
+                <div class="stats-info stats-info-hover rds5">
+                    <div class="panel-heading"><div class="title-icon icon09 fl"></div>
+                        <h4 class="panel-title fl">电话联系人信息</h4>
+                        <a href="#" title="收起"><img src="/static/img/arrow01.svg" class="title-icon fr"></a>
+                        <div class="fr lh80"><img src="/static/img/icon_small_download.svg" class="small-icon-dl fr"><a href="#" class="ml30-pr30 br-dashed">下载完整通讯录&amp;通话记录</a></div>
+                    </div>
+                    <div class="panel-body pdlr10" id="panel"> 
+                        <!--basic start-->
+                        <div class="col-md-5 mt20 pdlr10">
+                            <div class="bd contact-height">
+                                <div class="tab-on-top align-mid">基本信息</div>
+                                <div class="ec-main align-mid pdlr20">
+                                    <ul>
+                                        <li class="col-md-6 font14 lh36 br-dashed">手机运营商上姓名<br/>
+                                        <span class="font-dark font40">容成富</span></li>
+                                        <li class="col-md-6 font14 lh36">联系人是否重复<br/>
+                                        <span class="font-green font40">匹配</span></li>
+                                        <li class="last mt20 col-md-12">手机号注册时间：<b>2015-12-11 ~ 2015-12-24、2015-12-11 ~ 2015-12-24、2015-12-11 ~ 2015-12-24、2015-12-11 ~ 2015-12-24、2015-12-11 ~ 2015-12-24</b> </li>
+                                        <li class="last col-md-12">手机号注册时间
+                                        <div class="txt-bold fr">2005-07-05 00:00:00</div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!--basic end--> 
+                        <!--contact start-->
+                        <div class="col-md-7 mt20 pdlr10">
+                            <div class="bd contact-height pdlr20">
+                                <div class="tab-on-top align-mid">联系人</div>
+                                <table frame="void">
+                                    <thead>
+                                        <tr>
+                                            <th class="col-md-1 align-mid">关系</th>
+                                            <th class="col-md-2 align-mid">姓名</th>
+                                            <th class="col-md-3">电话</th>
+                                            <th class="col-md-2 align-mid">电话是否在通讯录中</th>
+                                            <th class="col-md-2 align-mid">通讯录中的姓名</th>
+                                            <th class="col-md-2 align-mid">联系人是否重复</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td class="align-mid">母亲</td>
+                                        <td class="align-mid">公孙道雪</td>
+                                        <td>18988886666</td>
+                                        <td><div class="sicon-mg2"><img src="/static/img/icon_small_right.svg" class="small-icon" title="是"></div></td>
+                                        <td class="align-mid">老妈</td>
+                                        <td class="align-mid"><div class="tab tab-red rds99">重复</div></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="align-mid">父亲</td>
+                                        <td class="align-mid">容镇涛</td>
+                                        <td>18266668888</td>
+                                        <td><div class="sicon-mg2"><img src="/static/img/icon_small_wrong.svg" class="small-icon" title="否"></div></td>
+                                        <td class="align-mid">老爸</td>
+                                        <td class="align-mid"><div class="tab tab-green rds99">唯一</div></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <!--contact end--> 
+                        <!--intimate start-->
+                        <div class="col-md-12 mt20 pdlr10">
+                            <div class="bd pdlr20">
+                                <div class="tab-on-top align-mid">亲密联系人</div>
+                                <table frame="void">
+                                    <thead>
+                                        <tr>
+                                            <th class="col-md-1 align-mid">序号</th>
+                                            <th class="col-md-1 align-mid">电话</th>
+                                            <th class="col-md-1 align-mid">通讯录姓名</th>
+                                            <th class="col-md-1 align-mid">姓名</th>
+                                            <th class="col-md-1 align-mid">关系</th>
+                                            <th class="col-md-1 align-mid">通话次数</th>
+                                            <th class="col-md-1 align-mid">通话时长</th>
+                                            <th class="col-md-1 align-mid">被叫次数</th>
+                                            <th class="col-md-1 align-mid">被叫时长</th>
+                                            <th class="col-md-1 align-mid">通话天数</th>
+                                            <th class="col-md-1 align-mid">首次通话时间</th>
+                                            <th class="col-md-1 align-mid">最后通话时间</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td class="align-mid">1</td>
+                                        <td class="align-mid">18988886666</td>
+                                        <td class="align-mid">韩哥</td>
+                                        <td class="align-mid">韩术</td>
+                                        <td class="align-mid">同事</td>
+                                        <td class="align-mid">263</td>
+                                        <td class="align-mid">125:22:53</td>
+                                        <td class="align-mid">9</td>
+                                        <td class="align-mid">3:13:24</td>
+                                        <td class="align-mid">15</td>
+                                        <td class="align-mid">2014-5-14<br/>
+                                            <span class="font12">16:28:33</span></td>
+                                        <td class="align-mid">2014-5-14<br/>
+                                            <span class="font12">16:28:33</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="align-mid">2</td>
+                                        <td class="align-mid">18988886666</td>
+                                        <td class="align-mid">韩哥</td>
+                                        <td class="align-mid">韩术</td>
+                                        <td class="align-mid">同事</td>
+                                        <td class="align-mid">263</td>
+                                        <td class="align-mid">125:22:53</td>
+                                        <td class="align-mid">9</td>
+                                        <td class="align-mid">3:13:24</td>
+                                        <td class="align-mid">15</td>
+                                        <td class="align-mid">2014-5-14<br/>
+                                            <span class="font12">16:28:33</span></td>
+                                        <td class="align-mid">2014-5-14<br/>
+                                            <span class="font12">16:28:33</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="align-mid">3</td>
+                                        <td class="align-mid">18988886666</td>
+                                        <td class="align-mid">韩哥</td>
+                                        <td class="align-mid">韩术</td>
+                                        <td class="align-mid">同事</td>
+                                        <td class="align-mid">263</td>
+                                        <td class="align-mid">125:22:53</td>
+                                        <td class="align-mid">9</td>
+                                        <td class="align-mid">3:13:24</td>
+                                        <td class="align-mid">15</td>
+                                        <td class="align-mid">2014-5-14<br/>
+                                            <span class="font12">16:28:33</span></td>
+                                        <td class="align-mid">2014-5-14<br/>
+                                            <span class="font12">16:28:33</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="align-mid">4</td>
+                                        <td class="align-mid">18988886666</td>
+                                        <td class="align-mid">韩哥</td>
+                                        <td class="align-mid"></td>
+                                        <td class="align-mid"></td>
+                                        <td class="align-mid">263</td>
+                                        <td class="align-mid">125:22:53</td>
+                                        <td class="align-mid">9</td>
+                                        <td class="align-mid">3:13:24</td>
+                                        <td class="align-mid">15</td>
+                                        <td class="align-mid">2014-5-14<br/>
+                                            <span class="font12">16:28:33</span></td>
+                                        <td class="align-mid">2014-5-14<br/>
+                                            <span class="font12">16:28:33</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="align-mid">5</td>
+                                        <td class="align-mid">18988886666</td>
+                                        <td class="align-mid">韩哥</td>
+                                        <td class="align-mid"></td>
+                                        <td class="align-mid"></td>
+                                        <td class="align-mid">263</td>
+                                        <td class="align-mid">125:22:53</td>
+                                        <td class="align-mid">9</td>
+                                        <td class="align-mid">3:13:24</td>
+                                        <td class="align-mid">15</td>
+                                        <td class="align-mid">2014-5-14<br/>
+                                            <span class="font12">16:28:33</span></td>
+                                        <td class="align-mid">2014-5-14<br/>
+                                            <span class="font12">16:28:33</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="align-mid">6</td>
+                                        <td class="align-mid">18988886666</td>
+                                        <td class="align-mid">韩哥</td>
+                                        <td class="align-mid"></td>
+                                        <td class="align-mid"></td>
+                                        <td class="align-mid">263</td>
+                                        <td class="align-mid">125:22:53</td>
+                                        <td class="align-mid">9</td>
+                                        <td class="align-mid">3:13:24</td>
+                                        <td class="align-mid">15</td>
+                                        <td class="align-mid">2014-5-14<br/>
+                                            <span class="font12">16:28:33</span></td>
+                                        <td class="align-mid">2014-5-14<br/>
+                                            <span class="font12">16:28:33</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="align-mid">7</td>
+                                        <td class="align-mid">18988886666</td>
+                                        <td class="align-mid">韩哥</td>
+                                        <td class="align-mid"></td>
+                                        <td class="align-mid"></td>
+                                        <td class="align-mid">263</td>
+                                        <td class="align-mid">125:22:53</td>
+                                        <td class="align-mid">9</td>
+                                        <td class="align-mid">3:13:24</td>
+                                        <td class="align-mid">15</td>
+                                        <td class="align-mid">2014-5-14<br/>
+                                            <span class="font12">16:28:33</span></td>
+                                        <td class="align-mid">2014-5-14<br/>
+                                            <span class="font12">16:28:33</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="align-mid">8</td>
+                                        <td class="align-mid">18988886666</td>
+                                        <td class="align-mid">韩哥</td>
+                                        <td class="align-mid"></td>
+                                        <td class="align-mid"></td>
+                                        <td class="align-mid">263</td>
+                                        <td class="align-mid">125:22:53</td>
+                                        <td class="align-mid">9</td>
+                                        <td class="align-mid">3:13:24</td>
+                                        <td class="align-mid">15</td>
+                                        <td class="align-mid">2014-5-14<br/>
+                                            <span class="font12">16:28:33</span></td>
+                                        <td class="align-mid">2014-5-14<br/>
+                                            <span class="font12">16:28:33</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="align-mid">9</td>
+                                        <td class="align-mid">18988886666</td>
+                                        <td class="align-mid">韩哥</td>
+                                        <td class="align-mid"></td>
+                                        <td class="align-mid"></td>
+                                        <td class="align-mid">263</td>
+                                        <td class="align-mid">125:22:53</td>
+                                        <td class="align-mid">9</td>
+                                        <td class="align-mid">3:13:24</td>
+                                        <td class="align-mid">15</td>
+                                        <td class="align-mid">2014-5-14<br/>
+                                            <span class="font12">16:28:33</span></td>
+                                        <td class="align-mid">2014-5-14<br/>
+                                            <span class="font12">16:28:33</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="align-mid">10</td>
+                                        <td class="align-mid">18988886666</td>
+                                        <td class="align-mid">韩哥</td>
+                                        <td class="align-mid"></td>
+                                        <td class="align-mid"></td>
+                                        <td class="align-mid">263</td>
+                                        <td class="align-mid">125:22:53</td>
+                                        <td class="align-mid">9</td>
+                                        <td class="align-mid">3:13:24</td>
+                                        <td class="align-mid">15</td>
+                                        <td class="align-mid">2014-5-14<br/>
+                                            <span class="font12">16:28:33</span></td>
+                                        <td class="align-mid">2014-5-14<br/>
+                                            <span class="font12">16:28:33</span></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <!--intimate end--> 
+                        <!--company start-->
+                        <div class="col-md-12 mt20 pdlr10">
+                            <div class="bd pdlr20">
+                                <div class="tab-on-top align-mid">公司联系人</div>
+                                <table frame="void">
+                                    <thead>
+                                        <tr>
+                                            <th class="col-md-1 align-mid">电话</th>
+                                            <th class="col-md-2 align-mid">公司</th>
+                                            <th class="col-md-1 align-mid">通话次数</th>
+                                            <th class="col-md-1 align-mid">通话时长</th>
+                                            <th class="col-md-1 align-mid">被叫次数</th>
+                                            <th class="col-md-1 align-mid">被叫时长</th>
+                                            <th class="col-md-1 align-mid">通话天数</th>
+                                            <th class="col-md-2 align-mid">首次通话时间</th>
+                                            <th class="col-md-2 align-mid">最后通话时间</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td class="align-mid">18988886666</td>
+                                        <td class="align-mid">平安直通贷款服务</td>
+                                        <td class="align-mid">263</td>
+                                        <td class="align-mid">125:22:53</td>
+                                        <td class="align-mid">9</td>
+                                        <td class="align-mid">3:13:24</td>
+                                        <td class="align-mid">15</td>
+                                        <td class="align-mid">2014-5-14 16:28:33</td>
+                                        <td class="align-mid">2014-5-14 16:28:33</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="align-mid">18988886666</td>
+                                        <td class="align-mid">心仪贷</td>
+                                        <td class="align-mid">263</td>
+                                        <td class="align-mid">125:22:53</td>
+                                        <td class="align-mid">9</td>
+                                        <td class="align-mid">3:13:24</td>
+                                        <td class="align-mid">15</td>
+                                        <td class="align-mid">2014-5-14 16:28:33</td>
+                                        <td class="align-mid">2014-5-14 16:28:33</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="align-mid">18988886666</td>
+                                        <td class="align-mid"></td>
+                                        <td class="align-mid">263</td>
+                                        <td class="align-mid">125:22:53</td>
+                                        <td class="align-mid">9</td>
+                                        <td class="align-mid">3:13:24</td>
+                                        <td class="align-mid">15</td>
+                                        <td class="align-mid">2014-5-14 16:28:33</td>
+                                        <td class="align-mid">2014-5-14 16:28:33</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <!--company end--> 
+                        <!--location start-->
+                        <div class="col-md-12 mtb20 pdlr10">
+                            <div class="bd col-md-12 pdlr10 pdb10">
+                                <div class="tab-on-top align-mid mb10">通讯所在地</div>
+                                <!--each location start-->
+                                <div class="location col-md-3">
+                                    <div class="bd align-mid">
+                                        <ul>
+                                            <li class="city">成都</li>
+                                            <li>起始时间：2015-12-11 16:28:32</li>
+                                            <li class="last">结束时间：2015-12-13 13:24:50</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!--each location end-->
+                                <div class="location col-md-3">
+                                    <div class="bd align-mid">
+                                        <ul>
+                                            <li class="city">香港特别行政区</li>
+                                            <li>起始时间：2015-12-11 16:28:32</li>
+                                            <li class="last">结束时间：2015-12-13 13:24:50</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="location col-md-3">
+                                    <div class="bd align-mid">
+                                        <ul>
+                                            <li class="city">北京</li>
+                                            <li>起始时间：2015-12-11 16:28:32</li>
+                                            <li class="last">结束时间：2015-12-13 13:24:50</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="location col-md-3">
+                                    <div class="bd align-mid">
+                                        <ul>
+                                            <li class="city">乌鲁木齐</li>
+                                            <li>起始时间：2015-12-11 16:28:32</li>
+                                            <li class="last">结束时间：2015-12-13 13:24:50</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="location col-md-3">
+                                    <div class="bd align-mid">
+                                        <ul>
+                                            <li class="city">郑州</li>
+                                            <li>起始时间：2015-12-11 16:28:32</li>
+                                            <li class="last">结束时间：2015-12-13 13:24:50</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="location col-md-3">
+                                    <div class="bd align-mid">
+                                        <ul>
+                                            <li class="city">攀枝花</li>
+                                            <li>起始时间：2015-12-11 16:28:32</li>
+                                            <li class="last">结束时间：2015-12-13 13:24:50</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="location col-md-3">
+                                    <div class="bd align-mid">
+                                        <ul>
+                                            <li class="city">西安</li>
+                                            <li>起始时间：2015-12-11 16:28:32</li>
+                                            <li class="last">结束时间：2015-12-13 13:24:50</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--location end--> 
+                    </div>
+                </div>
+            </div>
+            <!--user contacts end--> 
+
+            <!--lupeng module start-->
+            <div class="col-md-4 pdlr10 mb20">
+                <div class="stats-info stats-info-hover rds5">
+                    <div class="panel-heading"><div class="title-icon icon16 fl"></div>
+                        <h4 class="panel-title fl">外访</h4>
+                        <a href="#" title="收起"><img src="/static/img/arrow01.svg" class="title-icon fr"></a></div>
+                    <div class="panel-body lupeng" id="panel">
+                        <img src="/static/img/icon_small_pic.png" class="mr10"><a href="#" title="查看图片">20160624外访报告.jpg</a>
+                        <a href=""><img src="/static/img/icon_small_wrong.svg" width="18" title="删除"><span class="font-red txt-bold font14">删除</span></a>
+                        <div class="fr"><button type="button" class="btn btn-success">下载</button></div>
+                    </div>
+                    <div class="panel-tail">2015年12月9日 10:58　<span class="font-green">通过</span></div>
+                </div>
+            </div>
+            <!-- cut -->
+            <div class="col-md-4 pdlr10 mb20">
+                <div class="stats-info2 rds5">
+                    <div class="panel-heading2"><div class="title-icon icon14 fl"></div>
+                        <h4 class="panel-title fl">三方审批结果</h4>
+                        <a href="#" title="收起"><img src="/static/img/arrow01.svg" class="title-icon fr"></a></div>
+                    <div class="panel-body lupeng align-mid" id="panel">外访审批通过后激活</div>
+                    <div class="panel-tail2">2015年12月9日 10:58　<span class="font-red">拒绝</span></div>
+                </div>
+            </div>
+            <!-- cut -->
+            <div class="col-md-4 pdlr10 mb20">
+                <div class="stats-info stats-info-hover rds5">
+                    <div class="panel-heading"><div class="title-icon icon15 fl"></div>
+                        <h4 class="panel-title fl">面签</h4>
+                        <a href="#" title="收起"><img src="/static/img/arrow01.svg" class="title-icon fr"></a></div>
+                    <div class="panel-body lupeng" id="panel">
+                        <textarea class="form-control form-panel1 mt20" style="height:80px;resize:none;" type="text" placeholder="在这里填写面签备注信息" readonly></textarea>
+                    </div>
+                    <div class="panel-tail">2015年12月9日 10:58　<span class="font-green">通过</span></div>
+                </div>
+            </div>
+            <!--lupeng module end-->
+            <!--end all--> 
+        </div>
+
+        <div class="bottom-bar">
+            <div class="fr mr20">
+                <button type="button" class="btn btn-primary btn-lg">保函打印</button>
+                <button type="button" class="btn btn-danger btn-lg ml15">重新审批</button>
+                <button type="button" class="btn btn-default btn-lg ml15">关闭</button>
+            </div>
+        </div>
+    </div>
+
+    <nav class="cd-stretchy-nav nav-is-visible">
+        <a class="cd-nav-trigger" href="#0">
+            <span aria-hidden="true"></span>
+        </a>
+        <ul id="menu" class="">
+            <li><a href="#0" title="身份信息"><img src="/static/img/icon_small_pass.png"></a></li>
+            <li><a href="#0" title="贷款信息"></a></li>
+            <li><a href="#0" title="工作信息"></a></li>
+            <li><a href="#0" title="联系人信息"><img src="/static/img/icon_small_reject.png"></a></li>
+            <li><a href="#0" title="外访"><img src="/static/img/icon_small_close.png"></a></li>
+            <li><a href="#0" title="三方审批"></a></li>
+            <li><a href="#0" title="面签"></a></li>
+            <li><a href="#0" title="提交审批结果"></a></li>
+        </ul>
+        <span aria-hidden="true" class="stretchy-nav-bg"></span>
+    </nav>
+    <script src="js/modernizr.js"></script>
+    <script src="js/jquery-2.1.1.min.js"></script>
+    <script src="js/main.js"></script>
+    </body>
+    </html>

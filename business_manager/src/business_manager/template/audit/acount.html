@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+</head>                                                                                                                                                                 
+<body>
+<table id="table" border="1">
+    {% if type == 'receivables'  %}
+    <tr>
+        <th>订单号</th>
+        <th>姓名</th>
+        <th>身份证号</th>
+        <th>应收日期</th>
+        <th>借款金额</th>
+        <th>借款期数</th>
+        <th>应收期数</th>
+        <th>应收服务费</th>
+        <th>逾期天数</th>
+        <th>应收逾期费用</th>
+        <th>应收逾期罚金</th>
+        <th>应收提前还款违约金</th>
+        <th>应收总额</th>
+    </tr>
+    
+        {% for item in result %}
+            <tr>
+                <td>{{item.id}}</td>
+                <td>{{item.username}}</td>
+                <td>{{item.idcard}}</td>
+                <td>{{item.receivables_data}}</td>
+                <td>{{item.amount}}</td>
+                <td>{{item.loan_series}}</td>
+                <td>{{item.receivables_loan_series}}</td>
+                <td>{{item.receivables_service}}</td>
+                <td>{{item.over_due_days}}</td>
+                <td>{{item.receivables_over_due_pay}}</td>
+                <td>{{item.receivables_over_due_fine}}</td>
+                <td>{{item.receivables_break_fine}}</td>
+                <td>{{item.receivables_amount}}</td>
+            </tr>
+        {% endfor %}
+
+
+    {% endif %}
+
+
+
+    {% if type == 'received' %}
+    <tr>
+        <th>订单号</th>
+        <th>姓名</th>
+        <th>身份证号</th>
+        <th>实收日期</th>
+        <th>借款金额</th>
+        <th>借款期数</th>
+        <th>实收期数</th>
+        <th>实收服务费</th>
+        <th>逾期天数</th>
+        <th>实收逾期费用</th>
+        <th>实收逾期罚金</th>
+        <th>实收提前还款违约金</th>
+        <th>实收总额</th>
+    </tr>
+
+        {% for item in result %}
+            <tr>
+                <td>{{item.id}}</td>
+                <td>{{item.username}}</td>
+                <td>{{item.idcard}}</td>
+                <td>{{item.received_data}}</td>
+                <td>{{item.amount}}</td>
+                <td>{{item.loan_series}}</td>
+                <td>{{item.received_loan_series}}</td>
+                <td>{{item.received_service}}</td>
+                <td>{{item.over_due_days}}</td>
+                <td>{{item.received_over_due_pay}}</td>
+                <td>{{item.received_over_due_fine}}</td>
+                <td>{{item.received_break_fine}}</td>
+                <td>{{item.received_amount}}</td>
+            </tr>
+        {% endfor %}
+
+
+    {% endif  %} 
+</table>
+
+<iframe id="txtArea1" style="display:none"></iframe>
+<button id="btnExport" onclick="fnExcelReport();"> 下载 </button>
+
+<script>
+    function fnExcelReport()
+    {
+        var tab_text="<table border='2px'><tr bgcolor='#87AFC6'>";
+        var textRange; 
+        var j=0;
+        tab = document.getElementById('table'); // id of table
+
+        for(j = 0 ; j < tab.rows.length ; j++)
+        {
+            tab_text=tab_text+tab.rows[j].innerHTML+"</tr>";
+        }
+
+        tab_text=tab_text+"</table>";
+        tab_text= tab_text.replace(/<A[^>]*>|<\/A>/g, "");
+        tab_text= tab_text.replace(/<img[^>]*>/gi,"");
+        tab_text= tab_text.replace(/<input[^>]*>|<\/input>/gi, "");
+
+        var ua = window.navigator.userAgent;
+        var msie = ua.indexOf("MSIE ");
+
+        if (msie > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./))
+        {
+            txtArea1.document.open("txt/html","replace");
+            txtArea1.document.write(tab_text);
+            txtArea1.document.close();
+            txtArea1.focus();
+            sa=txtArea1.document.execCommand("SaveAs",true,"Say Thanks to Sumit.xls");
+        }
+        else
+            sa = window.open('data:application/vnd.ms-excel,' + encodeURIComponent(tab_text));
+
+        return (sa);
+    }
+</script>
+
+</body>
+</html>
+
+

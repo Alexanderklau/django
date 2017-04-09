@@ -1,0 +1,96 @@
+#! /bin/bash
+
+### BEGIN INIT INFO
+# Provides:          uwsgi
+# Required-Start:    $all
+# Short-Description: starts the uwsgi web server
+# Description:       starts uwsgi using start-stop-daemon
+### END INIT INFO
+
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+NAME="huirong"
+PROJECT_DIR="/data/server/business_manager"
+LOGDIR="/data/logs/uwsgi"
+LogFile=$LOGDIR/$NAME.log
+DAEMON=/usr/local/bin/uwsgi
+CONFIGFILE=$PROJECT_DIR/src/business_manager/uwsgi.ini
+PIDFILE=/data/run/uwsgi_$NAME.pid
+
+[ -x "$DAEMON" ] || echo "Not found uwsgi command"
+[ -d $LOGDIR ] || mkdir $LOGDIR
+
+do_start() {
+    [ -f $PIDFILE ] && echo "$NAME already running... exit!" && exit 0
+
+    $DAEMON $CONFIGFILE
+
+    if [ $? == 0 ]; then
+        echo -e "Staring server $NAME  \t\t\033[32m[Ok]\033[0m"
+    else
+        echo -e  "Staring server $NAME  \t\t\033[31m[Failure]\033[0m"
+    fi
+    echo "LogFile: $LogFile"
+    echo "PIDFile: $PIDFILE"
+}
+
+do_stop() {
+    [ ! -f $PIDFILE ] && echo "$NAME is not runing... exit!" && exit 0
+    $DAEMON --stop $PIDFILE && rm -f $PIDFILE
+    if [ $? == 0 ]; then
+        echo -e "Stop server $NAME  \t\t\033[32m[Ok]\033[0m"
+    else
+        echo -e "Stop server $NAME  \t\t\033[31m[Failure]\033[0m"
+    fi
+    echo "LogFile: $LogFile"
+    echo "PIDFile: $PIDFILE"
+}
+
+do_reload() {
+    $DAEMON --reload $PIDFILE
+    if [ $? == 0 ]; then
+        echo -e "Reload server $NAME  \t\t\033[32m[Ok]\033[0m"
+    else
+        echo -e "Reload server $NAME  \t\t\033[31m[Failure]\033[0m"
+    fi
+    echo "LogFile: $LogFile"
+    echo "PIDFile: $PIDFILE"
+}
+
+do_status() {
+    if [ -f $PIDFILE ]; then
+        ps aux|grep $DAEMON|grep -v "grep"
+        echo "LogFile: $LogFile"
+        echo "PIDFile: $PIDFILE"
+    else
+        echo "$NAME is not running!!!"
+    fi
+}
+
+case "$1" in
+    status)
+        echo "Status $NAME: "
+        do_status
+    ;;
+    start)
+        echo "Starting $NAME:"
+        do_start
+    ;;
+    stop)
+        echo "Stopping $NAME:"
+        do_stop
+    ;;
+    restart)
+        do_stop
+        do_start
+    ;;
+    reload)
+        echo "Reloading $NAME:"
+        do_reload
+    ;;
+    *)
+        echo "Usage: $SCRIPTNAME {start|stop|reload|status}"
+        exit 3
+    ;;
+esac
+
+exit 0
