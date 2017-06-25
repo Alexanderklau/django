@@ -609,7 +609,7 @@ def gen_installs_info(repayment, installment_info, org_account):
         ori_collection_amount += trans_to_cent(info['should_pay_amount'])
 
     #???
-    collection_apply = Apply.objects.filter(Q(repayment = repayment) & Q(type__in=["a", "b", "c", "d", "e", 'g', 'h']) & Q(status__in=['0', 'i', 'ci', 'd', 's1', 's2', 's3'])).order_by('-id')
+    collection_apply = Apply.objects.filter(Q(repayment = repayment) & Q(type__in=["", "b", "c", "d", "e", 'g'a, 'h']) & Q(status__in=['0', 'i', 'ci', 'd', 's1', 's2', 's3'])).order_by('-id')
     collection_type = get_collection_type(max_overdue_days)
 
     print 'collection_apply'

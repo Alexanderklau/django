@@ -264,7 +264,7 @@ def get_collection_personnel(request):
     else:
         permission_employees = list()
         for group_name in employee_groups_name:
-            p = re.search(r'M(\d{1})(.*)', group_name)
+            p = re.search(r'M(\d{1})(.*) | S(\d{1})(.*)', group_name)
             coll_level = group_name
             if p:
                 if p.group(1) and p.group(2):
