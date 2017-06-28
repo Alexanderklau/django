@@ -23,3 +23,4 @@ def event_manage(request):
     username = request.session.get('user','')
     return render(request,"event_manage.html",{"user":username})
 # Create your views here.
+
