@@ -36,6 +36,12 @@ def guest_manage(request):
     username = request.session.get('user','')
     guest_list = Guest.objects.all()
     return render(request,"guest_manage.html",{"user": username,"guests":guest_list})
+@login_required
+def guest_serarch_name(request):
+    username = request.session.get('user',"")
+    search_name = request.GET.get('name',"")
+    guest_list = Guest.objects.filter(realname__contains = search_name)
+    return render(request, "guest_manage.html", {"user": username, "guests": guest_list})
 
 
 # Create your views here.
