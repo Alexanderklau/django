@@ -3,11 +3,12 @@
 <head>
     {% load bootstrap3 %}
     {% bootstrap_css %}
-    {% bootstrap_javescript %}
+    {% bootstrap_javascript %}
     <title>Guest Manage</title>
 </head>
 
 <body role="document">
+    <!--导航-->
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -25,6 +26,29 @@
             </div>
         </div>
     </nav>
-    <! -------list -------->
+    <!--发布列表-->
+    <div class="row" style="padding-top: 80px;">
+        <div class="col-md-6">
+            <table class="table table-striped">
+                <thead>
+                 <tr>
+                     <th>id</th><th>名称</th><th>状态</th><th>地址</th><th>时间</th>
+                 </tr>
+                </thead>
+                <tbody>
+                {% for event in events %}
+                 <tr>
+                     <td>{{ event.id }}</td>
+                     <td>{{ event.name }}</td>
+                     <td>{{ event.status }}</td>
+                     <td>{{ event.address }}</td>
+                     <td>{{ event.start_time }}</td>
+                 </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
 </body>
 </html>

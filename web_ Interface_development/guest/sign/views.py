@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse,HttpResponseRedirect
 from django.contrib import auth
-from sign.model import Event
+from sign.models import Event
 from django.contrib.auth.decorators import login_required
 
 def index(request):
