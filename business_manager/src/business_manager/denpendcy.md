@@ -1,4 +1,0 @@
-- bootstarp-3.3.2
-- datatables-1.10.5
-- jquery-1.11.2
-- simple-modal

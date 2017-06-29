@@ -1,1 +1,0 @@
-{{ key "${CONSUL_PREFIX}/bsmserver.conf" }}

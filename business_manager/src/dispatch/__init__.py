@@ -1,2 +1,0 @@
-import tasks
-ALL = ['tasks']
