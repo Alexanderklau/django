@@ -136,7 +136,7 @@ STATICFILES_DIRS = (
 # 网站基本信息配置
 SITE_NAME = 'Test_Blog'
 SITE_DESC = 'Test_HTML'
-SITE_EMAIL = '13281101982@163.com'
+SITE_EMAIL = 'xxxxx@xx.com'
 SITE_WEIBO = ''
 SITE_RSS = ''
 
